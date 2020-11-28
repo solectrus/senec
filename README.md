@@ -23,11 +23,29 @@ require 'senec'
 
 request = Senec::Request.new host: '10.0.1.99'
 
-puts "House power consumption: #{request.house_power} W"
 puts "PV production: #{request.inverter_power} W"
+puts "House power consumption: #{request.house_power} W"
+puts "\n"
 puts "Battery charge power: #{request.bat_power} W"
+puts "Battery fuel charge: #{request.bat_fuel_charge} %"
+puts "Battery charge current: #{request.bat_charge_current} A"
+puts "Battery voltage: #{request.bat_voltage} V"
+puts "\n"
 puts "Grid power: #{request.grid_power} W"
 puts "Current state of the system: #{request.current_state}"
+
+# Example result:
+#
+# PV production: 1530 W
+# House power consumption: 870 W
+#
+# Battery charge power: 974 W
+# Battery fuel charge: 11.3 %
+# Battery charge current: 19.8 A
+# Battery voltage: 49.2 V
+#
+# Grid power: 315 W
+# Current state of the system: CHARGE
 ```
 
 ## Development

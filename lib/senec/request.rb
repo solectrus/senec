@@ -24,6 +24,21 @@ module Senec
       Senec::Value.new(value).to_i
     end
 
+    def bat_fuel_charge
+      value = response.dig('ENERGY', 'GUI_BAT_DATA_FUEL_CHARGE')
+      Senec::Value.new(value).to_f
+    end
+
+    def bat_charge_current
+      value = response.dig('ENERGY', 'GUI_BAT_DATA_CURRENT')
+      Senec::Value.new(value).to_f
+    end
+
+    def bat_voltage
+      value = response.dig('ENERGY', 'GUI_BAT_DATA_VOLTAGE')
+      Senec::Value.new(value).to_f
+    end
+
     def grid_power
       value = response.dig('ENERGY', 'GUI_GRID_POW')
       Senec::Value.new(value).to_i
