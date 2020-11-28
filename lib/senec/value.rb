@@ -31,7 +31,10 @@ module Senec
     end
 
     def hex2float(hex)
-      [ "0x#{hex}".to_i(16) ].pack('L').unpack1('F')
+      [ "0x#{hex}".to_i(16) ].
+        pack('L').
+        unpack1('F').
+        round(1)
     end
 
     def hex2int(hex)
