@@ -123,16 +123,8 @@ module Senec # rubocop:disable Metrics/ModuleLength
       'CYCLES': ''                        # List: Cycles per battery
     },
     'PV1': {
-      'MPP_CUR': '',                      # List: MPP current (A)
-      'MPP_POWER': '',                    # List: MPP power (W)
-      'MPP_VOL': '',                      # List: MPP voltage (V)
       'POWER_RATIO': '',                  # Grid export limit (percent)
       'P_TOTAL': ''                       # ?
-    },
-    'FACTORY': {
-      'DESIGN_CAPACITY': '',              # Battery design capacity (Wh)
-      'MAX_CHARGE_POWER_DC': '',          # Battery max charging power (W)
-      'MAX_DISCHARGE_POWER_DC': ''        # Battery max discharging power (W)
     }
   }.freeze
 end
