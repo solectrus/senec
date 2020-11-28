@@ -1,4 +1,4 @@
-require "senec/version"
+require 'senec/version'
 
 module Senec
   class Error < StandardError; end
