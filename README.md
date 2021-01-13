@@ -31,6 +31,8 @@ puts "Battery fuel charge: #{request.bat_fuel_charge} %"
 puts "Battery charge current: #{request.bat_charge_current} A"
 puts "Battery voltage: #{request.bat_voltage} V"
 puts "\n"
+puts "Wallbox charge power: [ #{request.wallbox_charge_power.join(',')} ] W"
+puts "\n"
 puts "Grid power: #{request.grid_power} W"
 puts "Current state of the system: #{request.current_state}"
 
@@ -43,6 +45,8 @@ puts "Current state of the system: #{request.current_state}"
 # Battery fuel charge: 11.3 %
 # Battery charge current: 19.8 A
 # Battery voltage: 49.2 V
+#
+# Wallbox charge power: [ 8680, 0, 0, 0 ] W
 #
 # Grid power: 315 W
 # Current state of the system: CHARGE

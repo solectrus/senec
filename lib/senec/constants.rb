@@ -125,6 +125,9 @@ module Senec # rubocop:disable Metrics/ModuleLength
     'PV1': {
       'POWER_RATIO': '',                  # Grid export limit (percent)
       'P_TOTAL': ''                       # ?
+    },
+    'WALLBOX': {
+      'APPARENT_CHARGING_POWER': ''
     }
   }.freeze
 end

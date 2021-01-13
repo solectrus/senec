@@ -44,6 +44,12 @@ module Senec
       Senec::Value.new(value).to_i
     end
 
+    def wallbox_charge_power
+      response.dig('WALLBOX', 'APPARENT_CHARGING_POWER').map do |value|
+        Senec::Value.new(value).to_i
+      end
+    end
+
     def current_state
       value = response.dig('STATISTIC', 'CURRENT_STATE')
       state = Senec::Value.new(value).to_i
