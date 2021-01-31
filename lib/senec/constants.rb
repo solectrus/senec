@@ -97,37 +97,37 @@ module Senec # rubocop:disable Metrics/ModuleLength
 
   # Taken from https://gist.github.com/smashnet/82ad0b9d7f0ba2e5098e6649ba08f88a
   BASIC_REQUEST = {
-    'STATISTIC': {
-      'CURRENT_STATE': '',                # Current state of the system (int, see SYSTEM_STATE_NAME)
-      'LIVE_BAT_CHARGE_MASTER': '',       # Battery charge amount since installation (kWh)
-      'LIVE_BAT_DISCHARGE_MASTER': '',    # Battery discharge amount since installation (kWh)
-      'LIVE_GRID_EXPORT': '',             # Grid export amount since installation (kWh)
-      'LIVE_GRID_IMPORT': '',             # Grid import amount since installation (kWh)
-      'LIVE_HOUSE_CONS': '',              # House consumption since installation (kWh)
-      'LIVE_PV_GEN': '',                  # PV generated power since installation (kWh)
-      'MEASURE_TIME': ''                  # Unix timestamp for above values (ms)
+    STATISTIC: {
+      CURRENT_STATE: '',                # Current state of the system (int, see SYSTEM_STATE_NAME)
+      LIVE_BAT_CHARGE_MASTER: '',       # Battery charge amount since installation (kWh)
+      LIVE_BAT_DISCHARGE_MASTER: '',    # Battery discharge amount since installation (kWh)
+      LIVE_GRID_EXPORT: '',             # Grid export amount since installation (kWh)
+      LIVE_GRID_IMPORT: '',             # Grid import amount since installation (kWh)
+      LIVE_HOUSE_CONS: '',              # House consumption since installation (kWh)
+      LIVE_PV_GEN: '',                  # PV generated power since installation (kWh)
+      MEASURE_TIME: ''                  # Unix timestamp for above values (ms)
     },
-    'ENERGY': {
-      'GUI_BAT_DATA_CURRENT': '',         # Battery charge current: negative if discharging, positiv if charging (A)
-      'GUI_BAT_DATA_FUEL_CHARGE': '',     # Remaining battery (percent)
-      'GUI_BAT_DATA_POWER': '',           # Battery charge power: negative if discharging, positiv if charging (W)
-      'GUI_BAT_DATA_VOLTAGE': '',         # Battery voltage (V)
-      'GUI_GRID_POW': '',                 # Grid power: negative if exporting, positiv if importing (W)
-      'GUI_HOUSE_POW': '',                # House power consumption (W)
-      'GUI_INVERTER_POWER': '',           # PV production (W)
-      'STAT_HOURS_OF_OPERATION': ''       # Appliance hours of operation
+    ENERGY: {
+      GUI_BAT_DATA_CURRENT: '',         # Battery charge current: negative if discharging, positiv if charging (A)
+      GUI_BAT_DATA_FUEL_CHARGE: '',     # Remaining battery (percent)
+      GUI_BAT_DATA_POWER: '',           # Battery charge power: negative if discharging, positiv if charging (W)
+      GUI_BAT_DATA_VOLTAGE: '',         # Battery voltage (V)
+      GUI_GRID_POW: '',                 # Grid power: negative if exporting, positiv if importing (W)
+      GUI_HOUSE_POW: '',                # House power consumption (W)
+      GUI_INVERTER_POWER: '',           # PV production (W)
+      STAT_HOURS_OF_OPERATION: ''       # Appliance hours of operation
     },
-    'BMS': {
-      'CHARGED_ENERGY': '',               # List: Charged energy per battery
-      'DISCHARGED_ENERGY': '',            # List: Discharged energy per battery
-      'CYCLES': ''                        # List: Cycles per battery
+    BMS: {
+      CHARGED_ENERGY: '',               # List: Charged energy per battery
+      DISCHARGED_ENERGY: '',            # List: Discharged energy per battery
+      CYCLES: ''                        # List: Cycles per battery
     },
-    'PV1': {
-      'POWER_RATIO': '',                  # Grid export limit (percent)
-      'P_TOTAL': ''                       # ?
+    PV1: {
+      POWER_RATIO: '',                  # Grid export limit (percent)
+      P_TOTAL: ''                       # ?
     },
-    'WALLBOX': {
-      'APPARENT_CHARGING_POWER': ''
+    WALLBOX: {
+      APPARENT_CHARGING_POWER: ''
     }
   }.freeze
 end
