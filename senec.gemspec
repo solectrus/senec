@@ -8,13 +8,13 @@ Gem::Specification.new do |spec|
 
   spec.summary       = 'Unofficial Ruby Client for SENEC Home'
   spec.description   = 'Access your local SENEC Solar Battery Storage System'
-  spec.homepage      = 'https://github.com/ledermann/senec'
+  spec.homepage      = 'https://github.com/solectrus/senec'
   spec.license       = 'MIT'
   spec.required_ruby_version = Gem::Requirement.new('>= 2.5.0')
 
   spec.metadata['homepage_uri'] = spec.homepage
-  spec.metadata['source_code_uri'] = 'https://github.com/ledermann/senec'
-  spec.metadata['changelog_uri'] = 'https://github.com/ledermann/releases'
+  spec.metadata['source_code_uri'] = 'https://github.com/solectrus/senec'
+  spec.metadata['changelog_uri'] = 'https://github.com/solectrus/senec/releases'
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
