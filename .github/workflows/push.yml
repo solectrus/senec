@@ -1,0 +1,23 @@
+name: Continuous integration
+
+on: push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v2
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+          ruby-version: '3.0'
+
+      - name: Lint with RuboCop
+        run: bundle exec rubocop
+
+      - name: Run tests
+        run: bundle exec rake
