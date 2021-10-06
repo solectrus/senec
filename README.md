@@ -35,6 +35,7 @@ puts "Wallbox charge power: [ #{request.wallbox_charge_power.join(',')} ] W"
 puts "\n"
 puts "Grid power: #{request.grid_power} W"
 puts "Current state of the system: #{request.current_state}"
+puts "Measure time: #{Time.at request.measure_time}"
 
 # Example result:
 #
@@ -50,6 +51,7 @@ puts "Current state of the system: #{request.current_state}"
 #
 # Grid power: 315 W
 # Current state of the system: CHARGE
+# Measure time: 2021-10-06 17:50:22 +0200
 ```
 
 ## Development

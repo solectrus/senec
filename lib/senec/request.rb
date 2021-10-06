@@ -57,6 +57,11 @@ module Senec
       STATE_NAMES[state]
     end
 
+    def measure_time
+      value = response.dig('STATISTIC', 'MEASURE_TIME')
+      Senec::Value.new(value).to_i
+    end
+
     private
 
     def response
