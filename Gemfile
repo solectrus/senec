@@ -9,11 +9,14 @@ gem 'rake'
 # rspec-3.10.0 (http://github.com/rspec)
 gem 'rspec'
 
-# Automatic Ruby code style checking tool. (https://github.com/rubocop-hq/rubocop)
+# Automatic Ruby code style checking tool. (https://github.com/rubocop/rubocop)
 gem 'rubocop'
 
-# Automatic performance checking tool for Ruby code. (https://github.com/rubocop-hq/rubocop-performance)
+# Automatic performance checking tool for Ruby code. (https://github.com/rubocop/rubocop-performance)
 gem 'rubocop-performance'
 
-# Code style checking for RSpec files (https://github.com/rubocop-hq/rubocop-rspec)
+# Code style checking for RSpec files (https://github.com/rubocop/rubocop-rspec)
 gem 'rubocop-rspec'
+
+# A RuboCop plugin for Rake (https://github.com/rubocop/rubocop-rake)
+gem 'rubocop-rake'
