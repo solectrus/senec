@@ -31,6 +31,8 @@ puts "Battery fuel charge: #{request.bat_fuel_charge} %"
 puts "Battery charge current: #{request.bat_charge_current} A"
 puts "Battery voltage: #{request.bat_voltage} V"
 puts "\n"
+puts "Case temperature: #{request.case_temp} °C"
+puts "\n"
 puts "Wallbox charge power: [ #{request.wallbox_charge_power.join(',')} ] W"
 puts "\n"
 puts "Grid power: #{request.grid_power} W"
@@ -46,6 +48,8 @@ puts "Measure time: #{Time.at request.measure_time}"
 # Battery fuel charge: 11.3 %
 # Battery charge current: 19.8 A
 # Battery voltage: 49.2 V
+#
+# Case temperature: 31.3 °C
 #
 # Wallbox charge power: [ 8680, 0, 0, 0 ] W
 #

@@ -117,6 +117,9 @@ module Senec # rubocop:disable Metrics/ModuleLength
       GUI_INVERTER_POWER: '',           # PV production (W)
       STAT_HOURS_OF_OPERATION: ''       # Appliance hours of operation
     },
+    TEMPMEASURE: {
+      CASE_TEMP: ''
+    },
     BMS: {
       CHARGED_ENERGY: '',               # List: Charged energy per battery
       DISCHARGED_ENERGY: '',            # List: Discharged energy per battery

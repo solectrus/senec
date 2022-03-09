@@ -50,6 +50,11 @@ module Senec
       end
     end
 
+    def case_temp
+      value = response.dig('TEMPMEASURE', 'CASE_TEMP')
+      Senec::Value.new(value).to_f
+    end
+
     def current_state
       value = response.dig('STATISTIC', 'CURRENT_STATE')
       state = Senec::Value.new(value).to_i
