@@ -95,16 +95,11 @@ module Senec # rubocop:disable Metrics/ModuleLength
     91 => 'EARTH FAULT'
   }.freeze
 
-  # Taken from https://gist.github.com/smashnet/82ad0b9d7f0ba2e5098e6649ba08f88a
+  # For a full list of available vars, see http://[IP-of-your-SENEC]/vars.html
+  # Comments taken from https://gist.github.com/smashnet/82ad0b9d7f0ba2e5098e6649ba08f88a
   BASIC_REQUEST = {
     STATISTIC: {
       CURRENT_STATE: '',                # Current state of the system (int, see SYSTEM_STATE_NAME)
-      LIVE_BAT_CHARGE_MASTER: '',       # Battery charge amount since installation (kWh)
-      LIVE_BAT_DISCHARGE_MASTER: '',    # Battery discharge amount since installation (kWh)
-      LIVE_GRID_EXPORT: '',             # Grid export amount since installation (kWh)
-      LIVE_GRID_IMPORT: '',             # Grid import amount since installation (kWh)
-      LIVE_HOUSE_CONS: '',              # House consumption since installation (kWh)
-      LIVE_PV_GEN: '',                  # PV generated power since installation (kWh)
       MEASURE_TIME: ''                  # Unix timestamp for above values (ms)
     },
     ENERGY: {
@@ -119,15 +114,6 @@ module Senec # rubocop:disable Metrics/ModuleLength
     },
     TEMPMEASURE: {
       CASE_TEMP: ''
-    },
-    BMS: {
-      CHARGED_ENERGY: '',               # List: Charged energy per battery
-      DISCHARGED_ENERGY: '',            # List: Discharged energy per battery
-      CYCLES: ''                        # List: Cycles per battery
-    },
-    PV1: {
-      POWER_RATIO: '',                  # Grid export limit (percent)
-      P_TOTAL: ''                       # ?
     },
     WALLBOX: {
       APPARENT_CHARGING_POWER: ''
