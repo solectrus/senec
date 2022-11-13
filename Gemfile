@@ -6,7 +6,7 @@ gemspec
 # Rake is a Make-like program implemented in Ruby (https://github.com/ruby/rake)
 gem 'rake'
 
-# rspec-3.10.0 (http://github.com/rspec)
+# rspec-3.12.0 (http://github.com/rspec)
 gem 'rspec'
 
 # Automatic Ruby code style checking tool. (https://github.com/rubocop/rubocop)
