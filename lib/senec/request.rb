@@ -72,12 +72,9 @@ module Senec
     def response
       @response ||= begin
         res = HTTP.post uri, json: Senec::BASIC_REQUEST
+        raise Senec::Error, res.status.to_s unless res.status.success?
 
-        if res.status.success?
-          JSON.parse(res.body)
-        else
-          throw "Failure: #{res.value}"
-        end
+        JSON.parse(res.body)
       end
     end
 
