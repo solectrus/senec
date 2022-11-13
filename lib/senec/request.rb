@@ -1,4 +1,4 @@
-require 'net/http'
+require 'http'
 require 'json'
 require 'senec/value'
 require 'senec/constants'
@@ -71,10 +71,9 @@ module Senec
 
     def response
       @response ||= begin
-        res = Net::HTTP.post uri, Senec::BASIC_REQUEST.to_json
+        res = HTTP.post uri, json: Senec::BASIC_REQUEST
 
-        case res
-        when Net::HTTPOK
+        if res.status.success?
           JSON.parse(res.body)
         else
           throw "Failure: #{res.value}"

@@ -20,3 +20,6 @@ gem 'rubocop-rspec'
 
 # A RuboCop plugin for Rake (https://github.com/rubocop/rubocop-rake)
 gem 'rubocop-rake'
+
+# HTTP should be easy (https://github.com/httprb/http)
+gem 'http'
