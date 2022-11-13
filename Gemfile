@@ -23,3 +23,9 @@ gem 'rubocop-rake'
 
 # HTTP should be easy (https://github.com/httprb/http)
 gem 'http'
+
+# Record your test suite's HTTP interactions and replay them during future test runs for fast, deterministic, accurate tests. (https://relishapp.com/vcr/vcr/docs)
+gem 'vcr'
+
+# Library for stubbing HTTP requests in Ruby. (https://github.com/bblimke/webmock)
+gem 'webmock'

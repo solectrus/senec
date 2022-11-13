@@ -15,3 +15,6 @@ Style/FrozenStringLiteralComment:
 
 Metrics/MethodLength:
   Max: 15
+
+Layout/LineLength:
+  AllowedPatterns: ['\A#'] # Allow long comments
