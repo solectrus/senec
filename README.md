@@ -2,13 +2,12 @@
 
 Access your local SENEC Solar Battery Storage System
 
-**WARNING:** This project was coded in a few hours just for fun after the photovoltaic stuff was installed in my house. I'm not affiliated in any way with the SENEC company.
+**WARNING:** I'm not affiliated in any way with the SENEC company.
 
 Inspired by:
 
-* https://github.com/mchwalisz/pysenec
-* https://gist.github.com/smashnet/82ad0b9d7f0ba2e5098e6649ba08f88a
-
+- https://github.com/mchwalisz/pysenec
+- https://gist.github.com/smashnet/82ad0b9d7f0ba2e5098e6649ba08f88a
 
 ## Installation
 
@@ -67,7 +66,6 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/solectrus/senec. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/solectrus/senec/blob/master/CODE_OF_CONDUCT.md).
-
 
 ## License
 
