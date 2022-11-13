@@ -10,64 +10,64 @@ module Senec
     end
 
     def house_power
-      value = response.dig('ENERGY', 'GUI_HOUSE_POW')
-      Senec::Value.new(value).to_i
+      get('ENERGY', 'GUI_HOUSE_POW')
     end
 
     def inverter_power
-      value = response.dig('ENERGY', 'GUI_INVERTER_POWER')
-      Senec::Value.new(value).to_i
+      get('ENERGY', 'GUI_INVERTER_POWER')
     end
 
     def bat_power
-      value = response.dig('ENERGY', 'GUI_BAT_DATA_POWER')
-      Senec::Value.new(value).to_i
+      get('ENERGY', 'GUI_BAT_DATA_POWER')
     end
 
     def bat_fuel_charge
-      value = response.dig('ENERGY', 'GUI_BAT_DATA_FUEL_CHARGE')
-      Senec::Value.new(value).to_f
+      get('ENERGY', 'GUI_BAT_DATA_FUEL_CHARGE')
     end
 
     def bat_charge_current
-      value = response.dig('ENERGY', 'GUI_BAT_DATA_CURRENT')
-      Senec::Value.new(value).to_f
+      get('ENERGY', 'GUI_BAT_DATA_CURRENT')
     end
 
     def bat_voltage
-      value = response.dig('ENERGY', 'GUI_BAT_DATA_VOLTAGE')
-      Senec::Value.new(value).to_f
+      get('ENERGY', 'GUI_BAT_DATA_VOLTAGE')
     end
 
     def grid_power
-      value = response.dig('ENERGY', 'GUI_GRID_POW')
-      Senec::Value.new(value).to_i
+      get('ENERGY', 'GUI_GRID_POW')
     end
 
     def wallbox_charge_power
-      response.dig('WALLBOX', 'APPARENT_CHARGING_POWER').map do |value|
-        Senec::Value.new(value).to_i
-      end
+      get('WALLBOX', 'APPARENT_CHARGING_POWER')
     end
 
     def case_temp
-      value = response.dig('TEMPMEASURE', 'CASE_TEMP')
-      Senec::Value.new(value).to_f
+      get('TEMPMEASURE', 'CASE_TEMP')
     end
 
     def current_state
-      value = response.dig('STATISTIC', 'CURRENT_STATE')
-      state = Senec::Value.new(value).to_i
+      state = get('STATISTIC', 'CURRENT_STATE')
 
       STATE_NAMES[state]
     end
 
     def measure_time
-      value = response.dig('STATISTIC', 'MEASURE_TIME')
-      Senec::Value.new(value).to_i
+      get('STATISTIC', 'MEASURE_TIME')
     end
 
     private
+
+    def get(*keys)
+      value = response.dig(*keys)
+
+      if value.is_a?(Array)
+        value.map do |v|
+          Senec::Value.new(v).decoded
+        end
+      else
+        Senec::Value.new(value).decoded
+      end
+    end
 
     def response
       @response ||= begin
