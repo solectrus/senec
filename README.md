@@ -1,3 +1,6 @@
+[![Continuous integration](https://github.com/solectrus/senec/actions/workflows/push.yml/badge.svg)](https://github.com/solectrus/senec/actions/workflows/push.yml)
+[![wakatime](https://wakatime.com/badge/user/697af4f5-617a-446d-ba58-407e7f3e0243/project/84ac7dc2-9288-497c-bb20-9c6123d3de66.svg)](https://wakatime.com/badge/user/697af4f5-617a-446d-ba58-407e7f3e0243/project/84ac7dc2-9288-497c-bb20-9c6123d3de66)
+
 # Unofficial Ruby Client for SENEC Home
 
 Access your local SENEC Solar Battery Storage System
