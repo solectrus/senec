@@ -5,8 +5,9 @@ require 'senec/constants'
 
 module Senec
   class Request
-    def initialize(host:)
+    def initialize(host:, state_names: nil)
       @host = host
+      @state_names = state_names
     end
 
     def house_power
@@ -46,9 +47,13 @@ module Senec
     end
 
     def current_state
-      state = get('STATISTIC', 'CURRENT_STATE')
+      get('STATISTIC', 'CURRENT_STATE')
+    end
 
-      STATE_NAMES[state]
+    def current_state_name
+      throw RuntimeError, 'No state names provided!' unless @state_names
+
+      @state_names[current_state]
     end
 
     def measure_time

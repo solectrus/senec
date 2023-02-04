@@ -1,5 +1,7 @@
 RSpec.describe Senec::Request do
-  subject(:request) { described_class.new(host: host) }
+  subject(:request) { described_class.new(host: host, state_names: state_names) }
+
+  let(:state_names) { { 14 => 'CHARGE' } }
 
   context 'with a valid host', vcr: { cassette_name: 'request' } do
     let(:host) { 'senec' }
@@ -60,6 +62,12 @@ RSpec.describe Senec::Request do
 
     describe '#current_state' do
       subject { request.current_state }
+
+      it { is_expected.to eq(14) }
+    end
+
+    describe '#current_state_name' do
+      subject { request.current_state_name }
 
       it { is_expected.to eq('CHARGE') }
     end

@@ -23,7 +23,8 @@ $ gem install senec
 ```ruby
 require 'senec'
 
-request = Senec::Request.new host: '10.0.1.99'
+senec_ip = '10.0.1.99'
+request = Senec::Request.new host: senec_ip
 
 puts "PV production: #{request.inverter_power} W"
 puts "House power consumption: #{request.house_power} W"
@@ -56,9 +57,21 @@ puts "Measure time: #{Time.at request.measure_time}"
 # Wallbox charge power: [ 8680, 0, 0, 0 ] W
 #
 # Grid power: 315 W
-# Current state of the system: CHARGE
+# Current state of the system: 14
 # Measure time: 2021-10-06 17:50:22 +0200
 ```
+
+To get the state name (in German) instead of just the number:
+
+```ruby
+state_names = Senec::State.new(host: senec_ip).names
+request = Senec::Request.new host: senec_ip, state_names: state_names
+
+puts request.current_state_name
+# => "LADEN"
+```
+
+The state names are extracted on-the-fly from the JavaScript source code returned by the SENEC web interface.
 
 ## Development
 
