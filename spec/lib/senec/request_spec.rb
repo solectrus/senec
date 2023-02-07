@@ -83,7 +83,7 @@ RSpec.describe Senec::Request do
     let(:host) { 'invalid-host' }
 
     it 'raises an error' do
-      expect { request.house_power }.to raise_error(HTTP::ConnectionError)
+      expect { request.house_power }.to raise_error(SocketError)
     end
   end
 
@@ -91,7 +91,7 @@ RSpec.describe Senec::Request do
     let(:host) { 'example.com' }
 
     it 'raises an error' do
-      expect { request.house_power }.to raise_error(Senec::Error, '404 Not Found')
+      expect { request.house_power }.to raise_error(Senec::Error, 'Not Found')
     end
   end
 end

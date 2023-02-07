@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = 'https://github.com/solectrus/senec'
   spec.license       = 'MIT'
   spec.required_ruby_version = Gem::Requirement.new('>= 3.0.0')
-  spec.add_runtime_dependency 'http', '~> 5'
+  spec.add_runtime_dependency 'httparty'
 
   spec.metadata['homepage_uri'] = spec.homepage
   spec.metadata['source_code_uri'] = 'https://github.com/solectrus/senec'

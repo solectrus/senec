@@ -1,5 +1,4 @@
-require 'http'
-require 'json'
+require 'httparty'
 require 'senec/value'
 require 'senec/constants'
 
@@ -76,15 +75,15 @@ module Senec
 
     def response
       @response ||= begin
-        res = HTTP.post uri, json: Senec::BASIC_REQUEST
-        raise Senec::Error, res.status.to_s unless res.status.success?
+        res = HTTParty.post(url, body: JSON.generate(Senec::BASIC_REQUEST))
+        raise Senec::Error, res.message.to_s unless res.success?
 
-        JSON.parse(res.body)
+        res.parsed_response
       end
     end
 
-    def uri
-      URI.parse("http://#{@host}/lala.cgi")
+    def url
+      "http://#{@host}/lala.cgi"
     end
   end
 end

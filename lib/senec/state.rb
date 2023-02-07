@@ -1,4 +1,4 @@
-require 'http'
+require 'httparty'
 
 module Senec
   class State
@@ -31,16 +31,16 @@ module Senec
 
     def response
       @response ||= begin
-        res = HTTP.get uri
-        raise Senec::Error, res.status.to_s unless res.status.success?
+        res = HTTParty.get url
+        raise Senec::Error, res.message unless res.success?
 
-        res.body.to_s
+        res.body
       end
     end
 
     # Use the JavaScript file with German names from the SENEC web interface
-    def uri
-      URI.parse("http://#{host}/js/DE-de.js")
+    def url
+      "http://#{host}/js/DE-de.js"
     end
   end
 end
