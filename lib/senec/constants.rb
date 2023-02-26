@@ -16,6 +16,9 @@ module Senec
       GUI_INVERTER_POWER: '',           # PV production (W)
       STAT_HOURS_OF_OPERATION: ''       # Appliance hours of operation
     },
+    PV1: {
+      MPP_POWER: ''                     # List: MPP power (W)
+    },
     TEMPMEASURE: {
       CASE_TEMP: ''
     },

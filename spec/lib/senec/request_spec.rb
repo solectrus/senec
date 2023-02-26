@@ -1,7 +1,7 @@
 RSpec.describe Senec::Request do
   subject(:request) { described_class.new(host: host, state_names: state_names) }
 
-  let(:state_names) { { 14 => 'CHARGE' } }
+  let(:state_names) { { 17 => 'PV + ENTLADEN' } }
 
   context 'with a valid host', vcr: { cassette_name: 'request' } do
     let(:host) { 'senec' }
@@ -9,43 +9,49 @@ RSpec.describe Senec::Request do
     describe '#house_power' do
       subject { request.house_power }
 
-      it { is_expected.to eq(511.6) }
+      it { is_expected.to eq(289.2) }
     end
 
     describe '#inverter_power' do
       subject { request.inverter_power }
 
-      it { is_expected.to eq(2338.7) }
+      it { is_expected.to eq(40.7) }
+    end
+
+    describe '#mpp_power' do
+      subject { request.mpp_power }
+
+      it { is_expected.to eq([17.7, 0.0, 23.1]) }
     end
 
     describe '#bat_power' do
       subject { request.bat_power }
 
-      it { is_expected.to eq(1792.9) }
+      it { is_expected.to eq(-259.7) }
     end
 
     describe '#bat_fuel_charge' do
       subject { request.bat_fuel_charge }
 
-      it { is_expected.to eq(51.5) }
+      it { is_expected.to eq(100.0) }
     end
 
     describe '#bat_charge_current' do
       subject { request.bat_charge_current }
 
-      it { is_expected.to eq(34.0) }
+      it { is_expected.to eq(-4.5) }
     end
 
     describe '#bat_voltage' do
       subject { request.bat_voltage }
 
-      it { is_expected.to eq(52.7) }
+      it { is_expected.to eq(57.4) }
     end
 
     describe '#grid_power' do
       subject { request.grid_power }
 
-      it { is_expected.to eq(-34.3) }
+      it { is_expected.to eq(-12.3) }
     end
 
     describe '#wallbox_charge_power' do
@@ -57,25 +63,25 @@ RSpec.describe Senec::Request do
     describe '#case_temp' do
       subject { request.case_temp }
 
-      it { is_expected.to eq(34.6) }
+      it { is_expected.to eq(35.1) }
     end
 
     describe '#current_state' do
       subject { request.current_state }
 
-      it { is_expected.to eq(14) }
+      it { is_expected.to eq(17) }
     end
 
     describe '#current_state_name' do
       subject { request.current_state_name }
 
-      it { is_expected.to eq('CHARGE') }
+      it { is_expected.to eq('PV + ENTLADEN') }
     end
 
     describe '#measure_time' do
       subject { Time.at(request.measure_time) }
 
-      it { is_expected.to eq(Time.parse('2022-11-13 09:30:05.000000000 +0100')) }
+      it { is_expected.to eq(Time.parse('2023-02-26 18:15:31.000000000 +0100')) }
     end
   end
 

@@ -17,6 +17,10 @@ module Senec
       get('ENERGY', 'GUI_INVERTER_POWER')
     end
 
+    def mpp_power
+      get('PV1', 'MPP_POWER')
+    end
+
     def bat_power
       get('ENERGY', 'GUI_BAT_DATA_POWER')
     end
