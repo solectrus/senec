@@ -79,7 +79,13 @@ module Senec
 
     def response
       @response ||= begin
-        res = HTTParty.post(url, body: JSON.generate(Senec::BASIC_REQUEST))
+        res = HTTParty.post(
+          url,
+          body: JSON.generate(Senec::BASIC_REQUEST),
+          headers: {
+            'Content-Type' => 'application/x-www-form-urlencoded; charset=UTF-8'
+          }
+        )
         raise Senec::Error, res.message.to_s unless res.success?
 
         res.parsed_response
