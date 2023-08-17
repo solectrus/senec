@@ -4,4 +4,5 @@ require 'senec/request'
 
 module Senec
   class Error < StandardError; end
+  class DecodingError < StandardError; end
 end

@@ -18,7 +18,7 @@ module Senec
         value
       # TODO: There are some more prefixes to handle
       else
-        raise ArgumentError, "#{@data} has unknown prefix!"
+        raise Senec::DecodingError, "Unknown value '#{@data}'"
       end
     end
 

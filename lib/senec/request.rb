@@ -75,9 +75,13 @@ module Senec
         value.map do |v|
           Senec::Value.new(v).decoded
         end
-      else
+      elsif value
         Senec::Value.new(value).decoded
+      else
+        raise Senec::Error, "Value missing for #{keys.join('.')}"
       end
+    rescue DecodingError => e
+      raise Senec::Error, "Decoding failed for #{keys.join('.')}: #{e.message}"
     end
 
     def response
