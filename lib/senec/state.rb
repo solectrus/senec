@@ -2,11 +2,12 @@ require 'httparty'
 
 module Senec
   class State
-    def initialize(host:)
+    def initialize(host:, schema: 'http')
       @host = host
+      @schema = schema
     end
 
-    attr_reader :host
+    attr_reader :host, :schema
 
     # Extract state names from JavaScript file, which is formatted like this:
     #
@@ -31,7 +32,7 @@ module Senec
 
     def response
       @response ||= begin
-        res = HTTParty.get url
+        res = HTTParty.get url, verify: false
         raise Senec::Error, res.message unless res.success?
 
         res.body
@@ -40,7 +41,7 @@ module Senec
 
     # Use the JavaScript file with German names from the SENEC web interface
     def url
-      "http://#{host}/js/DE-de.js"
+      "#{schema}://#{host}/js/DE-de.js"
     end
   end
 end

@@ -4,10 +4,13 @@ require 'senec/constants'
 
 module Senec
   class Request
-    def initialize(host:, state_names: nil)
+    def initialize(host:, schema: 'http', state_names: nil)
       @host = host
+      @schema = schema
       @state_names = state_names
     end
+
+    attr_reader :host, :schema, :state_names
 
     def house_power
       get('ENERGY', 'GUI_HOUSE_POW')
@@ -54,9 +57,9 @@ module Senec
     end
 
     def current_state_name
-      throw RuntimeError, 'No state names provided!' unless @state_names
+      throw RuntimeError, 'No state names provided!' unless state_names
 
-      @state_names[current_state]
+      state_names[current_state]
     end
 
     def measure_time
@@ -84,7 +87,8 @@ module Senec
           body: JSON.generate(Senec::BASIC_REQUEST),
           headers: {
             'Content-Type' => 'application/x-www-form-urlencoded; charset=UTF-8'
-          }
+          },
+          verify: false
         )
         raise Senec::Error, res.message.to_s unless res.success?
 
@@ -93,7 +97,7 @@ module Senec
     end
 
     def url
-      "http://#{@host}/lala.cgi"
+      "#{schema}://#{host}/lala.cgi"
     end
   end
 end
