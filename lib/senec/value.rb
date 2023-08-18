@@ -1,14 +1,17 @@
 module Senec
   class Value
-    def initialize(data)
-      @data = data
+    def initialize(raw)
+      @raw = raw
+      @prefix, @value = raw&.split('_')
+    end
+
+    attr_reader :prefix, :value, :raw
+
+    def valid?
+      prefix && PREFIXES.include?(prefix)
     end
 
     def decoded
-      parts  = @data.split('_')
-      prefix = parts[0]
-      value  = parts[1]
-
       case prefix
       when 'fl'
         decoded_float(value)
@@ -18,7 +21,7 @@ module Senec
         value
       # TODO: There are some more prefixes to handle
       else
-        raise Senec::DecodingError, "Unknown value '#{@data}'"
+        raise Senec::DecodingError, "Unknown value '#{@raw}'"
       end
     end
 
@@ -27,6 +30,9 @@ module Senec
     alias to_s decoded
 
     private
+
+    PREFIXES = %w[fl i3 u1 u3 u6 u8 st].freeze
+    private_constant :PREFIXES
 
     def decoded_float(hex)
       ["0x#{hex}".to_i(16)].pack('L').unpack1('F').round(1)

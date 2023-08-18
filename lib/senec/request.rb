@@ -53,7 +53,7 @@ module Senec
     end
 
     def current_state
-      get('STATISTIC', 'CURRENT_STATE')
+      get('ENERGY', 'STAT_STATE')
     end
 
     def current_state_name
@@ -63,7 +63,10 @@ module Senec
     end
 
     def measure_time
-      get('STATISTIC', 'MEASURE_TIME')
+      web_time = get('RTC', 'WEB_TIME')
+      utc_offset = get('RTC', 'UTC_OFFSET')
+
+      web_time - (utc_offset * 60)
     end
 
     private

@@ -11,6 +11,13 @@ RSpec.describe Senec::Value do
       it { is_expected.to eq(254.5) }
     end
 
+    context 'when i3' do
+      let(:data) { 'i3_00000078' }
+
+      it { is_expected.to be_a(Integer) }
+      it { is_expected.to eq(120) }
+    end
+
     context 'when u1' do
       let(:data) { 'u1_FFFF' }
 
