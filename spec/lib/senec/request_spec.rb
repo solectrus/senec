@@ -9,49 +9,49 @@ RSpec.describe Senec::Request do
     describe '#house_power' do
       subject { request.house_power }
 
-      it { is_expected.to eq(433.9) }
+      it { is_expected.to eq(402.3) }
     end
 
     describe '#inverter_power' do
       subject { request.inverter_power }
 
-      it { is_expected.to eq(1404.4) }
+      it { is_expected.to eq(1592.9) }
     end
 
     describe '#mpp_power' do
       subject { request.mpp_power }
 
-      it { is_expected.to eq([705.9, 0.0, 698.5]) }
+      it { is_expected.to eq([783.4, 0.0, 809.5]) }
     end
 
     describe '#bat_power' do
       subject { request.bat_power }
 
-      it { is_expected.to eq(89.1) }
+      it { is_expected.to eq(542.3) }
     end
 
     describe '#bat_fuel_charge' do
       subject { request.bat_fuel_charge }
 
-      it { is_expected.to eq(60.6) }
+      it { is_expected.to eq(71.7) }
     end
 
     describe '#bat_charge_current' do
       subject { request.bat_charge_current }
 
-      it { is_expected.to eq(1.7) }
+      it { is_expected.to eq(10.0) }
     end
 
     describe '#bat_voltage' do
       subject { request.bat_voltage }
 
-      it { is_expected.to eq(53.0) }
+      it { is_expected.to eq(54.3) }
     end
 
     describe '#grid_power' do
       subject { request.grid_power }
 
-      it { is_expected.to eq(-881.3) }
+      it { is_expected.to eq(-648.4) }
     end
 
     describe '#wallbox_charge_power' do
@@ -63,7 +63,13 @@ RSpec.describe Senec::Request do
     describe '#case_temp' do
       subject { request.case_temp }
 
-      it { is_expected.to eq(34.0) }
+      it { is_expected.to eq(32.9) }
+    end
+
+    describe '#application_version' do
+      subject { request.application_version }
+
+      it { is_expected.to eq('3824') }
     end
 
     describe '#current_state' do
@@ -81,7 +87,7 @@ RSpec.describe Senec::Request do
     describe '#measure_time' do
       subject { Time.at(request.measure_time) }
 
-      it { is_expected.to eq(Time.parse('2023-08-18 09:52:57.000000000 +0200')) }
+      it { is_expected.to eq(Time.parse('2023-08-27 11:36:54.000000000 +0200')) }
     end
   end
 

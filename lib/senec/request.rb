@@ -52,6 +52,10 @@ module Senec
       get('TEMPMEASURE', 'CASE_TEMP')
     end
 
+    def application_version
+      get('WIZARD', 'APPLICATION_VERSION')
+    end
+
     def current_state
       get('ENERGY', 'STAT_STATE')
     end

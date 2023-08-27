@@ -13,6 +13,9 @@ module Senec
       GUI_INVERTER_POWER: '',           # PV production (W)
       STAT_HOURS_OF_OPERATION: ''       # Appliance hours of operation
     },
+    WIZARD: {
+      APPLICATION_VERSION: ''
+    },
     RTC: {
       UTC_OFFSET: '',
       WEB_TIME: ''
