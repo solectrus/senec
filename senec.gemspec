@@ -10,8 +10,8 @@ Gem::Specification.new do |spec|
   spec.description   = 'Access your local SENEC Solar Battery Storage System'
   spec.homepage      = 'https://github.com/solectrus/senec'
   spec.license       = 'MIT'
-  spec.required_ruby_version = Gem::Requirement.new('>= 3.0.0')
   spec.add_runtime_dependency 'httparty'
+  spec.required_ruby_version = Gem::Requirement.new('>= 3.2.0')
 
   spec.metadata['homepage_uri'] = spec.homepage
   spec.metadata['source_code_uri'] = 'https://github.com/solectrus/senec'
