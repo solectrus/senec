@@ -61,12 +61,11 @@ puts "Measure time: #{Time.at request.measure_time}"
 # Measure time: 2021-10-06 17:50:22 +0200
 ```
 
-To get the state name (in German) instead of just the number:
+To get the state name (in English, German or Italian) instead of just the number:
 
 ```ruby
-state_names = Senec::State.new(host: senec_ip).names
 # Get a Hash with all available state names:
-state_names = Senec::State.new(connection:).names
+state_names = Senec::State.new(connection:).names(language: :de) # or :en or :it
 # Use this hash for the number => string mapping:
 request = Senec::Request.new(connection:, state_names:)
 
