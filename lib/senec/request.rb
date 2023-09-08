@@ -71,6 +71,10 @@ module Senec
       web_time - (utc_offset * 60)
     end
 
+    def response_duration
+      raw_response.env[:duration]
+    end
+
     private
 
     def get(*keys)

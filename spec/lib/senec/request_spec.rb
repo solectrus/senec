@@ -90,6 +90,12 @@ RSpec.describe Senec::Request do
 
       it { is_expected.to be_a(Integer) }
     end
+
+    describe '#response_duration' do
+      subject { request.response_duration }
+
+      it { is_expected.to be_a(Float) }
+    end
   end
 
   context 'when host does not exist', vcr: { cassette_name: 'unknown-host' } do

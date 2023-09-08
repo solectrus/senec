@@ -1,5 +1,6 @@
 require 'faraday'
 require 'faraday/net_http_persistent'
+require 'faraday-request-timer'
 require 'forwardable'
 
 module Senec
@@ -19,6 +20,7 @@ module Senec
                                headers: {
                                  'Connection' => 'keep-alive'
                                } do |f|
+        f.request :timer
         f.adapter :net_http_persistent, pool_size: 5 do |http|
           http.idle_timeout = 30
         end
