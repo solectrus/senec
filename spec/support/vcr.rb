@@ -1,7 +1,7 @@
 require 'vcr'
 
 VCR.configure do |config|
-  config.hook_into :webmock
+  config.hook_into :faraday
   config.cassette_library_dir = 'spec/support/cassettes'
   config.configure_rspec_metadata!
 

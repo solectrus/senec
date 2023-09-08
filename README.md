@@ -23,8 +23,8 @@ $ gem install senec
 ```ruby
 require 'senec'
 
-senec_ip = '10.0.1.99'
-request = Senec::Request.new host: senec_ip
+connection = Senec::Connection.new(host: '192.168.178.123', schema: 'https')
+request = Senec::Request.new(connection:)
 
 puts "PV production: #{request.inverter_power} W"
 puts "House power consumption: #{request.house_power} W"
@@ -65,13 +65,16 @@ To get the state name (in German) instead of just the number:
 
 ```ruby
 state_names = Senec::State.new(host: senec_ip).names
-request = Senec::Request.new host: senec_ip, state_names: state_names
+# Get a Hash with all available state names:
+state_names = Senec::State.new(connection:).names
+# Use this hash for the number => string mapping:
+request = Senec::Request.new(connection:, state_names:)
 
 puts request.current_state_name
 # => "LADEN"
 ```
 
-The state names are extracted on-the-fly from the JavaScript source code returned by the SENEC web interface.
+The state names are extracted from the JavaScript source code returned by the SENEC web interface.
 
 ## Development
 

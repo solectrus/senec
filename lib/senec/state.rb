@@ -1,13 +1,10 @@
-require 'httparty'
-
 module Senec
   class State
-    def initialize(host:, schema: 'http')
-      @host = host
-      @schema = schema
+    def initialize(connection:)
+      @connection = connection
     end
 
-    attr_reader :host, :schema
+    attr_reader :connection
 
     # Extract state names from JavaScript file, which is formatted like this:
     #
@@ -31,12 +28,10 @@ module Senec
     LINE_REGEX = /(\d+)\s*:\s*"(.*)"/
 
     def response
-      @response ||= begin
-        res = HTTParty.get url, verify: false
-        raise Senec::Error, res.message unless res.success?
+      res = connection.get url
+      raise Senec::Error, res.message unless res.success?
 
-        res.body
-      end
+      res.body
     end
 
     # Use the JavaScript file with German names from the SENEC web interface

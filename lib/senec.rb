@@ -1,4 +1,5 @@
 require 'senec/version'
+require 'senec/connection'
 require 'senec/state'
 require 'senec/request'
 

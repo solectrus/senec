@@ -1,16 +1,14 @@
-require 'httparty'
 require 'senec/value'
 require 'senec/constants'
 
 module Senec
   class Request
-    def initialize(host:, schema: 'http', state_names: nil)
-      @host = host
-      @schema = schema
+    def initialize(connection:, state_names: nil)
+      @connection = connection
       @state_names = state_names
     end
 
-    attr_reader :host, :schema, :state_names
+    attr_reader :connection, :state_names
 
     def house_power
       get('ENERGY', 'GUI_HOUSE_POW')
@@ -76,7 +74,9 @@ module Senec
     private
 
     def get(*keys)
-      value = response.dig(*keys)
+      return unless parsed_response
+
+      value = parsed_response.dig(*keys)
 
       if value.is_a?(Array)
         value.map do |v|
@@ -91,24 +91,32 @@ module Senec
       raise Senec::Error, "Decoding failed for #{keys.join('.')}: #{e.message}"
     end
 
-    def response
-      @response ||= begin
-        res = HTTParty.post(
-          url,
-          body: JSON.generate(Senec::BASIC_REQUEST),
-          headers: {
-            'Content-Type' => 'application/x-www-form-urlencoded; charset=UTF-8'
-          },
-          verify: false
-        )
-        raise Senec::Error, res.message.to_s unless res.success?
+    def parsed_response
+      @parsed_response ||= JSON.parse(raw_response.body)
+    end
 
-        res.parsed_response
+    def raw_response
+      @raw_response ||= begin
+        response = connection.post(url, request_body, request_header)
+        raise Senec::Error, response.status unless response.success?
+
+        response
       end
     end
 
     def url
-      "#{schema}://#{host}/lala.cgi"
+      '/lala.cgi'
+    end
+
+    def request_body
+      JSON.generate(Senec::BASIC_REQUEST)
+    end
+
+    def request_header
+      {
+        'Content-Type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+        'Accept' => 'application/json, text/javascript, */*; q=0.01'
+      }
     end
   end
 end

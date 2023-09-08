@@ -7,31 +7,31 @@ http_interactions:
       encoding: UTF-8
       string: '{"ENERGY":{"STAT_STATE":"","GUI_BAT_DATA_CURRENT":"","GUI_BAT_DATA_FUEL_CHARGE":"","GUI_BAT_DATA_POWER":"","GUI_BAT_DATA_VOLTAGE":"","GUI_GRID_POW":"","GUI_HOUSE_POW":"","GUI_INVERTER_POWER":"","STAT_HOURS_OF_OPERATION":""},"WIZARD":{"APPLICATION_VERSION":""},"RTC":{"UTC_OFFSET":"","WEB_TIME":""},"PV1":{"MPP_POWER":""},"TEMPMEASURE":{"CASE_TEMP":""},"WALLBOX":{"APPARENT_CHARGING_POWER":""}}'
     headers:
+      Connection:
+      - keep-alive
+      User-Agent:
+      - Faraday v2.7.10
       Content-Type:
       - application/x-www-form-urlencoded; charset=UTF-8
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
+      - application/json, text/javascript, */*; q=0.01
   response:
     status:
       code: 200
       message: OK
     headers:
-      Server:
+      server:
       - nginx/1.17.7
-      Date:
-      - Fri, 08 Sep 2023 04:51:14 GMT
-      Content-Type:
+      date:
+      - Fri, 08 Sep 2023 10:48:47 GMT
+      content-type:
       - application/json; charset=utf-8
-      Transfer-Encoding:
+      transfer-encoding:
       - chunked
-      Connection:
+      connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"ENERGY":{"STAT_STATE":"u8_10","GUI_BAT_DATA_CURRENT":"fl_C0EF0A3D","GUI_BAT_DATA_FUEL_CHARGE":"fl_42835029","GUI_BAT_DATA_POWER":"fl_C3C9858D","GUI_BAT_DATA_VOLTAGE":"fl_4257D1EC","GUI_GRID_POW":"fl_C0E9EB85","GUI_HOUSE_POW":"fl_43C5DDDF","GUI_INVERTER_POWER":"fl_80000000","STAT_HOURS_OF_OPERATION":"u3_00005F4F"},"WIZARD":{"APPLICATION_VERSION":"st_0825"},"RTC":{"UTC_OFFSET":"i3_00000078","WEB_TIME":"u3_64FAC463"},"PV1":{"MPP_POWER":["fl_00000000","fl_00000000","fl_00000000"]},"TEMPMEASURE":{"CASE_TEMP":"fl_42056098"},"WALLBOX":{"APPARENT_CHARGING_POWER":["fl_00000000","fl_00000000","fl_00000000","fl_00000000"]}}'
-  recorded_at: Fri, 08 Sep 2023 04:51:14 GMT
+      string: '{"ENERGY":{"STAT_STATE":"u8_38","GUI_BAT_DATA_CURRENT":"fl_3FE51EB8","GUI_BAT_DATA_FUEL_CHARGE":"fl_4291745D","GUI_BAT_DATA_POWER":"fl_42C282B9","GUI_BAT_DATA_VOLTAGE":"fl_425953F8","GUI_GRID_POW":"fl_C5C4A052","GUI_HOUSE_POW":"fl_44238778","GUI_INVERTER_POWER":"fl_45DC1B4C","STAT_HOURS_OF_OPERATION":"u3_00005F55"},"WIZARD":{"APPLICATION_VERSION":"st_0825"},"RTC":{"UTC_OFFSET":"i3_00000078","WEB_TIME":"u3_64FB1831"},"PV1":{"MPP_POWER":["fl_455BA344","fl_00000000","fl_455C9355"]},"TEMPMEASURE":{"CASE_TEMP":"fl_420B324A"},"WALLBOX":{"APPARENT_CHARGING_POWER":["fl_00000000","fl_00000000","fl_00000000","fl_00000000"]}}'
+  recorded_at: Fri, 08 Sep 2023 10:48:47 GMT
 recorded_with: VCR 6.2.0

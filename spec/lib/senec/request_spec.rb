@@ -1,11 +1,10 @@
 RSpec.describe Senec::Request do
-  subject(:request) { described_class.new(host: host, schema: schema, state_names: state_names) }
-
   let(:state_names) { Hash.new { |hash, key| hash[key] = "Status for #{key}" } }
 
-  context 'with a valid host', vcr: { cassette_name: 'request' } do
-    let(:host) { 'senec' }
-    let(:schema) { 'https' }
+  context 'with a valid connection', vcr: { cassette_name: 'request' } do
+    subject(:request) { described_class.new(connection:, state_names:) }
+
+    let(:connection) { Senec::Connection.new(host: 'senec', schema: 'https') }
 
     describe '#house_power' do
       subject { request.house_power }
@@ -93,21 +92,33 @@ RSpec.describe Senec::Request do
     end
   end
 
-  context 'when host does not exist', vcr: true do
-    let(:host) { 'invalid-host' }
-    let(:schema) { 'http' }
+  context 'when host does not exist', vcr: { cassette_name: 'unknown-host' } do
+    subject(:request) { described_class.new(connection:, state_names:) }
+
+    let(:connection) { Senec::Connection.new(host: 'invalid-host', schema: 'http') }
 
     it 'raises an error' do
-      expect { request.house_power }.to raise_error(SocketError)
+      expect { request.house_power }.to raise_error(Faraday::ConnectionFailed)
+    end
+  end
+
+  context 'when schema mismatch', vcr: { cassette_name: 'schema-mismatch' } do
+    subject(:request) { described_class.new(connection:, state_names:) }
+
+    let(:connection) { Senec::Connection.new(host: 'senec', schema: 'http') }
+
+    it 'raises an error' do
+      expect { request.house_power }.to raise_error(Faraday::ConnectionFailed)
     end
   end
 
   context 'when host is present but does not respond accordingly', vcr: { cassette_name: 'request-error' } do
-    let(:host) { 'example.com' }
-    let(:schema) { 'http' }
+    subject(:request) { described_class.new(connection:, state_names:) }
+
+    let(:connection) { Senec::Connection.new(host: 'example.com', schema: 'http') }
 
     it 'raises an error' do
-      expect { request.house_power }.to raise_error(Senec::Error, 'Not Found')
+      expect { request.house_power }.to raise_error(Senec::Error, '404')
     end
   end
 end
