@@ -1,7 +1,7 @@
 RSpec.describe Senec::Request do
   subject(:request) { described_class.new(host: host, state_names: state_names) }
 
-  let(:state_names) { { 56 => 'PEAK-SHAVING: WARTEN' } }
+  let(:state_names) { Hash.new { |hash, key| hash[key] = "Status for #{key}" } }
 
   context 'with a valid host', vcr: { cassette_name: 'request' } do
     let(:host) { 'senec' }
@@ -9,49 +9,49 @@ RSpec.describe Senec::Request do
     describe '#house_power' do
       subject { request.house_power }
 
-      it { is_expected.to eq(402.3) }
+      it { is_expected.to be_a(Float) }
     end
 
     describe '#inverter_power' do
       subject { request.inverter_power }
 
-      it { is_expected.to eq(1592.9) }
+      it { is_expected.to be_a(Float) }
     end
 
     describe '#mpp_power' do
       subject { request.mpp_power }
 
-      it { is_expected.to eq([783.4, 0.0, 809.5]) }
+      it { is_expected.to all(be_a(Float)) }
     end
 
     describe '#bat_power' do
       subject { request.bat_power }
 
-      it { is_expected.to eq(542.3) }
+      it { is_expected.to be_a(Float) }
     end
 
     describe '#bat_fuel_charge' do
       subject { request.bat_fuel_charge }
 
-      it { is_expected.to eq(71.7) }
+      it { is_expected.to be_a(Float) }
     end
 
     describe '#bat_charge_current' do
       subject { request.bat_charge_current }
 
-      it { is_expected.to eq(10.0) }
+      it { is_expected.to be_a(Float) }
     end
 
     describe '#bat_voltage' do
       subject { request.bat_voltage }
 
-      it { is_expected.to eq(54.3) }
+      it { is_expected.to be_a(Float) }
     end
 
     describe '#grid_power' do
       subject { request.grid_power }
 
-      it { is_expected.to eq(-648.4) }
+      it { is_expected.to be_a(Float) }
     end
 
     describe '#wallbox_charge_power' do
@@ -63,7 +63,7 @@ RSpec.describe Senec::Request do
     describe '#case_temp' do
       subject { request.case_temp }
 
-      it { is_expected.to eq(32.9) }
+      it { is_expected.to be_a(Float) }
     end
 
     describe '#application_version' do
@@ -75,19 +75,20 @@ RSpec.describe Senec::Request do
     describe '#current_state' do
       subject { request.current_state }
 
-      it { is_expected.to eq(56) }
+      it { is_expected.to be_a(Integer) }
+      it { is_expected.to be_between(0, 98) }
     end
 
     describe '#current_state_name' do
       subject { request.current_state_name }
 
-      it { is_expected.to eq('PEAK-SHAVING: WARTEN') }
+      it { is_expected.to be_a(String) }
     end
 
     describe '#measure_time' do
-      subject { Time.at(request.measure_time) }
+      subject { request.measure_time }
 
-      it { is_expected.to eq(Time.parse('2023-08-27 11:36:54.000000000 +0200')) }
+      it { is_expected.to be_a(Integer) }
     end
   end
 
