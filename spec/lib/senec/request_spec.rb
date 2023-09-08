@@ -1,10 +1,11 @@
 RSpec.describe Senec::Request do
-  subject(:request) { described_class.new(host: host, state_names: state_names) }
+  subject(:request) { described_class.new(host: host, schema: schema, state_names: state_names) }
 
   let(:state_names) { Hash.new { |hash, key| hash[key] = "Status for #{key}" } }
 
   context 'with a valid host', vcr: { cassette_name: 'request' } do
     let(:host) { 'senec' }
+    let(:schema) { 'https' }
 
     describe '#house_power' do
       subject { request.house_power }
@@ -69,7 +70,7 @@ RSpec.describe Senec::Request do
     describe '#application_version' do
       subject { request.application_version }
 
-      it { is_expected.to eq('3824') }
+      it { is_expected.to eq('0825') }
     end
 
     describe '#current_state' do
@@ -94,6 +95,7 @@ RSpec.describe Senec::Request do
 
   context 'when host does not exist', vcr: true do
     let(:host) { 'invalid-host' }
+    let(:schema) { 'http' }
 
     it 'raises an error' do
       expect { request.house_power }.to raise_error(SocketError)
@@ -102,6 +104,7 @@ RSpec.describe Senec::Request do
 
   context 'when host is present but does not respond accordingly', vcr: { cassette_name: 'request-error' } do
     let(:host) { 'example.com' }
+    let(:schema) { 'http' }
 
     it 'raises an error' do
       expect { request.house_power }.to raise_error(Senec::Error, 'Not Found')

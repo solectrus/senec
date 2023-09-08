@@ -1,6 +1,6 @@
 RSpec.describe Senec::State do
   subject(:request) do
-    described_class.new(host: 'senec').tap do |state|
+    described_class.new(host: 'senec', schema: 'https').tap do |state|
       allow(state).to receive(:response).and_return(mock_response)
     end
   end
