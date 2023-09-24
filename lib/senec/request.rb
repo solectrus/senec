@@ -54,14 +54,14 @@ module Senec
       get('WIZARD', 'APPLICATION_VERSION')
     end
 
-    def current_state
+    def current_state_code
       get('ENERGY', 'STAT_STATE')
     end
 
     def current_state_name
       throw RuntimeError, 'No state names provided!' unless state_names
 
-      state_names[current_state]
+      state_names[current_state_code]
     end
 
     def measure_time

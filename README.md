@@ -39,7 +39,7 @@ puts "\n"
 puts "Wallbox charge power: [ #{request.wallbox_charge_power.join(',')} ] W"
 puts "\n"
 puts "Grid power: #{request.grid_power} W"
-puts "Current state of the system: #{request.current_state}"
+puts "Current state of the system: #{request.current_state_code}"
 puts "Measure time: #{Time.at request.measure_time}"
 
 # Example result:

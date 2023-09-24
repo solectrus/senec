@@ -72,8 +72,8 @@ RSpec.describe Senec::Request do
       it { is_expected.to eq('0825') }
     end
 
-    describe '#current_state' do
-      subject { request.current_state }
+    describe '#current_state_code' do
+      subject { request.current_state_code }
 
       it { is_expected.to be_a(Integer) }
       it { is_expected.to be_between(0, 98) }
