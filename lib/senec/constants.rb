@@ -21,7 +21,8 @@ module Senec
       WEB_TIME: ''
     },
     PV1: {
-      MPP_POWER: ''                     # List: MPP power (W)
+      MPP_POWER: '',                    # List: MPP power (W)
+      POWER_RATIO: ''                   # Grid export limit (percent)
     },
     TEMPMEASURE: {
       CASE_TEMP: ''

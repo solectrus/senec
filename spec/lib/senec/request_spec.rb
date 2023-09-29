@@ -24,6 +24,12 @@ RSpec.describe Senec::Request do
       it { is_expected.to all(be_a(Float)) }
     end
 
+    describe '#power_ratio' do
+      subject { request.power_ratio }
+
+      it { is_expected.to be_a(Float) }
+    end
+
     describe '#bat_power' do
       subject { request.bat_power }
 

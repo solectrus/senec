@@ -22,6 +22,10 @@ module Senec
       get('PV1', 'MPP_POWER')
     end
 
+    def power_ratio
+      get('PV1', 'POWER_RATIO')
+    end
+
     def bat_power
       get('ENERGY', 'GUI_BAT_DATA_POWER')
     end
