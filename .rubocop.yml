@@ -2,6 +2,7 @@ require:
   - rubocop-performance
   - rubocop-rspec
   - rubocop-rake
+  - rubocop-thread_safety
 
 AllCops:
   TargetRubyVersion: 3.2
@@ -11,6 +12,12 @@ Style/Documentation:
   Enabled: false
 
 Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: consistent_comma
+
+Style/IfUnlessModifier:
   Enabled: false
 
 Metrics/MethodLength:
