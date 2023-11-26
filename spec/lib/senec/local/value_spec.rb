@@ -1,4 +1,4 @@
-RSpec.describe Senec::Value do
+RSpec.describe Senec::Local::Value do
   subject(:value) { described_class.new(data) }
 
   describe '#decoded' do
@@ -56,14 +56,14 @@ RSpec.describe Senec::Value do
     context 'when unknown prefix' do
       let(:data) { 'xx_123' }
 
-      it { expect { decoded }.to raise_error(Senec::DecodingError, "Unknown value 'xx_123'") }
+      it { expect { decoded }.to raise_error(Senec::Local::DecodingError, "Unknown value 'xx_123'") }
     end
 
     context 'when VARIABLE_NOT_FOUND' do
       let(:data) { 'VARIABLE_NOT_FOUND' }
 
       it do
-        expect { decoded }.to raise_error(Senec::DecodingError, "Unknown value 'VARIABLE_NOT_FOUND'")
+        expect { decoded }.to raise_error(Senec::Local::DecodingError, "Unknown value 'VARIABLE_NOT_FOUND'")
       end
     end
   end

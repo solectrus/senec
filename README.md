@@ -23,8 +23,8 @@ $ gem install senec
 ```ruby
 require 'senec'
 
-connection = Senec::Connection.new(host: '192.168.178.123', schema: 'https')
-request = Senec::Request.new(connection:)
+connection = Senec::Local::Connection.new(host: '192.168.178.123', schema: 'https')
+request = Senec::Local::Request.new(connection:)
 
 puts "PV production: #{request.inverter_power} W"
 puts "House power consumption: #{request.house_power} W"

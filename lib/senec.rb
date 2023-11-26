@@ -1,9 +1,6 @@
 require 'senec/version'
-require 'senec/connection'
-require 'senec/state'
-require 'senec/request'
+require 'senec/local/connection'
+require 'senec/local/state'
+require 'senec/local/request'
+require 'senec/local/error'
 
-module Senec
-  class Error < StandardError; end
-  class DecodingError < StandardError; end
-end

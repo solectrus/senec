@@ -1,11 +1,11 @@
-RSpec.describe Senec::State do
+RSpec.describe Senec::Local::State do
   subject(:request) do
     described_class.new(connection:).tap do |state|
       allow(state).to receive(:response).and_return(mock_response)
     end
   end
 
-  let(:connection) { Senec::Connection.new(host: 'senec', schema: 'https') }
+  let(:connection) { Senec::Local::Connection.new(host: 'senec', schema: 'https') }
 
   # Dummy response from the SENEC web interface JavaScript file
   def mock_response
