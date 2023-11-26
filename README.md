@@ -3,7 +3,7 @@
 
 # Unofficial Ruby Client for SENEC Home
 
-Access your local SENEC Solar Battery Storage System
+Access your local SENEC Solar Battery Storage System or the SENEC Cloud from Ruby.
 
 **WARNING:** I'm not affiliated in any way with the SENEC company.
 
@@ -11,6 +11,7 @@ Inspired by:
 
 - https://github.com/mchwalisz/pysenec
 - https://gist.github.com/smashnet/82ad0b9d7f0ba2e5098e6649ba08f88a
+- https://documenter.getpostman.com/view/932140/2s9YXib2td
 
 ## Installation
 
@@ -19,6 +20,56 @@ $ gem install senec
 ```
 
 ## Usage
+
+### Cloud access (V2.1, V3 and V4)
+
+```ruby
+require 'senec'
+
+# Login to the SENEC cloud
+connection = Senec::Cloud::Connection.new(username: 'me@example.com', password: 'my-secret-senec-password')
+
+# List all available systems
+puts connection.systems
+
+# => [{"id"=>"123456", "steuereinheitnummer"=>"S123XXX", "gehaeusenummer"=>"DE-V3-XXXX", "strasse"=>"Musterstraße", "hausnummer"=>"27a", "postleitzahl"=>"99999", "ort"=>"Musterort", "laendercode"=>"DE", "zeitzone"=>"Europe/Berlin", "wallboxIds"=>["1"], "systemType"=>"V3"}]
+
+# Get the data of first systems (without knowing the ID):
+puts Senec::Cloud::Dashboard[connection].first.data
+
+# => {"aktuell"=>
+#   {"stromerzeugung"=>{"wert"=>0.01, "einheit"=>"W"},
+#    "stromverbrauch"=>{"wert"=>860.0, "einheit"=>"W"},
+#    "netzeinspeisung"=>{"wert"=>0.01, "einheit"=>"W"},
+#    "netzbezug"=>{"wert"=>852.6270000000001, "einheit"=>"W"},
+#    "speicherbeladung"=>{"wert"=>0.01, "einheit"=>"W"},
+#    "speicherentnahme"=>{"wert"=>11.68, "einheit"=>"W"},
+#    "speicherfuellstand"=>{"wert"=>1.0e-05, "einheit"=>"%"},
+#    "autarkie"=>{"wert"=>1.35, "einheit"=>"%"},
+#    "wallbox"=>{"wert"=>0.01, "einheit"=>"W"}},
+#  "heute"=>
+#   {"stromerzeugung"=>{"wert"=>3339.84375, "einheit"=>"Wh"},
+#    "stromverbrauch"=>{"wert"=>21000.0, "einheit"=>"Wh"},
+#    "netzeinspeisung"=>{"wert"=>13.671875, "einheit"=>"Wh"},
+#    "netzbezug"=>{"wert"=>17546.38671875, "einheit"=>"Wh"},
+#    "speicherbeladung"=>{"wert"=>119.140625, "einheit"=>"Wh"},
+#    "speicherentnahme"=>{"wert"=>254.39453125, "einheit"=>"Wh"},
+#    "speicherfuellstand"=>{"wert"=>0.0, "einheit"=>"%"},
+#    "autarkie"=>{"wert"=>16.47, "einheit"=>"%"},
+#    "wallbox"=>{"wert"=>0.0, "einheit"=>"Wh"}},
+#  "zeitstempel"=>"2023-11-26T18:45:23Z",
+#  "electricVehicleConnected"=>false}
+
+
+# Get the data of a specific system (by ID):
+puts Senc::Cloud::Dashboard[connection].find("123456").data
+
+# => {"aktuell"=>
+#   {"stromerzeugung"=>{"wert"=>0.01, "einheit"=>"W"},
+# ....
+```
+
+### Local access (V2.1 and V3 only)
 
 ```ruby
 require 'senec'

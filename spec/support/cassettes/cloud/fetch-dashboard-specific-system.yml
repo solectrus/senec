@@ -1,0 +1,91 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://app-gateway.prod.senec.dev/v1/senec/login
+    body:
+      encoding: UTF-8
+      string: '{"username":"<SENEC_USERNAME>","password":"<SENEC_PASSWORD>"}'
+    headers:
+      User-Agent:
+      - Faraday v2.7.12
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      date:
+      - Sun, 26 Nov 2023 14:04:00 GMT
+      content-type:
+      - application/json
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      vary:
+      - Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+      x-content-type-options:
+      - nosniff
+      x-xss-protection:
+      - 1; mode=block
+      cache-control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      pragma:
+      - no-cache
+      expires:
+      - '0'
+      strict-transport-security:
+      - max-age=15724800; includeSubDomains
+      x-frame-options:
+      - DENY
+    body:
+      encoding: UTF-8
+      string: '{"token":"<TOKEN>","refreshToken":""}'
+  recorded_at: Sun, 26 Nov 2023 14:04:00 GMT
+- request:
+    method: get
+    uri: https://app-gateway.prod.senec.dev/v1/senec/systems/<SENEC_SYSTEM_ID>/dashboard
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.12
+      Authorization:
+      - "<TOKEN>"
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      date:
+      - Sun, 26 Nov 2023 14:04:00 GMT
+      content-type:
+      - application/json
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      vary:
+      - Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+      x-content-type-options:
+      - nosniff
+      x-xss-protection:
+      - 1; mode=block
+      cache-control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      pragma:
+      - no-cache
+      expires:
+      - '0'
+      strict-transport-security:
+      - max-age=15724800; includeSubDomains
+      x-frame-options:
+      - DENY
+    body:
+      encoding: UTF-8
+      string: '{"aktuell":{"stromerzeugung":{"wert":93.439,"einheit":"W"},"stromverbrauch":{"wert":2210.0,"einheit":"W"},"netzeinspeisung":{"wert":0.01,"einheit":"W"},"netzbezug":{"wert":2087.767,"einheit":"W"},"speicherbeladung":{"wert":0.01,"einheit":"W"},"speicherentnahme":{"wert":11.68,"einheit":"W"},"speicherfuellstand":{"wert":1.0E-5,"einheit":"%"},"autarkie":{"wert":5.92,"einheit":"%"},"wallbox":{"wert":0.01,"einheit":"W"}},"heute":{"stromerzeugung":{"wert":3257.8125,"einheit":"Wh"},"stromverbrauch":{"wert":16110.0,"einheit":"Wh"},"netzeinspeisung":{"wert":13.671875,"einheit":"Wh"},"netzbezug":{"wert":12798.828125,"einheit":"Wh"},"speicherbeladung":{"wert":119.140625,"einheit":"Wh"},"speicherentnahme":{"wert":192.3828125,"einheit":"Wh"},"speicherfuellstand":{"wert":0.0,"einheit":"%"},"autarkie":{"wert":20.57,"einheit":"%"},"wallbox":{"wert":0.0,"einheit":"Wh"}},"zeitstempel":"2023-11-26T14:03:38Z","electricVehicleConnected":false}'
+  recorded_at: Sun, 26 Nov 2023 14:04:00 GMT
+recorded_with: VCR 6.2.0

@@ -25,3 +25,9 @@ Metrics/MethodLength:
 
 Layout/LineLength:
   AllowedPatterns: ['\A#'] # Allow long comments
+
+RSpec/ExampleLength:
+  Max: 15
+
+RSpec/NestedGroups:
+  Max: 4

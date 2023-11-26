@@ -1,6 +1,7 @@
 require 'bundler/setup'
 require 'senec'
 require 'support/vcr'
+require 'dotenv/load'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

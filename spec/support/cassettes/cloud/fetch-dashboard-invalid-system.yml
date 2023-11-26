@@ -1,0 +1,91 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://app-gateway.prod.senec.dev/v1/senec/login
+    body:
+      encoding: UTF-8
+      string: '{"username":"<SENEC_USERNAME>","password":"<SENEC_PASSWORD>"}'
+    headers:
+      User-Agent:
+      - Faraday v2.7.12
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      date:
+      - Sun, 26 Nov 2023 14:04:31 GMT
+      content-type:
+      - application/json
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      vary:
+      - Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+      x-content-type-options:
+      - nosniff
+      x-xss-protection:
+      - 1; mode=block
+      cache-control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      pragma:
+      - no-cache
+      expires:
+      - '0'
+      strict-transport-security:
+      - max-age=15724800; includeSubDomains
+      x-frame-options:
+      - DENY
+    body:
+      encoding: UTF-8
+      string: '{"token":"<TOKEN>","refreshToken":""}'
+  recorded_at: Sun, 26 Nov 2023 14:04:31 GMT
+- request:
+    method: get
+    uri: https://app-gateway.prod.senec.dev/v1/senec/systems/123456/dashboard
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.12
+      Authorization:
+      - "<TOKEN>"
+  response:
+    status:
+      code: 401
+      message: ''
+    headers:
+      date:
+      - Sun, 26 Nov 2023 14:04:31 GMT
+      content-type:
+      - text/plain;charset=UTF-8
+      content-length:
+      - '9'
+      connection:
+      - keep-alive
+      vary:
+      - Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+      x-content-type-options:
+      - nosniff
+      x-xss-protection:
+      - 1; mode=block
+      cache-control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      pragma:
+      - no-cache
+      expires:
+      - '0'
+      strict-transport-security:
+      - max-age=15724800; includeSubDomains
+      x-frame-options:
+      - DENY
+    body:
+      encoding: UTF-8
+      string: 'HTTP 401 '
+  recorded_at: Sun, 26 Nov 2023 14:04:31 GMT
+recorded_with: VCR 6.2.0
