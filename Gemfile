@@ -24,5 +24,5 @@ gem 'rubocop-rake'
 # Thread-safety checks via static analysis (https://github.com/rubocop/rubocop-thread_safety)
 gem 'rubocop-thread_safety', require: false
 
-# Record your test suite's HTTP interactions and replay them during future test runs for fast, deterministic, accurate tests. (https://relishapp.com/vcr/vcr/docs)
+# Record your test suite's HTTP interactions and replay them during future test runs for fast, deterministic, accurate tests. (https://benoittgt.github.io/vcr)
 gem 'vcr'
