@@ -29,3 +29,6 @@ gem 'dotenv'
 
 # Record your test suite's HTTP interactions and replay them during future test runs for fast, deterministic, accurate tests. (https://benoittgt.github.io/vcr)
 gem 'vcr'
+
+# Code coverage for Ruby (https://github.com/simplecov-ruby/simplecov)
+gem 'simplecov'
