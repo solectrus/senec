@@ -53,10 +53,6 @@ module Senec
 
       attr_reader :system_id, :data
 
-      def updated_at
-        timestamp.parsed
-      end
-
       private
 
       def default_system_id

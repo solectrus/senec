@@ -8,10 +8,6 @@ module Senec
 
       attr_reader :prefix, :value, :raw
 
-      def valid?
-        prefix && PREFIXES.include?(prefix)
-      end
-
       def decoded
         case prefix
         when 'fl'

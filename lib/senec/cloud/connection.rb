@@ -71,10 +71,6 @@ module Senec
 
         response.body
       end
-
-      def credentials_digest
-        Digest::SHA256.hexdigest("#{username}#{password}")
-      end
     end
   end
 end
