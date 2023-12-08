@@ -1,8 +1,8 @@
 RSpec.describe Senec::Local::State do
-  subject(:request) do
-    described_class.new(connection:).tap do |state|
-      allow(state).to receive(:response).and_return(mock_response)
-    end
+  subject(:state) { described_class.new(connection:) }
+
+  before do
+    VCR.turn_off!
   end
 
   let(:connection) { Senec::Local::Connection.new(host: 'senec', schema: 'https') }
@@ -26,7 +26,7 @@ RSpec.describe Senec::Local::State do
   end
 
   describe '#names' do
-    subject { request.names }
+    subject(:names) { state.names(language:) }
 
     let(:expected_hash) do
       {
@@ -39,6 +39,42 @@ RSpec.describe Senec::Local::State do
       }
     end
 
-    it { is_expected.to eq(expected_hash) }
+    context 'when language is :en' do
+      let(:language) { :en }
+
+      before do
+        stub_request(:any, 'https://senec/js/EN-en.js').to_return(body: mock_response)
+      end
+
+      it { is_expected.to eq(expected_hash) }
+    end
+
+    context 'when language is :de' do
+      let(:language) { :de }
+
+      before do
+        stub_request(:any, 'https://senec/js/DE-de.js').to_return(body: mock_response)
+      end
+
+      it { is_expected.to eq(expected_hash) }
+    end
+
+    context 'when language is :it' do
+      let(:language) { :it }
+
+      before do
+        stub_request(:any, 'https://senec/js/IT-it.js').to_return(body: mock_response)
+      end
+
+      it { is_expected.to eq(expected_hash) }
+    end
+
+    context 'when language is invalid' do
+      let(:language) { :xyz }
+
+      it 'does not make a request' do
+        expect { names }.to raise_error(Senec::Local::Error, 'Language xyz not supported')
+      end
+    end
   end
 end

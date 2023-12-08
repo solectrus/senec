@@ -32,3 +32,6 @@ gem 'vcr'
 
 # Code coverage for Ruby (https://github.com/simplecov-ruby/simplecov)
 gem 'simplecov'
+
+# Library for stubbing HTTP requests in Ruby. (https://github.com/bblimke/webmock)
+gem 'webmock'
