@@ -1,10 +1,9 @@
 RSpec.describe Senec::Local::Request do
   let(:state_names) { Hash.new { |hash, key| hash[key] = "Status for #{key}" } }
+  let(:connection) { Senec::Local::Connection.new(host: 'senec', schema: 'https') }
 
   context 'with a valid connection', vcr: 'local/request' do
     subject(:request) { described_class.new(connection:, state_names:) }
-
-    let(:connection) { Senec::Local::Connection.new(host: 'senec', schema: 'https') }
 
     describe '#house_power' do
       subject { request.house_power }
@@ -131,6 +130,35 @@ RSpec.describe Senec::Local::Request do
 
     it 'raises an error' do
       expect { request.house_power }.to raise_error(Senec::Local::Error, '404')
+    end
+  end
+
+  context 'when body is customized', vcr: 'local/request-custom' do
+    subject(:request) do
+      described_class.new(
+        connection:,
+        body: {
+          WIZARD: {
+            PWRCFG_PEAK_PV_POWER: ''
+          }
+        },
+      )
+    end
+
+    describe '#get' do
+      context 'when key exists' do
+        subject(:get) { request.get('WIZARD', 'PWRCFG_PEAK_PV_POWER') }
+
+        it { is_expected.to be_a(Float) }
+      end
+
+      context 'when key does not exist' do
+        subject(:get) { request.get('foo', 'bar') }
+
+        it 'raises an error' do
+          expect { get }.to raise_error(Senec::Local::Error, 'Value missing for foo.bar')
+        end
+      end
     end
   end
 end

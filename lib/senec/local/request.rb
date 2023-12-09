@@ -4,12 +4,13 @@ require_relative 'constants'
 module Senec
   module Local
     class Request
-      def initialize(connection:, state_names: nil)
+      def initialize(connection:, body: BASIC_REQUEST, state_names: nil)
         @connection = connection
+        @body = body
         @state_names = state_names
       end
 
-      attr_reader :connection, :state_names
+      attr_reader :connection, :body, :state_names
 
       def house_power
         get('ENERGY', 'GUI_HOUSE_POW')
@@ -80,8 +81,6 @@ module Senec
         raw_response.env[:duration]
       end
 
-      private
-
       def get(*keys)
         return unless parsed_response
 
@@ -99,6 +98,8 @@ module Senec
       rescue Senec::Local::DecodingError => e
         raise Error, "Decoding failed for #{keys.join('.')}: #{e.message}"
       end
+
+      private
 
       def parsed_response
         @parsed_response ||= JSON.parse(raw_response.body)
@@ -118,7 +119,7 @@ module Senec
       end
 
       def request_body
-        JSON.generate(BASIC_REQUEST)
+        JSON.generate(body)
       end
 
       def request_header
