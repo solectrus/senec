@@ -1,6 +1,6 @@
 module Senec
   module Local
-    # For a full list of available vars, see http://[IP-of-your-SENEC]/vars.html
+    # For a full list of available vars, see https://[IP-of-your-SENEC]//Vars.html
     # Comments taken from https://gist.github.com/smashnet/82ad0b9d7f0ba2e5098e6649ba08f88a
     BASIC_REQUEST = {
       ENERGY: {
