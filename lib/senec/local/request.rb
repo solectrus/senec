@@ -12,6 +12,11 @@ module Senec
 
       attr_reader :connection, :body, :state_names
 
+      def perform!
+        parsed_response
+        true
+      end
+
       def house_power
         get('ENERGY', 'GUI_HOUSE_POW')
       end

@@ -1,0 +1,37 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://senec/lala.cgi
+    body:
+      encoding: UTF-8
+      string: '{"ENERGY":{"SAFE_CHARGE_FORCE":"","SAFE_CHARGE_PROHIBIT":"u8_01","SAFE_CHARGE_RUNNING":"","LI_STORAGE_MODE_START":"","LI_STORAGE_MODE_STOP":"","LI_STORAGE_MODE_RUNNING":""}}'
+    headers:
+      Connection:
+      - keep-alive
+      User-Agent:
+      - Faraday v2.7.12
+      Content-Type:
+      - application/x-www-form-urlencoded; charset=UTF-8
+      Accept:
+      - application/json, text/javascript, */*; q=0.01
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx/1.17.7
+      date:
+      - Sat, 09 Dec 2023 19:08:04 GMT
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"ENERGY":{"SAFE_CHARGE_FORCE":"u8_00","SAFE_CHARGE_PROHIBIT":"u8_01","SAFE_CHARGE_RUNNING":"u8_01","LI_STORAGE_MODE_START":"u8_00","LI_STORAGE_MODE_STOP":"u8_00","LI_STORAGE_MODE_RUNNING":"u8_00"}}'
+  recorded_at: Sat, 09 Dec 2023 19:08:04 GMT
+recorded_with: VCR 6.2.0

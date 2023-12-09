@@ -32,5 +32,27 @@ module Senec
         APPARENT_CHARGING_POWER: ''
       }
     }.freeze
+
+    SAFETY_CHARGE = {
+      ENERGY: {
+        SAFE_CHARGE_FORCE: 'u8_01',
+        SAFE_CHARGE_PROHIBIT: '',
+        SAFE_CHARGE_RUNNING: '',
+        LI_STORAGE_MODE_START: '',
+        LI_STORAGE_MODE_STOP: '',
+        LI_STORAGE_MODE_RUNNING: ''
+      }
+    }.freeze
+
+    ALLOW_DISCHARGE = {
+      ENERGY: {
+        SAFE_CHARGE_FORCE: '',
+        SAFE_CHARGE_PROHIBIT: 'u8_01',
+        SAFE_CHARGE_RUNNING: '',
+        LI_STORAGE_MODE_START: '',
+        LI_STORAGE_MODE_STOP: '',
+        LI_STORAGE_MODE_RUNNING: ''
+      }
+    }.freeze
   end
 end

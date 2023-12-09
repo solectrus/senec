@@ -133,6 +133,36 @@ RSpec.describe Senec::Local::Request do
     end
   end
 
+  context 'when safety-charge', vcr: 'local/request-safety-charge' do
+    subject(:request) do
+      described_class.new(
+        connection:,
+        body: Senec::Local::SAFETY_CHARGE,
+      )
+    end
+
+    describe '#perform' do
+      subject(:perform) { request.perform! }
+
+      it { is_expected.to be(true) }
+    end
+  end
+
+  context 'when allow-discharge', vcr: 'local/request-allow-discharge' do
+    subject(:request) do
+      described_class.new(
+        connection:,
+        body: Senec::Local::ALLOW_DISCHARGE,
+      )
+    end
+
+    describe '#perform' do
+      subject(:perform) { request.perform! }
+
+      it { is_expected.to be(true) }
+    end
+  end
+
   context 'when body is customized', vcr: 'local/request-custom' do
     subject(:request) do
       described_class.new(
