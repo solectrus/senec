@@ -104,6 +104,10 @@ module Senec
         raise Error, "Decoding failed for #{keys.join('.')}: #{e.message}"
       end
 
+      def path
+        '/lala.cgi'
+      end
+
       private
 
       def parsed_response
@@ -112,15 +116,11 @@ module Senec
 
       def raw_response
         @raw_response ||= begin
-          response = connection.post(url, request_body, request_header)
+          response = connection.post(path, request_body, request_header)
           raise Error, response.status unless response.success?
 
           response
         end
-      end
-
-      def url
-        '/lala.cgi'
       end
 
       def request_body

@@ -10,6 +10,8 @@ module Senec
         @url = "#{schema}://#{host}"
       end
 
+      attr_reader :url
+
       extend Forwardable
       def_delegators :faraday, :get, :post
 
