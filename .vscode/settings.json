@@ -12,7 +12,7 @@
   },
 
   "[ruby]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "Shopify.ruby-lsp",
     "editor.formatOnSave": true
   }
 }
