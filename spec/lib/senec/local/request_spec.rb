@@ -74,7 +74,7 @@ RSpec.describe Senec::Local::Request do
     describe '#application_version' do
       subject { request.application_version }
 
-      it { is_expected.to eq('0825') }
+      it { is_expected.to eq('0826') }
     end
 
     describe '#current_state_code' do

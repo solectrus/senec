@@ -17,7 +17,7 @@ http_interactions:
       message: ''
     headers:
       date:
-      - Sun, 26 Nov 2023 14:04:00 GMT
+      - Mon, 11 Dec 2023 10:45:01 GMT
       content-type:
       - application/json
       transfer-encoding:
@@ -43,7 +43,7 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"token":"<TOKEN>","refreshToken":""}'
-  recorded_at: Sun, 26 Nov 2023 14:04:00 GMT
+  recorded_at: Mon, 11 Dec 2023 10:45:01 GMT
 - request:
     method: get
     uri: https://app-gateway.prod.senec.dev/v1/senec/systems/<SENEC_SYSTEM_ID>/dashboard
@@ -61,7 +61,7 @@ http_interactions:
       message: ''
     headers:
       date:
-      - Sun, 26 Nov 2023 14:04:00 GMT
+      - Mon, 11 Dec 2023 10:45:01 GMT
       content-type:
       - application/json
       transfer-encoding:
@@ -86,6 +86,6 @@ http_interactions:
       - DENY
     body:
       encoding: UTF-8
-      string: '{"aktuell":{"stromerzeugung":{"wert":93.439,"einheit":"W"},"stromverbrauch":{"wert":2210.0,"einheit":"W"},"netzeinspeisung":{"wert":0.01,"einheit":"W"},"netzbezug":{"wert":2087.767,"einheit":"W"},"speicherbeladung":{"wert":0.01,"einheit":"W"},"speicherentnahme":{"wert":11.68,"einheit":"W"},"speicherfuellstand":{"wert":1.0E-5,"einheit":"%"},"autarkie":{"wert":5.92,"einheit":"%"},"wallbox":{"wert":0.01,"einheit":"W"}},"heute":{"stromerzeugung":{"wert":3257.8125,"einheit":"Wh"},"stromverbrauch":{"wert":16110.0,"einheit":"Wh"},"netzeinspeisung":{"wert":13.671875,"einheit":"Wh"},"netzbezug":{"wert":12798.828125,"einheit":"Wh"},"speicherbeladung":{"wert":119.140625,"einheit":"Wh"},"speicherentnahme":{"wert":192.3828125,"einheit":"Wh"},"speicherfuellstand":{"wert":0.0,"einheit":"%"},"autarkie":{"wert":20.57,"einheit":"%"},"wallbox":{"wert":0.0,"einheit":"Wh"}},"zeitstempel":"2023-11-26T14:03:38Z","electricVehicleConnected":false}'
-  recorded_at: Sun, 26 Nov 2023 14:04:00 GMT
+      string: '{"aktuell":{"stromerzeugung":{"wert":373.75399999999996,"einheit":"W"},"stromverbrauch":{"wert":930.0,"einheit":"W"},"netzeinspeisung":{"wert":0.01,"einheit":"W"},"netzbezug":{"wert":560.631,"einheit":"W"},"speicherbeladung":{"wert":0.01,"einheit":"W"},"speicherentnahme":{"wert":11.68,"einheit":"W"},"speicherfuellstand":{"wert":1.0E-5,"einheit":"%"},"autarkie":{"wert":40.0,"einheit":"%"},"wallbox":{"wert":0.01,"einheit":"W"}},"heute":{"stromerzeugung":{"wert":1250.0,"einheit":"Wh"},"stromverbrauch":{"wert":8870.0,"einheit":"Wh"},"netzeinspeisung":{"wert":13.671875,"einheit":"Wh"},"netzbezug":{"wert":7550.78125,"einheit":"Wh"},"speicherbeladung":{"wert":76.171875,"einheit":"Wh"},"speicherentnahme":{"wert":162.59765625,"einheit":"Wh"},"speicherfuellstand":{"wert":0.0,"einheit":"%"},"autarkie":{"wert":14.87,"einheit":"%"},"wallbox":{"wert":0.0,"einheit":"Wh"}},"zeitstempel":"2023-12-11T10:43:09Z","electricVehicleConnected":false}'
+  recorded_at: Mon, 11 Dec 2023 10:45:01 GMT
 recorded_with: VCR 6.2.0

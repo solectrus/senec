@@ -23,7 +23,7 @@ http_interactions:
       server:
       - nginx/1.17.7
       date:
-      - Sat, 09 Dec 2023 18:32:12 GMT
+      - Mon, 11 Dec 2023 10:36:06 GMT
       content-type:
       - application/json; charset=utf-8
       transfer-encoding:
@@ -33,5 +33,5 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"WIZARD":{"PWRCFG_PEAK_PV_POWER":"fl_46106000"}}'
-  recorded_at: Sat, 09 Dec 2023 18:32:12 GMT
+  recorded_at: Mon, 11 Dec 2023 10:36:05 GMT
 recorded_with: VCR 6.2.0
