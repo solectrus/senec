@@ -1,10 +1,6 @@
 module Senec
   module Cloud
     class Connection
-      def self.authenticate(username:, password:)
-        new(username:, password:).tap(&:authenticated?)
-      end
-
       def initialize(username:, password:)
         @username = username
         @password = password

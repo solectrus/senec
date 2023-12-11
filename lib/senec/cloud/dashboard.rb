@@ -47,17 +47,13 @@ module Senec
       def load_data
         raise 'Data already present!' if @data
 
-        @system_id ||= default_system_id
+        @system_id ||= connection.default_system_id
         @data = fetch_data
       end
 
       attr_reader :system_id, :data
 
       private
-
-      def default_system_id
-        @connection.default_system_id
-      end
 
       def get(path, params: nil)
         @connection.get(path, params:)
