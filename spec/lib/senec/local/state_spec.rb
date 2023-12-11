@@ -1,10 +1,6 @@
 RSpec.describe Senec::Local::State do
   subject(:state) { described_class.new(connection:) }
 
-  before do
-    VCR.turn_off!
-  end
-
   let(:connection) { Senec::Local::Connection.new(host: 'senec', schema: 'https') }
 
   # Dummy response from the SENEC web interface JavaScript file
