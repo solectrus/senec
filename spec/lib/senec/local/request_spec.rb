@@ -163,8 +163,8 @@ RSpec.describe Senec::Local::Request do
     end
   end
 
-  context 'when body is customized', vcr: 'local/request-custom' do
-    subject(:request) do
+  context 'when body is customized' do
+    let(:request) do
       described_class.new(
         connection:,
         body: {
@@ -176,17 +176,34 @@ RSpec.describe Senec::Local::Request do
     end
 
     describe '#get' do
-      context 'when key exists' do
+      context 'when key exists', vcr: 'local/request-custom' do
         subject(:get) { request.get('WIZARD', 'PWRCFG_PEAK_PV_POWER') }
 
         it { is_expected.to be_a(Float) }
       end
 
-      context 'when key does not exist' do
+      context 'when key does not exist', vcr: 'local/request-custom' do
         subject(:get) { request.get('foo', 'bar') }
 
         it 'raises an error' do
           expect { get }.to raise_error(Senec::Local::Error, 'Value missing for foo.bar')
+        end
+      end
+
+      context 'when value cannot be decoded' do
+        subject(:get) { request.get('WIZARD', 'PWRCFG_PEAK_PV_POWER') }
+
+        before do
+          stub_request(:any, "#{connection.url}#{request.path}").to_return(body: {
+            'WIZARD' => {
+              'PWRCFG_PEAK_PV_POWER' => 'invalid'
+            }
+          }.to_json)
+        end
+
+        it 'raises an error' do
+          expect { get }.to raise_error(Senec::Local::Error,
+                                        "Decoding failed for WIZARD.PWRCFG_PEAK_PV_POWER: Unknown value 'invalid'",)
         end
       end
     end
