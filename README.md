@@ -142,7 +142,7 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/solect
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
-Copyright (c) 2020,2023 Georg Ledermann
+Copyright (c) 2020-2024 Georg Ledermann
 
 ## Code of Conduct
 
