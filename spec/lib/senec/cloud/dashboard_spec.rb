@@ -73,6 +73,21 @@ RSpec.describe Senec::Cloud::Dashboard do
         it 'fetches the data' do
           expect(dashboard.data).to include('aktuell', 'heute')
         end
+
+        it 'fetches data with keys' do
+          expected_keys = %w[
+            stromerzeugung stromverbrauch
+            netzeinspeisung netzbezug
+            speicherbeladung speicherentnahme
+            speicherfuellstand
+            autarkie
+            wallbox
+          ]
+
+          %w[aktuell heute].each do |key|
+            expect(dashboard.data[key].keys).to match_array(expected_keys)
+          end
+        end
       end
 
       context 'with INVALID system_id', vcr: 'cloud/fetch-dashboard-invalid-system' do
