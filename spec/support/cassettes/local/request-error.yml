@@ -10,7 +10,7 @@ http_interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - Faraday v2.7.12
+      - Faraday v2.9.0
       Content-Type:
       - application/x-www-form-urlencoded; charset=UTF-8
       Accept:
@@ -25,9 +25,9 @@ http_interactions:
       content-type:
       - text/html; charset=UTF-8
       date:
-      - Mon, 11 Dec 2023 10:36:05 GMT
+      - Mon, 22 Jan 2024 10:08:14 GMT
       expires:
-      - Mon, 18 Dec 2023 10:36:05 GMT
+      - Mon, 29 Jan 2024 10:08:14 GMT
       server:
       - EOS (vny/0450)
       content-length:
@@ -39,5 +39,5 @@ http_interactions:
         xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\n\t<head>\n\t\t<title>404
         - Not Found</title>\n\t</head>\n\t<body>\n\t\t<h1>404 - Not Found</h1>\n\t\t<script
         type=\"text/javascript\" src=\"//obj.ac.bcon.ecdns.net/ec_tpm_bcon.js\"></script>\n\t</body>\n</html>\n"
-  recorded_at: Mon, 11 Dec 2023 10:36:05 GMT
+  recorded_at: Mon, 22 Jan 2024 10:08:14 GMT
 recorded_with: VCR 6.2.0

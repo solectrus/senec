@@ -8,7 +8,7 @@ http_interactions:
       string: '{"username":"<SENEC_USERNAME>","password":"<SENEC_PASSWORD>"}'
     headers:
       User-Agent:
-      - Faraday v2.7.12
+      - Faraday v2.9.0
       Content-Type:
       - application/json
   response:
@@ -17,7 +17,7 @@ http_interactions:
       message: ''
     headers:
       date:
-      - Sun, 26 Nov 2023 14:03:58 GMT
+      - Mon, 22 Jan 2024 10:08:10 GMT
       content-type:
       - application/json
       transfer-encoding:
@@ -43,7 +43,7 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"token":"<TOKEN>","refreshToken":""}'
-  recorded_at: Sun, 26 Nov 2023 14:03:58 GMT
+  recorded_at: Mon, 22 Jan 2024 10:08:10 GMT
 - request:
     method: get
     uri: https://app-gateway.prod.senec.dev/v1/senec/systems
@@ -52,7 +52,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v2.7.12
+      - Faraday v2.9.0
       Authorization:
       - "<TOKEN>"
   response:
@@ -61,7 +61,7 @@ http_interactions:
       message: ''
     headers:
       date:
-      - Sun, 26 Nov 2023 14:03:59 GMT
+      - Mon, 22 Jan 2024 10:08:10 GMT
       content-type:
       - application/json
       transfer-encoding:
@@ -87,7 +87,7 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '[{"id":"<SENEC_SYSTEM_ID>","steuereinheitnummer":"<steuereinheitnummer>","gehaeusenummer":"<gehaeusenummer>","strasse":"<strasse>","hausnummer":"<hausnummer>","postleitzahl":"<postleitzahl>","ort":"<ort>","laendercode":"DE","zeitzone":"Europe/Berlin","wallboxIds":["1"],"systemType":"V3"}]'
-  recorded_at: Sun, 26 Nov 2023 14:03:59 GMT
+  recorded_at: Mon, 22 Jan 2024 10:08:10 GMT
 - request:
     method: get
     uri: https://app-gateway.prod.senec.dev/v1/senec/systems
@@ -96,7 +96,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v2.7.12
+      - Faraday v2.9.0
       Authorization:
       - "<TOKEN>"
   response:
@@ -105,7 +105,7 @@ http_interactions:
       message: ''
     headers:
       date:
-      - Sun, 26 Nov 2023 14:03:59 GMT
+      - Mon, 22 Jan 2024 10:08:10 GMT
       content-type:
       - application/json
       transfer-encoding:
@@ -131,7 +131,7 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '[{"id":"<SENEC_SYSTEM_ID>","steuereinheitnummer":"<steuereinheitnummer>","gehaeusenummer":"<gehaeusenummer>","strasse":"<strasse>","hausnummer":"<hausnummer>","postleitzahl":"<postleitzahl>","ort":"<ort>","laendercode":"DE","zeitzone":"Europe/Berlin","wallboxIds":["1"],"systemType":"V3"}]'
-  recorded_at: Sun, 26 Nov 2023 14:03:59 GMT
+  recorded_at: Mon, 22 Jan 2024 10:08:10 GMT
 - request:
     method: get
     uri: https://app-gateway.prod.senec.dev/v1/senec/systems/<SENEC_SYSTEM_ID>/dashboard
@@ -140,7 +140,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v2.7.12
+      - Faraday v2.9.0
       Authorization:
       - "<TOKEN>"
   response:
@@ -149,7 +149,7 @@ http_interactions:
       message: ''
     headers:
       date:
-      - Sun, 26 Nov 2023 14:04:00 GMT
+      - Mon, 22 Jan 2024 10:08:11 GMT
       content-type:
       - application/json
       transfer-encoding:
@@ -174,6 +174,6 @@ http_interactions:
       - DENY
     body:
       encoding: UTF-8
-      string: '{"aktuell":{"stromerzeugung":{"wert":93.439,"einheit":"W"},"stromverbrauch":{"wert":2210.0,"einheit":"W"},"netzeinspeisung":{"wert":0.01,"einheit":"W"},"netzbezug":{"wert":2087.767,"einheit":"W"},"speicherbeladung":{"wert":0.01,"einheit":"W"},"speicherentnahme":{"wert":11.68,"einheit":"W"},"speicherfuellstand":{"wert":1.0E-5,"einheit":"%"},"autarkie":{"wert":5.92,"einheit":"%"},"wallbox":{"wert":0.01,"einheit":"W"}},"heute":{"stromerzeugung":{"wert":3257.8125,"einheit":"Wh"},"stromverbrauch":{"wert":16110.0,"einheit":"Wh"},"netzeinspeisung":{"wert":13.671875,"einheit":"Wh"},"netzbezug":{"wert":12798.828125,"einheit":"Wh"},"speicherbeladung":{"wert":119.140625,"einheit":"Wh"},"speicherentnahme":{"wert":192.3828125,"einheit":"Wh"},"speicherfuellstand":{"wert":0.0,"einheit":"%"},"autarkie":{"wert":20.57,"einheit":"%"},"wallbox":{"wert":0.0,"einheit":"Wh"}},"zeitstempel":"2023-11-26T14:03:38Z","electricVehicleConnected":false}'
-  recorded_at: Sun, 26 Nov 2023 14:03:59 GMT
+      string: '{"aktuell":{"stromerzeugung":{"wert":835.3960000000001,"einheit":"W"},"stromverbrauch":{"wert":1050.0,"einheit":"W"},"netzeinspeisung":{"wert":23.205,"einheit":"W"},"netzbezug":{"wert":5.801,"einheit":"W"},"speicherbeladung":{"wert":0.01,"einheit":"W"},"speicherentnahme":{"wert":203.048,"einheit":"W"},"speicherfuellstand":{"wert":1.0E-5,"einheit":"%"},"autarkie":{"wert":99.45,"einheit":"%"},"wallbox":{"wert":0.01,"einheit":"W"}},"heute":{"stromerzeugung":{"wert":1722.65625,"einheit":"Wh"},"stromverbrauch":{"wert":9990.0,"einheit":"Wh"},"netzeinspeisung":{"wert":113.28125,"einheit":"Wh"},"netzbezug":{"wert":8470.21484375,"einheit":"Wh"},"speicherbeladung":{"wert":355.95703125,"einheit":"Wh"},"speicherentnahme":{"wert":275.390625,"einheit":"Wh"},"speicherfuellstand":{"wert":0.01507613342255354,"einheit":"%"},"autarkie":{"wert":15.26,"einheit":"%"},"wallbox":{"wert":0.0,"einheit":"Wh"}},"zeitstempel":"2024-01-22T10:07:04Z","electricVehicleConnected":false}'
+  recorded_at: Mon, 22 Jan 2024 10:08:11 GMT
 recorded_with: VCR 6.2.0
