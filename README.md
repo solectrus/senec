@@ -36,7 +36,7 @@ puts connection.systems
 
 # => [{"id"=>"123456", "steuereinheitnummer"=>"S123XXX", "gehaeusenummer"=>"DE-V3-XXXX", "strasse"=>"Musterstraße", "hausnummer"=>"27a", "postleitzahl"=>"99999", "ort"=>"Musterort", "laendercode"=>"DE", "zeitzone"=>"Europe/Berlin", "wallboxIds"=>["1"], "systemType"=>"V3"}]
 
-# Get the data of first systems (without knowing the ID):
+# Get the Dashboard data of first systems (without knowing the ID):
 puts Senec::Cloud::Dashboard[connection].first.data
 
 # => {"aktuell"=>
@@ -62,13 +62,24 @@ puts Senec::Cloud::Dashboard[connection].first.data
 #  "zeitstempel"=>"2023-11-26T18:45:23Z",
 #  "electricVehicleConnected"=>false}
 
-
-# Get the data of a specific system (by ID):
-puts Senc::Cloud::Dashboard[connection].find("123456").data
+# Get the Dashboard data of a specific system (by ID):
+puts Senec::Cloud::Dashboard[connection].find("123456").data
 
 # => {"aktuell"=>
 #   {"stromerzeugung"=>{"wert"=>0.01, "einheit"=>"W"},
 # ....
+
+# Get the Technical Data of a specific system (by ID):
+
+puts Senec::Cloud::TechnicalData[connection].find("123456").data
+
+# => {"systemOverview"=>{"systemId"=>123456, "productName"=>"SENEC.Home V3 hybrid duo", ...
+
+# Get the Technical Data of first systems (without knowing the ID):
+
+puts Senec::Cloud::TechnicalData[connection].first.data
+
+# => {"systemOverview"=>{"systemId"=>123456, "productName"=>"SENEC.Home V3 hybrid duo", ...
 ```
 
 ### Local access (V2.1 and V3 only)

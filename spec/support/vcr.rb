@@ -9,6 +9,29 @@ SENSITIVE_DATA = [
   [0, 'hausnummer'],
   [0, 'postleitzahl'],
   [0, 'ort'],
+  # Technical data
+  %w[systemOverview systemId],
+  %w[systemOverview productName],
+  %w[systemOverview installationDate],
+  %w[casing serial],
+  %w[mcu mainControllerSerial],
+  %w[warranty endDate],
+  %w[warranty warrantyTermInMonths],
+  ['batteryModules', 0, 'serialNumber'],
+  ['batteryModules', 1, 'serialNumber'],
+  ['batteryModules', 2, 'serialNumber'],
+  ['batteryModules', 3, 'serialNumber'],
+  %w[installer companyName],
+  %w[installer email],
+  %w[installer phoneNumber],
+  %w[installer address street],
+  %w[installer address houseNumber],
+  %w[installer address postcode],
+  %w[installer address city],
+  %w[installer address region],
+  %w[installer address longitude],
+  %w[installer address latitude],
+  %w[installer website]
 ].freeze
 
 VCR.configure do |config|
