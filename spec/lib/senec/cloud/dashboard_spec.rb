@@ -40,7 +40,7 @@ RSpec.describe Senec::Cloud::Dashboard do
   end
 
   describe 'Finder' do
-    describe '#first', vcr: 'fetch-dashboard-default-system' do
+    describe '#first', vcr: 'cloud/fetch-dashboard-default-system' do
       subject(:dashboard) { finder.first }
 
       it 'returns a Dashboard instance' do
@@ -56,7 +56,7 @@ RSpec.describe Senec::Cloud::Dashboard do
       end
     end
 
-    describe '#find', vcr: 'fetch-dashboard-specific-system' do
+    describe '#find', vcr: 'cloud/fetch-dashboard-specific-system' do
       subject(:dashboard) { finder.find(system_id) }
 
       context 'with VALID system_id', vcr: 'cloud/fetch-dashboard-specific-system' do
