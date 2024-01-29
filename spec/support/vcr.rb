@@ -1,16 +1,44 @@
 require 'vcr'
 
+SENSITIVE_DATA = [
+  # Systems
+  [0, 'id'],
+  [0, 'steuereinheitnummer'],
+  [0, 'gehaeusenummer'],
+  [0, 'strasse'],
+  [0, 'hausnummer'],
+  [0, 'postleitzahl'],
+  [0, 'ort'],
+].freeze
+
 VCR.configure do |config|
   config.hook_into :webmock
   config.hook_into :faraday
   config.cassette_library_dir = 'spec/support/cassettes'
   config.configure_rspec_metadata!
 
-  %w[SENEC_USERNAME SENEC_PASSWORD SENEC_SYSTEM_ID].each do |env_var|
-    config.filter_sensitive_data("<#{env_var}>") { ENV.fetch(env_var) }
+  VCR::HTTPInteraction::HookAware.class_eval do
+    def senec_cloud?
+      request.uri.include?('senec.dev')
+    end
+  end
+
+  sensitive_environment_variables = %w[
+    SENEC_USERNAME
+    SENEC_PASSWORD
+    SENEC_SYSTEM_ID
+  ]
+  sensitive_environment_variables.each do |key_name|
+    config.filter_sensitive_data("<#{key_name}>") do |interaction|
+      next unless interaction.senec_cloud?
+
+      ENV.fetch(key_name)
+    end
   end
 
   config.filter_sensitive_data('<TOKEN>') do |interaction|
+    next unless interaction.senec_cloud?
+
     if interaction.response.body.include?('token')
       JSON.parse(interaction.response.body)['token']
     elsif interaction.request.headers.include?('Authorization')
@@ -18,34 +46,51 @@ VCR.configure do |config|
     end
   end
 
-  %w[
-    steuereinheitnummer
-    gehaeusenummer
-    strasse
-    hausnummer
-    postleitzahl
-    ort
-  ].each do |key|
-    config.filter_sensitive_data("<#{key}>") do |interaction|
-      if interaction.response.body.include?("\"#{key}\"")
-        JSON.parse(interaction.response.body).first[key]
-      end
-    end
-  end
+  # :nocov:
+  config.before_record do |interaction|
+    next unless interaction.senec_cloud?
 
-  config.filter_sensitive_data('<SENEC_SYSTEM_ID>') do |interaction|
-    if interaction.response.body.include?('id')
-      JSON.parse(interaction.response.body).first['id']
+    # Bring back the original SENEC_SYSTEM_ID to the body. It will be replaced again later, but as String (not number)
+    response_body = interaction.response.body.gsub('<SENEC_SYSTEM_ID>', ENV.fetch('SENEC_SYSTEM_ID'))
+
+    json_data = begin
+      JSON.parse(response_body)
+    rescue JSON::ParserError
+      nil
     end
+    unless json_data.is_a?(Hash) || json_data.is_a?(Array)
+      next
+    end
+
+    SENSITIVE_DATA.each do |path|
+      # Use dig to navigate to the target, but stop one level before the final key
+      target = begin
+        json_data.dig(*path[0...-1])
+      rescue TypeError
+        nil
+      end
+
+      # Check if we have an actual target to work with
+      next unless target
+
+      # Depending on the target's type, update it accordingly
+      target[path.last] = if path.last == 'id'
+                            '<SENEC_SYSTEM_ID>'
+                          else
+                            '<FILTERED>'
+                          end
+    end
+
+    # Update the interaction response with the modified data
+    interaction.response.body = json_data.to_json
   end
+  # :nocov:
 
   record_mode = ENV['VCR'] ? ENV['VCR'].to_sym : :once
   config.default_cassette_options = {
     record: record_mode,
     allow_playback_repeats: true
   }
-
-  config.ignore_localhost = true
 end
 
 # Disable VCR when a WebMock stub is created
