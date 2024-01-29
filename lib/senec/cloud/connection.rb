@@ -1,9 +1,10 @@
 module Senec
   module Cloud
     class Connection
-      def initialize(username:, password:)
+      def initialize(username:, password:, token: nil)
         @username = username
         @password = password
+        @token = token
       end
 
       attr_reader :username, :password
@@ -34,11 +35,11 @@ module Senec
         end
       end
 
-      private
-
       def token
         @token ||= login['token']
       end
+
+      private
 
       def login
         post('/v1/senec/login', { username:, password: })

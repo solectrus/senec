@@ -1,8 +1,9 @@
 RSpec.describe Senec::Cloud::Connection, :vcr do
-  subject(:connection) { described_class.new(username:, password:) }
+  subject(:connection) { described_class.new(username:, password:, token:) }
 
   let(:username) { ENV.fetch('SENEC_USERNAME') }
   let(:password) { ENV.fetch('SENEC_PASSWORD') }
+  let(:token) { nil }
   let(:system_id) { ENV.fetch('SENEC_SYSTEM_ID') }
 
   describe '#authenticated?' do
@@ -16,6 +17,26 @@ RSpec.describe Senec::Cloud::Connection, :vcr do
       let(:password) { 'wrongpassword' }
 
       it { expect { authenticated? }.to raise_error('Error 400') }
+    end
+
+    context 'when valid token is given', vcr: 'cloud/login-valid' do
+      let(:token) { described_class.new(username:, password:).token }
+
+      it { is_expected.to be_truthy }
+
+      it 'can access data', vcr: 'cloud/login-by-valid-token' do
+        expect(connection.systems).to be_a(Array)
+      end
+    end
+
+    context 'when invvalid token is given' do
+      let(:token) { 'Z3VwcmdAcGVkZXJtYW9uLnRldjpnNzVybnd4M5k=' } # Fake token
+
+      it { is_expected.to be_truthy }
+
+      it 'cannot access data', vcr: 'cloud/login-by-invalid-token' do
+        expect { connection.systems }.to raise_error(Senec::Cloud::Error, 'Error 400')
+      end
     end
   end
 
