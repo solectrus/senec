@@ -1,7 +1,9 @@
 RSpec.describe Senec::Local::State do
   subject(:state) { described_class.new(connection:) }
 
-  let(:connection) { Senec::Local::Connection.new(host: 'senec', schema: 'https') }
+  let(:connection) do
+    Senec::Local::Connection.new(host: ENV.fetch('SENEC_HOST', nil), schema: ENV.fetch('SENEC_SCHEMA'))
+  end
 
   # Dummy response from the SENEC web interface JavaScript file
   def mock_response

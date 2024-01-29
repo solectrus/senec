@@ -1,6 +1,8 @@
 RSpec.describe Senec::Local::Request do
   let(:state_names) { Hash.new { |hash, key| hash[key] = "Status for #{key}" } }
-  let(:connection) { Senec::Local::Connection.new(host: 'senec', schema: 'https') }
+  let(:connection) do
+    Senec::Local::Connection.new(host: ENV.fetch('SENEC_HOST', nil), schema: ENV.fetch('SENEC_SCHEMA'))
+  end
 
   context 'with a valid connection', vcr: 'local/request' do
     subject(:request) { described_class.new(connection:, state_names:) }
@@ -116,7 +118,9 @@ RSpec.describe Senec::Local::Request do
   context 'when schema mismatch', vcr: 'local/schema-mismatch' do
     subject(:request) { described_class.new(connection:, state_names:) }
 
-    let(:connection) { Senec::Local::Connection.new(host: 'senec', schema: 'http') }
+    let(:connection) do
+      Senec::Local::Connection.new(host: ENV.fetch('SENEC_HOST', nil), schema: 'http')
+    end
 
     it 'raises an error' do
       expect { request.house_power }.to raise_error(Faraday::ConnectionFailed)
