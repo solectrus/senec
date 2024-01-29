@@ -3,6 +3,12 @@ source 'https://rubygems.org'
 # Specify your gem's dependencies in senec.gemspec
 gemspec
 
+# Support for encoding and decoding binary data using a Base64 representation. (https://github.com/ruby/base64)
+gem 'base64'
+
+# Arbitrary-precision decimal floating-point number library. (https://github.com/ruby/bigdecimal)
+gem 'bigdecimal'
+
 # Rake is a Make-like program implemented in Ruby (https://github.com/ruby/rake)
 gem 'rake'
 
