@@ -1,8 +1,10 @@
 RSpec.describe Senec::Local::State do
   subject(:state) { described_class.new(connection:) }
 
+  let(:senec_host) { ENV.fetch('SENEC_HOST', nil) }
+
   let(:connection) do
-    Senec::Local::Connection.new(host: ENV.fetch('SENEC_HOST', nil), schema: ENV.fetch('SENEC_SCHEMA'))
+    Senec::Local::Connection.new(host: senec_host, schema: ENV.fetch('SENEC_SCHEMA'))
   end
 
   # Dummy response from the SENEC web interface JavaScript file
@@ -41,7 +43,7 @@ RSpec.describe Senec::Local::State do
       let(:language) { :en }
 
       before do
-        stub_request(:any, 'https://senec/js/EN-en.js').to_return(body: mock_response)
+        stub_request(:any, "https://#{senec_host}/js/EN-en.js").to_return(body: mock_response)
       end
 
       it { is_expected.to eq(expected_hash) }
@@ -51,7 +53,7 @@ RSpec.describe Senec::Local::State do
       let(:language) { :de }
 
       before do
-        stub_request(:any, 'https://senec/js/DE-de.js').to_return(body: mock_response)
+        stub_request(:any, "https://#{senec_host}/js/DE-de.js").to_return(body: mock_response)
       end
 
       it { is_expected.to eq(expected_hash) }
@@ -61,7 +63,7 @@ RSpec.describe Senec::Local::State do
       let(:language) { :it }
 
       before do
-        stub_request(:any, 'https://senec/js/IT-it.js').to_return(body: mock_response)
+        stub_request(:any, "https://#{senec_host}/js/IT-it.js").to_return(body: mock_response)
       end
 
       it { is_expected.to eq(expected_hash) }
