@@ -11,9 +11,9 @@ Gem::Specification.new do |spec|
   spec.homepage      = 'https://github.com/solectrus/senec'
   spec.license       = 'MIT'
   spec.required_ruby_version = Gem::Requirement.new('>= 3.2.0')
-  spec.add_runtime_dependency 'faraday'
-  spec.add_runtime_dependency 'faraday-net_http_persistent'
-  spec.add_runtime_dependency 'faraday-request-timer'
+  spec.add_dependency 'faraday'
+  spec.add_dependency 'faraday-net_http_persistent'
+  spec.add_dependency 'faraday-request-timer'
 
   spec.metadata['homepage_uri'] = spec.homepage
   spec.metadata['source_code_uri'] = 'https://github.com/solectrus/senec'
