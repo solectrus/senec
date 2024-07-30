@@ -31,7 +31,7 @@ jobs:
         run: bundle exec dotenv -f ".env.test" rspec
 
       - name: Send test coverage to CodeClimate
-        uses: paambaati/codeclimate-action@v5.0.0
+        uses: paambaati/codeclimate-action@v8
         if: ${{ env.CC_TEST_REPORTER_ID }}
         with:
           coverageCommand: true
