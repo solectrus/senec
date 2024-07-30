@@ -15,18 +15,30 @@ module Senec
       #   ...
       #  };
       def names(language: :de)
-        response(language:).match(FILE_REGEX)[0].split("\n").each_with_object({}) do |line, hash|
-          key, value = line.match(LINE_REGEX)&.captures
-          next unless key && value
+        js_content = response(language:)
 
-          hash[key.to_i] = value
-        end
+        # Extract the matched content
+        match = js_content.match(FILE_REGEX)
+        return unless match
+
+        # Extract the JSON-like part
+        json_like = "{#{match[1]}}"
+
+        # The keys are numbers, which is not valid JSON, so we need to convert them to strings
+        json = json_like.gsub(/(\d+)\s*:/, '"\1":')
+
+        # Convert the JSON string to a Ruby hash
+        hash = JSON.parse(json)
+
+        # Convert keys from strings to integers
+        hash.transform_keys(&:to_i)
       end
 
       private
 
-      FILE_REGEX = /var system_state_name = \{(.*?)\};/m
-      LINE_REGEX = /(\d+)\s*:\s*"(.*)"/
+      # Regex pattern to match the system_state_name definition in the JavaScript file
+      # The file may be minimized, so we need to be flexible with whitespace and line breaks
+      FILE_REGEX = /system_state_name\s*=\s*{\s*([^}]*)\s*}/m
 
       def response(language:)
         res = connection.get url(language:)

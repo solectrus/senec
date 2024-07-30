@@ -25,6 +25,12 @@ RSpec.describe Senec::Local::State do
     JS
   end
 
+  def mock_response_minified
+    <<~JS
+      var foo=123,system_state_name={0:"EXAMPLE 0",1:"EXAMPLE 1",2:"EXAMPLE 2",10:"EXAMPLE 10",11:"EXAMPLE 11",16:"EXAMPLE 16"},system_type_name={0:"foo"};
+    JS
+  end
+
   describe '#names' do
     subject(:names) { state.names(language:) }
 
@@ -64,6 +70,16 @@ RSpec.describe Senec::Local::State do
 
       before do
         stub_request(:any, "https://#{senec_host}/js/IT-it.js").to_return(body: mock_response)
+      end
+
+      it { is_expected.to eq(expected_hash) }
+    end
+
+    context 'when JS is minified' do
+      let(:language) { :en }
+
+      before do
+        stub_request(:any, "https://#{senec_host}/js/EN-en.js").to_return(body: mock_response_minified)
       end
 
       it { is_expected.to eq(expected_hash) }
