@@ -12,20 +12,20 @@ gem 'bigdecimal'
 # Rake is a Make-like program implemented in Ruby (https://github.com/ruby/rake)
 gem 'rake'
 
-# rspec-3.12.0 (http://github.com/rspec)
+# rspec-3.13.0 (http://github.com/rspec)
 gem 'rspec'
 
 # Automatic Ruby code style checking tool. (https://github.com/rubocop/rubocop)
-gem 'rubocop'
+gem 'rubocop', require: false
 
 # Automatic performance checking tool for Ruby code. (https://github.com/rubocop/rubocop-performance)
-gem 'rubocop-performance'
+gem 'rubocop-performance', require: false
 
 # Code style checking for RSpec files (https://github.com/rubocop/rubocop-rspec)
-gem 'rubocop-rspec'
+gem 'rubocop-rspec', require: false
 
 # A RuboCop plugin for Rake (https://github.com/rubocop/rubocop-rake)
-gem 'rubocop-rake'
+gem 'rubocop-rake', require: false
 
 # Thread-safety checks via static analysis (https://github.com/rubocop/rubocop-thread_safety)
 gem 'rubocop-thread_safety', require: false
