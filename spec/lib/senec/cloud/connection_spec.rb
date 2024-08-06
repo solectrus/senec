@@ -35,7 +35,7 @@ RSpec.describe Senec::Cloud::Connection, :vcr do
       it { is_expected.to be_truthy }
 
       it 'cannot access data', vcr: 'cloud/login-by-invalid-token' do
-        expect { connection.systems }.to raise_error(Senec::Cloud::Error, 'Error 400')
+        expect { connection.systems }.to raise_error(Senec::Cloud::Error, 'Error 401')
       end
     end
   end
