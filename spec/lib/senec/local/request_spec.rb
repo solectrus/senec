@@ -61,6 +61,12 @@ RSpec.describe Senec::Local::Request do
       it { is_expected.to be_a(Float) }
     end
 
+    describe '#ev_connected' do
+      subject { request.ev_connected }
+
+      it { is_expected.to eq([0, 0, 0, 0]) }
+    end
+
     describe '#wallbox_charge_power' do
       subject { request.wallbox_charge_power }
 

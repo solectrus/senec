@@ -53,6 +53,10 @@ module Senec
         get('ENERGY', 'GUI_GRID_POW')
       end
 
+      def ev_connected
+        get('WALLBOX', 'EV_CONNECTED')
+      end
+
       def wallbox_charge_power
         get('WALLBOX', 'APPARENT_CHARGING_POWER')
       end
