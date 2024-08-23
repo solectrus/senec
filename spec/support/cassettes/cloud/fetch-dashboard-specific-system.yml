@@ -8,7 +8,7 @@ http_interactions:
       string: '{"username":"<SENEC_USERNAME>","password":"<SENEC_PASSWORD>"}'
     headers:
       User-Agent:
-      - Faraday v2.10.0
+      - Faraday v2.10.1
       Content-Type:
       - application/json
   response:
@@ -17,7 +17,7 @@ http_interactions:
       message: ''
     headers:
       date:
-      - Tue, 06 Aug 2024 15:19:52 GMT
+      - Fri, 23 Aug 2024 10:10:28 GMT
       content-type:
       - application/json
       transfer-encoding:
@@ -43,7 +43,7 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"token":"<TOKEN>","refreshToken":""}'
-  recorded_at: Tue, 06 Aug 2024 15:19:52 GMT
+  recorded_at: Fri, 23 Aug 2024 10:10:28 GMT
 - request:
     method: get
     uri: https://app-gateway.prod.senec.dev/v1/senec/systems/<SENEC_SYSTEM_ID>/dashboard
@@ -52,7 +52,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v2.10.0
+      - Faraday v2.10.1
       Authorization:
       - "<TOKEN>"
   response:
@@ -61,7 +61,7 @@ http_interactions:
       message: ''
     headers:
       date:
-      - Tue, 06 Aug 2024 15:19:53 GMT
+      - Fri, 23 Aug 2024 10:10:29 GMT
       content-type:
       - application/json
       transfer-encoding:
@@ -86,6 +86,6 @@ http_interactions:
       - DENY
     body:
       encoding: UTF-8
-      string: '{"aktuell":{"stromerzeugung":{"wert":2514.487,"einheit":"W"},"stromverbrauch":{"wert":1280.0,"einheit":"W"},"netzeinspeisung":{"wert":838.1619999999999,"einheit":"W"},"netzbezug":{"wert":104.77,"einheit":"W"},"speicherbeladung":{"wert":541.313,"einheit":"W"},"speicherentnahme":{"wert":23.282,"einheit":"W"},"speicherfuellstand":{"wert":98.9898910522461,"einheit":"%"},"autarkie":{"wert":91.82,"einheit":"%"},"wallbox":{"wert":0.01,"einheit":"W"}},"heute":{"stromerzeugung":{"wert":44906.25,"einheit":"Wh"},"stromverbrauch":{"wert":10120.0,"einheit":"Wh"},"netzeinspeisung":{"wert":16437.5,"einheit":"Wh"},"netzbezug":{"wert":1162.109375,"einheit":"Wh"},"speicherbeladung":{"wert":3925.29296875,"einheit":"Wh"},"speicherentnahme":{"wert":3589.84375,"einheit":"Wh"},"speicherfuellstand":{"wert":81.1155014038086,"einheit":"%"},"autarkie":{"wert":96.15,"einheit":"%"},"wallbox":{"wert":20070.0,"einheit":"Wh"}},"zeitstempel":"2024-08-06T15:17:15Z","electricVehicleConnected":false}'
-  recorded_at: Tue, 06 Aug 2024 15:19:53 GMT
-recorded_with: VCR 6.2.0
+      string: '{"aktuell":{"stromerzeugung":{"wert":7475.083,"einheit":"W"},"stromverbrauch":{"wert":740.0,"einheit":"W"},"netzeinspeisung":{"wert":6400.54,"einheit":"W"},"netzbezug":{"wert":0.01,"einheit":"W"},"speicherbeladung":{"wert":385.434,"einheit":"W"},"speicherentnahme":{"wert":0.01,"einheit":"W"},"speicherfuellstand":{"wert":65.65656280517578,"einheit":"%"},"autarkie":{"wert":100.0,"einheit":"%"},"wallbox":{"wert":0.01,"einheit":"W"}},"heute":{"stromerzeugung":{"wert":14414.0625,"einheit":"Wh"},"stromverbrauch":{"wert":5550.0,"einheit":"Wh"},"netzeinspeisung":{"wert":11679.6875,"einheit":"Wh"},"netzbezug":{"wert":122.0703125,"einheit":"Wh"},"speicherbeladung":{"wert":575.1953125,"einheit":"Wh"},"speicherentnahme":{"wert":3265.625,"einheit":"Wh"},"speicherfuellstand":{"wert":73.34455108642578,"einheit":"%"},"autarkie":{"wert":97.8,"einheit":"%"},"wallbox":{"wert":0.0,"einheit":"Wh"}},"zeitstempel":"2024-08-23T10:09:15Z","electricVehicleConnected":false}'
+  recorded_at: Fri, 23 Aug 2024 10:10:29 GMT
+recorded_with: VCR 6.3.1

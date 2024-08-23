@@ -8,7 +8,7 @@ http_interactions:
       string: '{"username":"<SENEC_USERNAME>","password":"<SENEC_PASSWORD>"}'
     headers:
       User-Agent:
-      - Faraday v2.10.0
+      - Faraday v2.10.1
       Content-Type:
       - application/json
   response:
@@ -17,7 +17,7 @@ http_interactions:
       message: ''
     headers:
       date:
-      - Tue, 06 Aug 2024 15:18:36 GMT
+      - Fri, 23 Aug 2024 10:10:30 GMT
       content-type:
       - application/json
       transfer-encoding:
@@ -43,7 +43,7 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"token":"<TOKEN>","refreshToken":""}'
-  recorded_at: Tue, 06 Aug 2024 15:18:37 GMT
+  recorded_at: Fri, 23 Aug 2024 10:10:30 GMT
 - request:
     method: get
     uri: https://app-gateway.prod.senec.dev/v1/senec/systems
@@ -52,7 +52,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v2.10.0
+      - Faraday v2.10.1
       Authorization:
       - "<TOKEN>"
   response:
@@ -61,7 +61,7 @@ http_interactions:
       message: ''
     headers:
       date:
-      - Tue, 06 Aug 2024 15:18:37 GMT
+      - Fri, 23 Aug 2024 10:10:30 GMT
       content-type:
       - application/json
       transfer-encoding:
@@ -87,7 +87,7 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '[{"id":"<SENEC_SYSTEM_ID>","steuereinheitnummer":"<FILTERED>","gehaeusenummer":"<FILTERED>","strasse":"<FILTERED>","hausnummer":"<FILTERED>","postleitzahl":"<FILTERED>","ort":"<FILTERED>","laendercode":"DE","zeitzone":"Europe/Berlin","wallboxIds":["1"],"systemType":"V3"}]'
-  recorded_at: Tue, 06 Aug 2024 15:18:37 GMT
+  recorded_at: Fri, 23 Aug 2024 10:10:30 GMT
 - request:
     method: get
     uri: https://app-gateway.prod.senec.dev/v1/senec/systems
@@ -96,7 +96,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v2.10.0
+      - Faraday v2.10.1
       Authorization:
       - "<TOKEN>"
   response:
@@ -105,7 +105,7 @@ http_interactions:
       message: ''
     headers:
       date:
-      - Tue, 06 Aug 2024 15:18:37 GMT
+      - Fri, 23 Aug 2024 10:10:30 GMT
       content-type:
       - application/json
       transfer-encoding:
@@ -131,7 +131,7 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '[{"id":"<SENEC_SYSTEM_ID>","steuereinheitnummer":"<FILTERED>","gehaeusenummer":"<FILTERED>","strasse":"<FILTERED>","hausnummer":"<FILTERED>","postleitzahl":"<FILTERED>","ort":"<FILTERED>","laendercode":"DE","zeitzone":"Europe/Berlin","wallboxIds":["1"],"systemType":"V3"}]'
-  recorded_at: Tue, 06 Aug 2024 15:18:37 GMT
+  recorded_at: Fri, 23 Aug 2024 10:10:30 GMT
 - request:
     method: get
     uri: https://app-gateway.prod.senec.dev/v1/senec/systems/<SENEC_SYSTEM_ID>/technical-data
@@ -140,7 +140,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v2.10.0
+      - Faraday v2.10.1
       Authorization:
       - "<TOKEN>"
   response:
@@ -149,7 +149,7 @@ http_interactions:
       message: ''
     headers:
       date:
-      - Tue, 06 Aug 2024 15:18:38 GMT
+      - Fri, 23 Aug 2024 10:10:31 GMT
       content-type:
       - application/json
       transfer-encoding:
@@ -174,6 +174,6 @@ http_interactions:
       - DENY
     body:
       encoding: UTF-8
-      string: '{"systemOverview":{"systemId":"<FILTERED>","hid":null,"productName":"<FILTERED>","installationDate":"<FILTERED>"},"casing":{"serial":"<FILTERED>","temperatureInCelsius":34.81870651245117},"mcu":{"mainControllerSerial":"<FILTERED>","mainControllerState":{"name":"LADEN","severity":"INFO"},"firmwareVersion":"826","guiVersion":966},"warranty":{"endDate":"<FILTERED>","warrantyTermInMonths":"<FILTERED>"},"batteryModules":[{"ordinal":1,"state":{"state":"OK","severity":"INFO"},"vendor":"BMZ","serialNumber":"<FILTERED>","firmwareVersion":"1.96.37","mainboardHardwareVersion":"1001","mainboardExtensionHardwareVersion":"1","minTemperature":31.0,"maxTemperature":34.0,"lastContact":{"time":1722957435000,"timestamp":"2024-08-06T15:17:15Z","severity":"INFO"},"flags":[{"flag":"FULL","severity":"INFO"}]},{"ordinal":2,"state":{"state":"OK","severity":"INFO"},"vendor":"BMZ","serialNumber":"<FILTERED>","firmwareVersion":"1.96.37","mainboardHardwareVersion":"1001","mainboardExtensionHardwareVersion":"1","minTemperature":30.0,"maxTemperature":33.0,"lastContact":{"time":1722957435000,"timestamp":"2024-08-06T15:17:15Z","severity":"INFO"},"flags":[{"flag":"FULL","severity":"INFO"}]},{"ordinal":3,"state":{"state":"OK","severity":"INFO"},"vendor":"BMZ","serialNumber":"<FILTERED>","firmwareVersion":"1.96.37","mainboardHardwareVersion":"1001","mainboardExtensionHardwareVersion":"1","minTemperature":32.0,"maxTemperature":34.0,"lastContact":{"time":1722957435000,"timestamp":"2024-08-06T15:17:15Z","severity":"INFO"},"flags":[]},{"ordinal":4,"state":{"state":"OK","severity":"INFO"},"vendor":"BMZ","serialNumber":"<FILTERED>","firmwareVersion":"1.96.37","mainboardHardwareVersion":"1001","mainboardExtensionHardwareVersion":"1","minTemperature":32.0,"maxTemperature":36.0,"lastContact":{"time":1722957435000,"timestamp":"2024-08-06T15:17:15Z","severity":"INFO"},"flags":[{"flag":"FULL","severity":"INFO"}]}],"batteryInverter":{"state":{"name":null,"severity":null},"vendor":null,"firmware":{"firmwareVersion":null,"firmwareVersionHumanMachineInterface":null,"firmwareVersionPowerUnit":null,"firmwareVersionBidirectionalDcConverter":null},"temperatures":{"amb":null,"halfBridge1":null,"halfBridge2":null,"throttle":null,"max":null},"lastContact":{"time":61675682400000,"timestamp":"3924-06-04T22:00:00Z","severity":"ERROR"},"flags":[]},"batteryPack":{"numberOfBatteryModules":4,"technology":"LITHIUM_ION","maxCapacityInKwh":10.0,"maxChargingPowerInKw":2.5,"maxDischargingPowerInKw":3.75,"currentChargingLevelInPercent":98.9898910522461,"currentVoltageInV":57.44499969482422,"currentCurrentInA":11.199999809265137,"remainingCapacityInPercent":99.0},"installer":{"companyName":"<FILTERED>","email":"<FILTERED>","phoneNumber":"<FILTERED>","address":{"street":"<FILTERED>","houseNumber":"<FILTERED>","postcode":"<FILTERED>","city":"<FILTERED>","countryCode":"DE","region":"<FILTERED>","longitude":"<FILTERED>","latitude":"<FILTERED>","timezone":"Europe/Berlin"},"onlineMonitoringAllowed":true,"website":"<FILTERED>"},"slaveSystemInfoDtos":[]}'
-  recorded_at: Tue, 06 Aug 2024 15:18:38 GMT
-recorded_with: VCR 6.2.0
+      string: '{"systemOverview":{"systemId":"<FILTERED>","hid":null,"productName":"<FILTERED>","installationDate":"<FILTERED>"},"casing":{"serial":"<FILTERED>","temperatureInCelsius":34.49603271484375},"mcu":{"mainControllerSerial":"<FILTERED>","mainControllerState":{"name":"PEAK_SHAVING","severity":"INFO"},"firmwareVersion":"826","guiVersion":966},"warranty":{"endDate":"<FILTERED>","warrantyTermInMonths":"<FILTERED>"},"batteryModules":[{"ordinal":1,"state":{"state":"OK","severity":"INFO"},"vendor":"UNKNOWN","serialNumber":"<FILTERED>","firmwareVersion":"","mainboardHardwareVersion":"","mainboardExtensionHardwareVersion":"","minTemperature":0.0,"maxTemperature":0.0,"lastContact":{"time":1724407755000,"timestamp":"2024-08-23T10:09:15Z","severity":"INFO"},"flags":[]},{"ordinal":2,"state":{"state":"OK","severity":"INFO"},"vendor":"UNKNOWN","serialNumber":"<FILTERED>","firmwareVersion":"","mainboardHardwareVersion":"","mainboardExtensionHardwareVersion":"","minTemperature":0.0,"maxTemperature":0.0,"lastContact":{"time":1724407755000,"timestamp":"2024-08-23T10:09:15Z","severity":"INFO"},"flags":[]},{"ordinal":3,"state":{"state":"OK","severity":"INFO"},"vendor":"UNKNOWN","serialNumber":"<FILTERED>","firmwareVersion":"","mainboardHardwareVersion":"","mainboardExtensionHardwareVersion":"","minTemperature":0.0,"maxTemperature":0.0,"lastContact":{"time":1724407755000,"timestamp":"2024-08-23T10:09:15Z","severity":"INFO"},"flags":[]},{"ordinal":4,"state":{"state":"OK","severity":"INFO"},"vendor":"UNKNOWN","serialNumber":"<FILTERED>","firmwareVersion":"","mainboardHardwareVersion":"","mainboardExtensionHardwareVersion":"","minTemperature":0.0,"maxTemperature":0.0,"lastContact":{"time":1724407755000,"timestamp":"2024-08-23T10:09:15Z","severity":"INFO"},"flags":[]}],"batteryInverter":{"state":{"name":null,"severity":null},"vendor":null,"firmware":{"firmwareVersion":null,"firmwareVersionHumanMachineInterface":null,"firmwareVersionPowerUnit":null,"firmwareVersionBidirectionalDcConverter":null},"temperatures":{"amb":null,"halfBridge1":null,"halfBridge2":null,"throttle":null,"max":null},"lastContact":{"time":61675682400000,"timestamp":"3924-06-04T22:00:00Z","severity":"ERROR"},"flags":[]},"batteryPack":{"numberOfBatteryModules":4,"technology":"LITHIUM_ION","maxCapacityInKwh":10.0,"maxChargingPowerInKw":0.0,"maxDischargingPowerInKw":0.0,"currentChargingLevelInPercent":65.0,"currentVoltageInV":0.0,"currentCurrentInA":0.0,"remainingCapacityInPercent":0.0},"installer":{"companyName":"<FILTERED>","email":"<FILTERED>","phoneNumber":"<FILTERED>","address":{"street":"<FILTERED>","houseNumber":"<FILTERED>","postcode":"<FILTERED>","city":"<FILTERED>","countryCode":"DE","region":"<FILTERED>","longitude":"<FILTERED>","latitude":"<FILTERED>","timezone":"Europe/Berlin"},"onlineMonitoringAllowed":true,"website":"<FILTERED>"},"slaveSystemInfoDtos":[]}'
+  recorded_at: Fri, 23 Aug 2024 10:10:31 GMT
+recorded_with: VCR 6.3.1
