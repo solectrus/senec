@@ -29,7 +29,8 @@ module Senec
         CASE_TEMP: ''
       },
       WALLBOX: {
-        APPARENT_CHARGING_POWER: ''
+        APPARENT_CHARGING_POWER: '',
+        EV_CONNECTED: ''
       }
     }.freeze
 

@@ -5,7 +5,7 @@ http_interactions:
     uri: http://example.com/lala.cgi
     body:
       encoding: UTF-8
-      string: '{"ENERGY":{"STAT_STATE":"","GUI_BAT_DATA_CURRENT":"","GUI_BAT_DATA_FUEL_CHARGE":"","GUI_BAT_DATA_POWER":"","GUI_BAT_DATA_VOLTAGE":"","GUI_GRID_POW":"","GUI_HOUSE_POW":"","GUI_INVERTER_POWER":"","STAT_HOURS_OF_OPERATION":""},"WIZARD":{"APPLICATION_VERSION":""},"RTC":{"UTC_OFFSET":"","WEB_TIME":""},"PV1":{"MPP_POWER":"","POWER_RATIO":""},"TEMPMEASURE":{"CASE_TEMP":""},"WALLBOX":{"APPARENT_CHARGING_POWER":""}}'
+      string: '{"ENERGY":{"STAT_STATE":"","GUI_BAT_DATA_CURRENT":"","GUI_BAT_DATA_FUEL_CHARGE":"","GUI_BAT_DATA_POWER":"","GUI_BAT_DATA_VOLTAGE":"","GUI_GRID_POW":"","GUI_HOUSE_POW":"","GUI_INVERTER_POWER":"","STAT_HOURS_OF_OPERATION":""},"WIZARD":{"APPLICATION_VERSION":""},"RTC":{"UTC_OFFSET":"","WEB_TIME":""},"PV1":{"MPP_POWER":"","POWER_RATIO":""},"TEMPMEASURE":{"CASE_TEMP":""},"WALLBOX":{"APPARENT_CHARGING_POWER":"","EV_CONNECTED":""}}'
     headers:
       Connection:
       - keep-alive
@@ -25,9 +25,9 @@ http_interactions:
       content-type:
       - text/html; charset=UTF-8
       date:
-      - Fri, 23 Aug 2024 10:10:33 GMT
+      - Fri, 23 Aug 2024 10:11:17 GMT
       expires:
-      - Fri, 30 Aug 2024 10:10:33 GMT
+      - Fri, 30 Aug 2024 10:11:17 GMT
       server:
       - EOS (vny/0450)
       content-length:
@@ -39,5 +39,5 @@ http_interactions:
         xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\n\t<head>\n\t\t<title>404
         - Not Found</title>\n\t</head>\n\t<body>\n\t\t<h1>404 - Not Found</h1>\n\t\t<script
         type=\"text/javascript\" src=\"//obj.ac.bcon.ecdns.net/ec_tpm_bcon.js\"></script>\n\t</body>\n</html>\n"
-  recorded_at: Fri, 23 Aug 2024 10:10:33 GMT
+  recorded_at: Fri, 23 Aug 2024 10:11:17 GMT
 recorded_with: VCR 6.3.1
