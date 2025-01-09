@@ -3,6 +3,12 @@ source 'https://rubygems.org'
 # Specify your gem's dependencies in senec.gemspec
 gemspec
 
+# Interactive Ruby command-line tool for REPL (Read Eval Print Loop). (https://github.com/ruby/irb)
+gem 'irb'
+
+# RDoc produces HTML and command-line documentation for Ruby projects (https://ruby.github.io/rdoc)
+gem 'rdoc'
+
 # Support for encoding and decoding binary data using a Base64 representation. (https://github.com/ruby/base64)
 gem 'base64'
 
