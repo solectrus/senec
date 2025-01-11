@@ -17,7 +17,7 @@ http_interactions:
       message: ''
     headers:
       date:
-      - Sat, 11 Jan 2025 06:11:12 GMT
+      - Sat, 11 Jan 2025 06:38:29 GMT
       content-type:
       - application/json
       transfer-encoding:
@@ -43,10 +43,10 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"token":"<TOKEN>","refreshToken":""}'
-  recorded_at: Sat, 11 Jan 2025 06:11:12 GMT
+  recorded_at: Sat, 11 Jan 2025 06:38:29 GMT
 - request:
     method: get
-    uri: https://app-gateway.prod.senec.dev/v1/senec/systems/<SENEC_SYSTEM_ID>/dashboard
+    uri: https://app-gateway.prod.senec.dev/v2/senec/systems/<SENEC_SYSTEM_ID>/dashboard
     body:
       encoding: US-ASCII
       string: ''
@@ -61,7 +61,7 @@ http_interactions:
       message: ''
     headers:
       date:
-      - Sat, 11 Jan 2025 06:11:13 GMT
+      - Sat, 11 Jan 2025 06:38:29 GMT
       content-type:
       - application/json
       transfer-encoding:
@@ -86,6 +86,6 @@ http_interactions:
       - DENY
     body:
       encoding: UTF-8
-      string: '{"aktuell":{"stromerzeugung":{"wert":0.01,"einheit":"W"},"stromverbrauch":{"wert":1050.0,"einheit":"W"},"netzeinspeisung":{"wert":0.01,"einheit":"W"},"netzbezug":{"wert":1054.688,"einheit":"W"},"speicherbeladung":{"wert":0.01,"einheit":"W"},"speicherentnahme":{"wert":11.719,"einheit":"W"},"speicherfuellstand":{"wert":1.0e-05,"einheit":"%"},"autarkie":{"wert":1.0e-05,"einheit":"%"},"wallbox":{"wert":0.01,"einheit":"W"}},"heute":{"stromerzeugung":{"wert":3.90625,"einheit":"Wh"},"stromverbrauch":{"wert":8430.0,"einheit":"Wh"},"netzeinspeisung":{"wert":0.0,"einheit":"Wh"},"netzbezug":{"wert":8334.9609375,"einheit":"Wh"},"speicherbeladung":{"wert":0.0,"einheit":"Wh"},"speicherentnahme":{"wert":99.609375,"einheit":"Wh"},"speicherfuellstand":{"wert":0.0,"einheit":"%"},"autarkie":{"wert":1.17,"einheit":"%"},"wallbox":{"wert":0.0,"einheit":"Wh"}},"zeitstempel":"2025-01-11T06:09:57Z","electricVehicleConnected":false}'
-  recorded_at: Sat, 11 Jan 2025 06:11:13 GMT
+      string: '{"currently":{"powerGenerationInW":1.0e-05,"powerConsumptionInW":1164.11,"gridFeedInInW":1.0e-05,"gridDrawInW":1164.11423841,"batteryChargeInW":1.0e-05,"batteryDischargeInW":17.46171357616,"batteryLevelInPercent":1.0e-05,"selfSufficiencyInPercent":1.0e-05,"wallboxInW":1.0e-05},"today":{"powerGenerationInWh":3.90625,"powerConsumptionInWh":8902.34,"gridFeedInInWh":0.0,"gridDrawInWh":8796.875,"batteryChargeInWh":0.0,"batteryDischargeInWh":105.46875,"batteryLevelInPercent":1.0e-05,"selfSufficiencyInPercent":1.18,"wallboxInWh":0.0},"timestamp":"2025-01-11T06:35:05Z","electricVehicleConnected":false}'
+  recorded_at: Sat, 11 Jan 2025 06:38:29 GMT
 recorded_with: VCR 6.3.1

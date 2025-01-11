@@ -1,0 +1,179 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://app-gateway.prod.senec.dev/v1/senec/login
+    body:
+      encoding: UTF-8
+      string: '{"username":"<SENEC_USERNAME>","password":"<SENEC_PASSWORD>"}'
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      date:
+      - Sat, 11 Jan 2025 06:15:53 GMT
+      content-type:
+      - application/json
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      vary:
+      - Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+      x-content-type-options:
+      - nosniff
+      x-xss-protection:
+      - 1; mode=block
+      cache-control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      pragma:
+      - no-cache
+      expires:
+      - '0'
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-frame-options:
+      - DENY
+    body:
+      encoding: UTF-8
+      string: '{"token":"<TOKEN>","refreshToken":""}'
+  recorded_at: Sat, 11 Jan 2025 06:15:53 GMT
+- request:
+    method: get
+    uri: https://app-gateway.prod.senec.dev/v1/senec/systems
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+      Authorization:
+      - "<TOKEN>"
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      date:
+      - Sat, 11 Jan 2025 06:15:53 GMT
+      content-type:
+      - application/json
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      vary:
+      - Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+      x-content-type-options:
+      - nosniff
+      x-xss-protection:
+      - 1; mode=block
+      cache-control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      pragma:
+      - no-cache
+      expires:
+      - '0'
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-frame-options:
+      - DENY
+    body:
+      encoding: UTF-8
+      string: '[{"id":"<SENEC_SYSTEM_ID>","steuereinheitnummer":"<FILTERED>","gehaeusenummer":"<FILTERED>","strasse":"<FILTERED>","hausnummer":"<FILTERED>","postleitzahl":"<FILTERED>","ort":"<FILTERED>","laendercode":"DE","zeitzone":"Europe/Berlin","wallboxIds":["1"],"systemType":"V3"}]'
+  recorded_at: Sat, 11 Jan 2025 06:15:53 GMT
+- request:
+    method: get
+    uri: https://app-gateway.prod.senec.dev/v1/senec/systems
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+      Authorization:
+      - "<TOKEN>"
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      date:
+      - Sat, 11 Jan 2025 06:15:53 GMT
+      content-type:
+      - application/json
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      vary:
+      - Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+      x-content-type-options:
+      - nosniff
+      x-xss-protection:
+      - 1; mode=block
+      cache-control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      pragma:
+      - no-cache
+      expires:
+      - '0'
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-frame-options:
+      - DENY
+    body:
+      encoding: UTF-8
+      string: '[{"id":"<SENEC_SYSTEM_ID>","steuereinheitnummer":"<FILTERED>","gehaeusenummer":"<FILTERED>","strasse":"<FILTERED>","hausnummer":"<FILTERED>","postleitzahl":"<FILTERED>","ort":"<FILTERED>","laendercode":"DE","zeitzone":"Europe/Berlin","wallboxIds":["1"],"systemType":"V3"}]'
+  recorded_at: Sat, 11 Jan 2025 06:15:53 GMT
+- request:
+    method: get
+    uri: https://app-gateway.prod.senec.dev/v2/senec/systems/<SENEC_SYSTEM_ID>/dashboard
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+      Authorization:
+      - "<TOKEN>"
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      date:
+      - Sat, 11 Jan 2025 06:15:54 GMT
+      content-type:
+      - application/json
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      vary:
+      - Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+      x-content-type-options:
+      - nosniff
+      x-xss-protection:
+      - 1; mode=block
+      cache-control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      pragma:
+      - no-cache
+      expires:
+      - '0'
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-frame-options:
+      - DENY
+    body:
+      encoding: UTF-8
+      string: '{"currently":{"powerGenerationInW":1.0e-05,"powerConsumptionInW":1047.7,"gridFeedInInW":1.0e-05,"gridDrawInW":1024.4205298,"batteryChargeInW":1.0e-05,"batteryDischargeInW":11.6411423841,"batteryLevelInPercent":1.0e-05,"selfSufficiencyInPercent":2.22,"wallboxInW":1.0e-05},"today":{"powerGenerationInWh":3.90625,"powerConsumptionInWh":8521.48,"gridFeedInInWh":0.0,"gridDrawInWh":8420.8984375,"batteryChargeInWh":0.0,"batteryDischargeInWh":100.5859375,"batteryLevelInPercent":1.0e-05,"selfSufficiencyInPercent":1.18,"wallboxInWh":0.0},"timestamp":"2025-01-11T06:14:59Z","electricVehicleConnected":false}'
+  recorded_at: Sat, 11 Jan 2025 06:15:54 GMT
+recorded_with: VCR 6.3.1

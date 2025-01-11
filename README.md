@@ -69,14 +69,43 @@ puts Senec::Cloud::Dashboard[connection].find("123456").data
 #   {"stromerzeugung"=>{"wert"=>0.01, "einheit"=>"W"},
 # ....
 
-# Get the Technical Data of a specific system (by ID):
+# Dashboard data can be requested in different versions, v1 and v2 are available, v1 is the default.
+# To request the data in version 2, pass the version parameter to the `data` method:
+puts Senec::Cloud::Dashboard[connection].first.data(version: 'v2')
 
+# => {
+#   'currently' => {
+#     'powerGenerationInW' => 1.0e-05,
+#     'powerConsumptionInW' => 1350.37,
+#     'gridFeedInInW' => 1.0e-05,
+#     'gridDrawInW' => 1321.26966059603,
+#     'batteryChargeInW' => 1.0e-05,
+#     'batteryDischargeInW' => 11.6411423841,
+#     'batteryLevelInPercent' => 1.0e-05,
+#     'selfSufficiencyInPercent' => 2.16,
+#     'wallboxInW' => 1.0e-05
+#   },
+#   'today' => {
+#     'powerGenerationInWh' => 3.90625,
+#     'powerConsumptionInWh' => 9119.14,
+#     'gridFeedInInWh' => 0.0,
+#     'gridDrawInWh' => 9011.71875,
+#     'batteryChargeInWh' => 0.0,
+#     'batteryDischargeInWh' => 107.421875,
+#     'batteryLevelInPercent' => 1.0e-05,
+#     'selfSufficiencyInPercent' => 1.18,
+#     'wallboxInWh' => 0.0
+#   },
+#   'timestamp' => '2025-01-11T06:45:09Z',
+#   'electricVehicleConnected' => false
+# }
+
+# Get the Technical Data of a specific system (by ID):
 puts Senec::Cloud::TechnicalData[connection].find("123456").data
 
 # => {"systemOverview"=>{"systemId"=>123456, "productName"=>"SENEC.Home V3 hybrid duo", ...
 
 # Get the Technical Data of first systems (without knowing the ID):
-
 puts Senec::Cloud::TechnicalData[connection].first.data
 
 # => {"systemOverview"=>{"systemId"=>123456, "productName"=>"SENEC.Home V3 hybrid duo", ...
