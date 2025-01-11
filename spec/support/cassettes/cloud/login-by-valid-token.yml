@@ -8,7 +8,7 @@ http_interactions:
       string: '{"username":"<SENEC_USERNAME>","password":"<SENEC_PASSWORD>"}'
     headers:
       User-Agent:
-      - Faraday v2.10.1
+      - Faraday v2.12.2
       Content-Type:
       - application/json
   response:
@@ -17,7 +17,7 @@ http_interactions:
       message: ''
     headers:
       date:
-      - Fri, 23 Aug 2024 10:10:25 GMT
+      - Sat, 11 Jan 2025 06:11:09 GMT
       content-type:
       - application/json
       transfer-encoding:
@@ -43,7 +43,7 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"token":"<TOKEN>","refreshToken":""}'
-  recorded_at: Fri, 23 Aug 2024 10:10:25 GMT
+  recorded_at: Sat, 11 Jan 2025 06:11:09 GMT
 - request:
     method: get
     uri: https://app-gateway.prod.senec.dev/v1/senec/systems
@@ -52,7 +52,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v2.10.1
+      - Faraday v2.12.2
       Authorization:
       - "<TOKEN>"
   response:
@@ -61,7 +61,7 @@ http_interactions:
       message: ''
     headers:
       date:
-      - Fri, 23 Aug 2024 10:10:25 GMT
+      - Sat, 11 Jan 2025 06:11:09 GMT
       content-type:
       - application/json
       transfer-encoding:
@@ -87,5 +87,5 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '[{"id":"<SENEC_SYSTEM_ID>","steuereinheitnummer":"<FILTERED>","gehaeusenummer":"<FILTERED>","strasse":"<FILTERED>","hausnummer":"<FILTERED>","postleitzahl":"<FILTERED>","ort":"<FILTERED>","laendercode":"DE","zeitzone":"Europe/Berlin","wallboxIds":["1"],"systemType":"V3"}]'
-  recorded_at: Fri, 23 Aug 2024 10:10:25 GMT
+  recorded_at: Sat, 11 Jan 2025 06:11:09 GMT
 recorded_with: VCR 6.3.1

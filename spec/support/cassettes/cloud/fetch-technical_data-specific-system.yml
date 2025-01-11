@@ -8,7 +8,7 @@ http_interactions:
       string: '{"username":"<SENEC_USERNAME>","password":"<SENEC_PASSWORD>"}'
     headers:
       User-Agent:
-      - Faraday v2.10.1
+      - Faraday v2.12.2
       Content-Type:
       - application/json
   response:
@@ -17,7 +17,7 @@ http_interactions:
       message: ''
     headers:
       date:
-      - Fri, 23 Aug 2024 10:10:31 GMT
+      - Sat, 11 Jan 2025 06:11:15 GMT
       content-type:
       - application/json
       transfer-encoding:
@@ -43,7 +43,7 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"token":"<TOKEN>","refreshToken":""}'
-  recorded_at: Fri, 23 Aug 2024 10:10:31 GMT
+  recorded_at: Sat, 11 Jan 2025 06:11:15 GMT
 - request:
     method: get
     uri: https://app-gateway.prod.senec.dev/v1/senec/systems/<SENEC_SYSTEM_ID>/technical-data
@@ -52,7 +52,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v2.10.1
+      - Faraday v2.12.2
       Authorization:
       - "<TOKEN>"
   response:
@@ -61,7 +61,7 @@ http_interactions:
       message: ''
     headers:
       date:
-      - Fri, 23 Aug 2024 10:10:32 GMT
+      - Sat, 11 Jan 2025 06:11:15 GMT
       content-type:
       - application/json
       transfer-encoding:
@@ -86,6 +86,6 @@ http_interactions:
       - DENY
     body:
       encoding: UTF-8
-      string: '{"systemOverview":{"systemId":"<FILTERED>","hid":null,"productName":"<FILTERED>","installationDate":"<FILTERED>"},"casing":{"serial":"<FILTERED>","temperatureInCelsius":34.49603271484375},"mcu":{"mainControllerSerial":"<FILTERED>","mainControllerState":{"name":"PEAK_SHAVING","severity":"INFO"},"firmwareVersion":"826","guiVersion":966},"warranty":{"endDate":"<FILTERED>","warrantyTermInMonths":"<FILTERED>"},"batteryModules":[{"ordinal":1,"state":{"state":"OK","severity":"INFO"},"vendor":"UNKNOWN","serialNumber":"<FILTERED>","firmwareVersion":"","mainboardHardwareVersion":"","mainboardExtensionHardwareVersion":"","minTemperature":0.0,"maxTemperature":0.0,"lastContact":{"time":1724407755000,"timestamp":"2024-08-23T10:09:15Z","severity":"INFO"},"flags":[]},{"ordinal":2,"state":{"state":"OK","severity":"INFO"},"vendor":"UNKNOWN","serialNumber":"<FILTERED>","firmwareVersion":"","mainboardHardwareVersion":"","mainboardExtensionHardwareVersion":"","minTemperature":0.0,"maxTemperature":0.0,"lastContact":{"time":1724407755000,"timestamp":"2024-08-23T10:09:15Z","severity":"INFO"},"flags":[]},{"ordinal":3,"state":{"state":"OK","severity":"INFO"},"vendor":"UNKNOWN","serialNumber":"<FILTERED>","firmwareVersion":"","mainboardHardwareVersion":"","mainboardExtensionHardwareVersion":"","minTemperature":0.0,"maxTemperature":0.0,"lastContact":{"time":1724407755000,"timestamp":"2024-08-23T10:09:15Z","severity":"INFO"},"flags":[]},{"ordinal":4,"state":{"state":"OK","severity":"INFO"},"vendor":"UNKNOWN","serialNumber":"<FILTERED>","firmwareVersion":"","mainboardHardwareVersion":"","mainboardExtensionHardwareVersion":"","minTemperature":0.0,"maxTemperature":0.0,"lastContact":{"time":1724407755000,"timestamp":"2024-08-23T10:09:15Z","severity":"INFO"},"flags":[]}],"batteryInverter":{"state":{"name":null,"severity":null},"vendor":null,"firmware":{"firmwareVersion":null,"firmwareVersionHumanMachineInterface":null,"firmwareVersionPowerUnit":null,"firmwareVersionBidirectionalDcConverter":null},"temperatures":{"amb":null,"halfBridge1":null,"halfBridge2":null,"throttle":null,"max":null},"lastContact":{"time":61675682400000,"timestamp":"3924-06-04T22:00:00Z","severity":"ERROR"},"flags":[]},"batteryPack":{"numberOfBatteryModules":4,"technology":"LITHIUM_ION","maxCapacityInKwh":10.0,"maxChargingPowerInKw":0.0,"maxDischargingPowerInKw":0.0,"currentChargingLevelInPercent":65.0,"currentVoltageInV":0.0,"currentCurrentInA":0.0,"remainingCapacityInPercent":0.0},"installer":{"companyName":"<FILTERED>","email":"<FILTERED>","phoneNumber":"<FILTERED>","address":{"street":"<FILTERED>","houseNumber":"<FILTERED>","postcode":"<FILTERED>","city":"<FILTERED>","countryCode":"DE","region":"<FILTERED>","longitude":"<FILTERED>","latitude":"<FILTERED>","timezone":"Europe/Berlin"},"onlineMonitoringAllowed":true,"website":"<FILTERED>"},"slaveSystemInfoDtos":[]}'
-  recorded_at: Fri, 23 Aug 2024 10:10:32 GMT
+      string: '{"systemOverview":{"systemId":"<FILTERED>","hid":null,"productName":"<FILTERED>","installationDate":"<FILTERED>"},"casing":{"serial":"<FILTERED>","temperatureInCelsius":30.103282928466797},"mcu":{"mainControllerSerial":"<FILTERED>","mainControllerState":{"name":"AKKU_LEER","severity":"INFO"},"firmwareVersion":"826","guiVersion":966},"warranty":{"endDate":"<FILTERED>","warrantyTermInMonths":"<FILTERED>"},"batteryModules":[{"ordinal":1,"state":{"state":"OK","severity":"INFO"},"vendor":"UNKNOWN","serialNumber":"<FILTERED>","firmwareVersion":"","mainboardHardwareVersion":"","mainboardExtensionHardwareVersion":"","minTemperature":0.0,"maxTemperature":0.0,"lastContact":{"time":1736575797000,"timestamp":"2025-01-11T06:09:57Z","severity":"INFO"},"flags":[]},{"ordinal":2,"state":{"state":"OK","severity":"INFO"},"vendor":"UNKNOWN","serialNumber":"<FILTERED>","firmwareVersion":"","mainboardHardwareVersion":"","mainboardExtensionHardwareVersion":"","minTemperature":0.0,"maxTemperature":0.0,"lastContact":{"time":1736575797000,"timestamp":"2025-01-11T06:09:57Z","severity":"INFO"},"flags":[]},{"ordinal":3,"state":{"state":"OK","severity":"INFO"},"vendor":"UNKNOWN","serialNumber":"<FILTERED>","firmwareVersion":"","mainboardHardwareVersion":"","mainboardExtensionHardwareVersion":"","minTemperature":0.0,"maxTemperature":0.0,"lastContact":{"time":1736575797000,"timestamp":"2025-01-11T06:09:57Z","severity":"INFO"},"flags":[]},{"ordinal":4,"state":{"state":"OK","severity":"INFO"},"vendor":"UNKNOWN","serialNumber":"<FILTERED>","firmwareVersion":"","mainboardHardwareVersion":"","mainboardExtensionHardwareVersion":"","minTemperature":0.0,"maxTemperature":0.0,"lastContact":{"time":1736575797000,"timestamp":"2025-01-11T06:09:57Z","severity":"INFO"},"flags":[]}],"batteryInverter":{"state":{"name":null,"severity":null},"vendor":null,"firmware":{"firmwareVersion":null,"firmwareVersionHumanMachineInterface":null,"firmwareVersionPowerUnit":null,"firmwareVersionBidirectionalDcConverter":null},"temperatures":{"amb":null,"halfBridge1":null,"halfBridge2":null,"throttle":null,"max":null},"lastContact":{"time":61675682400000,"timestamp":"3924-06-04T22:00:00Z","severity":"ERROR"},"flags":[]},"batteryPack":{"numberOfBatteryModules":4,"technology":"LITHIUM_ION","maxCapacityInKwh":10.0,"maxChargingPowerInKw":0.0,"maxDischargingPowerInKw":0.0,"currentChargingLevelInPercent":0.0,"currentVoltageInV":0.0,"currentCurrentInA":0.0,"remainingCapacityInPercent":0.0},"installer":{"companyName":"<FILTERED>","email":"<FILTERED>","phoneNumber":"<FILTERED>","address":{"street":"<FILTERED>","houseNumber":"<FILTERED>","postcode":"<FILTERED>","city":"<FILTERED>","countryCode":"DE","region":"<FILTERED>","longitude":"<FILTERED>","latitude":"<FILTERED>","timezone":"Europe/Berlin"},"onlineMonitoringAllowed":true,"website":"<FILTERED>"},"slaveSystemInfoDtos":[]}'
+  recorded_at: Sat, 11 Jan 2025 06:11:15 GMT
 recorded_with: VCR 6.3.1
