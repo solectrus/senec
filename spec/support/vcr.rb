@@ -62,11 +62,11 @@ VCR.configure do |config|
   config.filter_sensitive_data('<TOKEN>') do |interaction|
     next unless interaction.senec_cloud?
 
-    if interaction.response.body.include?('token')
-      JSON.parse(interaction.response.body)['token']
-    elsif interaction.request.headers.include?('Authorization')
+    if interaction.request.headers.include?('Authorization')
       interaction.request.headers['Authorization'].first
     end
+
+    # BEWARE: The token may still be in the response body!
   end
 
   # :nocov:
