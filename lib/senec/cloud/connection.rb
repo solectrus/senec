@@ -51,6 +51,8 @@ module Senec
             f.request :json
             f.response :json
 
+            f.headers['User-Agent'] = "ruby-senec/#{Senec::VERSION}"
+
             f.adapter :net_http_persistent, pool_size: 5 do |http|
               # :nocov:
               http.idle_timeout = 120

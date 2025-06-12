@@ -8,7 +8,7 @@ http_interactions:
       string: '{"username":"<SENEC_USERNAME>","password":"<SENEC_PASSWORD>"}'
     headers:
       User-Agent:
-      - Faraday v2.12.2
+      - ruby-senec/0.18.0
       Content-Type:
       - application/json
   response:
@@ -17,7 +17,7 @@ http_interactions:
       message: ''
     headers:
       date:
-      - Sat, 11 Jan 2025 06:15:53 GMT
+      - Thu, 12 Jun 2025 10:47:07 GMT
       content-type:
       - application/json
       transfer-encoding:
@@ -43,7 +43,7 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"token":"<TOKEN>","refreshToken":""}'
-  recorded_at: Sat, 11 Jan 2025 06:15:53 GMT
+  recorded_at: Thu, 12 Jun 2025 10:47:07 GMT
 - request:
     method: get
     uri: https://app-gateway.prod.senec.dev/v1/senec/systems
@@ -52,7 +52,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v2.12.2
+      - ruby-senec/0.18.0
       Authorization:
       - "<TOKEN>"
   response:
@@ -61,7 +61,7 @@ http_interactions:
       message: ''
     headers:
       date:
-      - Sat, 11 Jan 2025 06:15:53 GMT
+      - Thu, 12 Jun 2025 10:47:08 GMT
       content-type:
       - application/json
       transfer-encoding:
@@ -87,7 +87,7 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '[{"id":"<SENEC_SYSTEM_ID>","steuereinheitnummer":"<FILTERED>","gehaeusenummer":"<FILTERED>","strasse":"<FILTERED>","hausnummer":"<FILTERED>","postleitzahl":"<FILTERED>","ort":"<FILTERED>","laendercode":"DE","zeitzone":"Europe/Berlin","wallboxIds":["1"],"systemType":"V3"}]'
-  recorded_at: Sat, 11 Jan 2025 06:15:53 GMT
+  recorded_at: Thu, 12 Jun 2025 10:47:08 GMT
 - request:
     method: get
     uri: https://app-gateway.prod.senec.dev/v1/senec/systems
@@ -96,7 +96,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v2.12.2
+      - ruby-senec/0.18.0
       Authorization:
       - "<TOKEN>"
   response:
@@ -105,7 +105,7 @@ http_interactions:
       message: ''
     headers:
       date:
-      - Sat, 11 Jan 2025 06:15:53 GMT
+      - Thu, 12 Jun 2025 10:47:08 GMT
       content-type:
       - application/json
       transfer-encoding:
@@ -131,7 +131,7 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '[{"id":"<SENEC_SYSTEM_ID>","steuereinheitnummer":"<FILTERED>","gehaeusenummer":"<FILTERED>","strasse":"<FILTERED>","hausnummer":"<FILTERED>","postleitzahl":"<FILTERED>","ort":"<FILTERED>","laendercode":"DE","zeitzone":"Europe/Berlin","wallboxIds":["1"],"systemType":"V3"}]'
-  recorded_at: Sat, 11 Jan 2025 06:15:53 GMT
+  recorded_at: Thu, 12 Jun 2025 10:47:08 GMT
 - request:
     method: get
     uri: https://app-gateway.prod.senec.dev/v2/senec/systems/<SENEC_SYSTEM_ID>/dashboard
@@ -140,7 +140,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v2.12.2
+      - ruby-senec/0.18.0
       Authorization:
       - "<TOKEN>"
   response:
@@ -149,7 +149,7 @@ http_interactions:
       message: ''
     headers:
       date:
-      - Sat, 11 Jan 2025 06:15:54 GMT
+      - Thu, 12 Jun 2025 10:47:08 GMT
       content-type:
       - application/json
       transfer-encoding:
@@ -174,6 +174,6 @@ http_interactions:
       - DENY
     body:
       encoding: UTF-8
-      string: '{"currently":{"powerGenerationInW":1.0e-05,"powerConsumptionInW":1047.7,"gridFeedInInW":1.0e-05,"gridDrawInW":1024.4205298,"batteryChargeInW":1.0e-05,"batteryDischargeInW":11.6411423841,"batteryLevelInPercent":1.0e-05,"selfSufficiencyInPercent":2.22,"wallboxInW":1.0e-05},"today":{"powerGenerationInWh":3.90625,"powerConsumptionInWh":8521.48,"gridFeedInInWh":0.0,"gridDrawInWh":8420.8984375,"batteryChargeInWh":0.0,"batteryDischargeInWh":100.5859375,"batteryLevelInPercent":1.0e-05,"selfSufficiencyInPercent":1.18,"wallboxInWh":0.0},"timestamp":"2025-01-11T06:14:59Z","electricVehicleConnected":false}'
-  recorded_at: Sat, 11 Jan 2025 06:15:54 GMT
+      string: '{"currently":{"powerGenerationInW":7988.99501661,"powerConsumptionInW":0.0,"gridFeedInInW":1565.09551495,"gridDrawInW":0.00001,"batteryChargeInW":198.5568936877,"batteryDischargeInW":99.27844684385,"batteryLevelInPercent":79.7979736328125,"selfSufficiencyInPercent":100.0,"wallboxInW":5932.226},"today":{"powerGenerationInWh":22230.46875,"powerConsumptionInWh":5335.93,"gridFeedInInWh":15507.8125,"gridDrawInWh":82.03125,"batteryChargeInWh":694.82421875,"batteryDischargeInWh":2105.95703125,"batteryLevelInPercent":79.7979736328125,"selfSufficiencyInPercent":98.46,"wallboxInWh":2973.0},"timestamp":"2025-06-12T10:43:10Z","electricVehicleConnected":false}'
+  recorded_at: Thu, 12 Jun 2025 10:47:08 GMT
 recorded_with: VCR 6.3.1

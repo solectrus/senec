@@ -8,7 +8,7 @@ http_interactions:
       string: '{"username":"<SENEC_USERNAME>","password":"wrongpassword"}'
     headers:
       User-Agent:
-      - Faraday v2.13.1
+      - ruby-senec/0.18.0
       Content-Type:
       - application/json
   response:
@@ -17,7 +17,7 @@ http_interactions:
       message: ''
     headers:
       date:
-      - Thu, 12 Jun 2025 09:29:48 GMT
+      - Thu, 12 Jun 2025 10:47:04 GMT
       content-type:
       - text/plain;charset=UTF-8
       content-length:
@@ -43,5 +43,5 @@ http_interactions:
     body:
       encoding: UTF-8
       string: "{}"
-  recorded_at: Thu, 12 Jun 2025 09:29:48 GMT
+  recorded_at: Thu, 12 Jun 2025 10:47:04 GMT
 recorded_with: VCR 6.3.1
