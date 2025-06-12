@@ -29,7 +29,7 @@ RSpec.describe Senec::Cloud::TechnicalData do
       end.to raise_error(ArgumentError)
     end
 
-    it 'fails when using loaddata after setting data' do
+    it 'fails when using load_data after setting data' do
       technical_data = described_class.new(data: { foo: 42 })
 
       expect { technical_data.load_data }.to raise_error(
