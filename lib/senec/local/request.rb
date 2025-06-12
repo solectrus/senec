@@ -12,7 +12,7 @@ module Senec
 
       attr_reader :connection, :body, :state_names
 
-      def perform!
+      def perform! # rubocop:disable Naming/PredicateMethod
         parsed_response
         true
       end

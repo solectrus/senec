@@ -39,6 +39,7 @@ module Senec
       # Regex pattern to match the system_state_name definition in the JavaScript file
       # The file may be minimized, so we need to be flexible with whitespace and line breaks
       FILE_REGEX = /system_state_name\s*=\s*{\s*([^}]*)\s*}/m
+      private_constant :FILE_REGEX
 
       def response(language:)
         res = connection.get url(language:)
