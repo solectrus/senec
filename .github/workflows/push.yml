@@ -4,7 +4,7 @@ on: push
 
 jobs:
   test:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
 
     strategy:
       fail-fast: false
@@ -31,7 +31,7 @@ jobs:
         run: bundle exec dotenv -f ".env.test" rspec
 
       - name: Send test coverage to CodeClimate
-        uses: paambaati/codeclimate-action@v8
+        uses: paambaati/codeclimate-action@v9
         if: ${{ env.CC_TEST_REPORTER_ID }}
         with:
           coverageCommand: true
