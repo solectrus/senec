@@ -16,7 +16,7 @@ RSpec.describe Senec::Cloud::Connection, :vcr do
     context 'when credentials are invalid', vcr: 'cloud/login-invalid' do
       let(:password) { 'wrongpassword' }
 
-      it { expect { authenticated? }.to raise_error('Error 400') }
+      it { expect { authenticated? }.to raise_error('Error 401') }
     end
 
     context 'when valid token is given', vcr: 'cloud/login-valid' do

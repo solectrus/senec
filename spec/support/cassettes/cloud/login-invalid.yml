@@ -8,20 +8,20 @@ http_interactions:
       string: '{"username":"<SENEC_USERNAME>","password":"wrongpassword"}'
     headers:
       User-Agent:
-      - Faraday v2.12.2
+      - Faraday v2.13.1
       Content-Type:
       - application/json
   response:
     status:
-      code: 400
+      code: 401
       message: ''
     headers:
       date:
-      - Sat, 11 Jan 2025 06:11:09 GMT
+      - Thu, 12 Jun 2025 09:29:48 GMT
       content-type:
       - text/plain;charset=UTF-8
       content-length:
-      - '9'
+      - '2'
       connection:
       - keep-alive
       vary:
@@ -42,6 +42,6 @@ http_interactions:
       - DENY
     body:
       encoding: UTF-8
-      string: 'HTTP 400 '
-  recorded_at: Sat, 11 Jan 2025 06:11:09 GMT
+      string: "{}"
+  recorded_at: Thu, 12 Jun 2025 09:29:48 GMT
 recorded_with: VCR 6.3.1
