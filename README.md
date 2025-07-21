@@ -1,7 +1,7 @@
 [![Continuous integration](https://github.com/solectrus/senec/actions/workflows/push.yml/badge.svg)](https://github.com/solectrus/senec/actions/workflows/push.yml)
 [![wakatime](https://wakatime.com/badge/user/697af4f5-617a-446d-ba58-407e7f3e0243/project/84ac7dc2-9288-497c-bb20-9c6123d3de66.svg)](https://wakatime.com/badge/user/697af4f5-617a-446d-ba58-407e7f3e0243/project/84ac7dc2-9288-497c-bb20-9c6123d3de66)
-[![Maintainability](https://api.codeclimate.com/v1/badges/7f87c569e806d4f19368/maintainability)](https://codeclimate.com/github/solectrus/senec/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/7f87c569e806d4f19368/test_coverage)](https://codeclimate.com/github/solectrus/senec/test_coverage)
+[![Maintainability](https://qlty.sh/gh/solectrus/projects/senec/maintainability.svg)](https://qlty.sh/gh/solectrus/projects/senec)
+[![Code Coverage](https://qlty.sh/gh/solectrus/projects/senec/coverage.svg)](https://qlty.sh/gh/solectrus/projects/senec)
 
 # Unofficial Ruby Client for SENEC Home
 
