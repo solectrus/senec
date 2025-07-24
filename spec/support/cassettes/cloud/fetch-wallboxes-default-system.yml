@@ -38,13 +38,13 @@ http_interactions:
       content-length:
       - '0'
       date:
-      - Thu, 24 Jul 2025 07:24:38 GMT
+      - Thu, 24 Jul 2025 07:24:41 GMT
       x-server:
       - node2
     body:
       encoding: UTF-8
       string: ''
-  recorded_at: Thu, 24 Jul 2025 07:24:38 GMT
+  recorded_at: Thu, 24 Jul 2025 07:24:41 GMT
 - request:
     method: get
     uri: https://mein-senec.de/oauth2/authorization/login-portal
@@ -82,13 +82,13 @@ http_interactions:
       content-length:
       - '0'
       date:
-      - Thu, 24 Jul 2025 07:24:38 GMT
+      - Thu, 24 Jul 2025 07:24:41 GMT
       x-server:
       - node2
     body:
       encoding: UTF-8
       string: ''
-  recorded_at: Thu, 24 Jul 2025 07:24:38 GMT
+  recorded_at: Thu, 24 Jul 2025 07:24:41 GMT
 - request:
     method: get
     uri: https://sso.senec.com/realms/senec/protocol/openid-connect/auth?client_id=meinsenec-login-portal&nonce=FILTERED_NONCE&redirect_uri=https%3A%2F%2Fmein-senec.de%2Flogin%2Foauth2%2Fcode%2Flogin-portal&response_type=code&scope=openid&state=FILTERED_STATE
@@ -108,7 +108,7 @@ http_interactions:
       message: OK
     headers:
       date:
-      - Thu, 24 Jul 2025 07:24:38 GMT
+      - Thu, 24 Jul 2025 07:24:41 GMT
       content-type:
       - text/html;charset=utf-8
       content-length:
@@ -195,7 +195,7 @@ http_interactions:
         \                           Imprint</a>\n                        <a href=\"https://senec.com/de/mein-senec-app-datenschutzerklaerung\"
         class=\"footer-link\" target=\"_blank\">\n                            Data
         Privacy</a>\n                    </div>\n        </div>\n    </body>\n\n    </html>\n"
-  recorded_at: Thu, 24 Jul 2025 07:24:38 GMT
+  recorded_at: Thu, 24 Jul 2025 07:24:41 GMT
 - request:
     method: post
     uri: https://sso.senec.com/realms/senec/login-actions/authenticate?client_data=FILTERED_CLIENT_DATA&client_id=meinsenec-login-portal&execution=FILTERED_EXECUTION&session_code=FILTERED_SESSION_CODE&tab_id=FILTERED_TAB_ID
@@ -218,7 +218,7 @@ http_interactions:
       message: Found
     headers:
       date:
-      - Thu, 24 Jul 2025 07:24:38 GMT
+      - Thu, 24 Jul 2025 07:24:42 GMT
       content-length:
       - '0'
       connection:
@@ -246,7 +246,7 @@ http_interactions:
     body:
       encoding: UTF-8
       string: ''
-  recorded_at: Thu, 24 Jul 2025 07:24:38 GMT
+  recorded_at: Thu, 24 Jul 2025 07:24:42 GMT
 - request:
     method: get
     uri: https://mein-senec.de/login/oauth2/code/login-portal?code=FILTERED_CODE&iss=https%3A%2F%2Fsso.senec.com%2Frealms%2Fsenec&session_state=FILTERED_SESSION_STATE&state=FILTERED_STATE
@@ -290,13 +290,13 @@ http_interactions:
       content-length:
       - '0'
       date:
-      - Thu, 24 Jul 2025 07:24:38 GMT
+      - Thu, 24 Jul 2025 07:24:42 GMT
       x-server:
       - node2
     body:
       encoding: UTF-8
       string: ''
-  recorded_at: Thu, 24 Jul 2025 07:24:38 GMT
+  recorded_at: Thu, 24 Jul 2025 07:24:42 GMT
 - request:
     method: get
     uri: https://mein-senec.de/
@@ -342,13 +342,13 @@ http_interactions:
       content-length:
       - '0'
       date:
-      - Thu, 24 Jul 2025 07:24:39 GMT
+      - Thu, 24 Jul 2025 07:24:42 GMT
       x-server:
       - node2
     body:
       encoding: UTF-8
       string: ''
-  recorded_at: Thu, 24 Jul 2025 07:24:39 GMT
+  recorded_at: Thu, 24 Jul 2025 07:24:42 GMT
 - request:
     method: get
     uri: https://mein-senec.de/endkunde
@@ -375,13 +375,13 @@ http_interactions:
       transfer-encoding:
       - chunked
       date:
-      - Thu, 24 Jul 2025 07:24:39 GMT
+      - Thu, 24 Jul 2025 07:24:42 GMT
       x-server:
       - node2
     body:
       encoding: UTF-8
       string: ''
-  recorded_at: Thu, 24 Jul 2025 07:24:39 GMT
+  recorded_at: Thu, 24 Jul 2025 07:24:42 GMT
 - request:
     method: get
     uri: https://mein-senec.de/endkunde/
@@ -424,13 +424,13 @@ http_interactions:
       content-length:
       - '0'
       date:
-      - Thu, 24 Jul 2025 07:24:39 GMT
+      - Thu, 24 Jul 2025 07:24:42 GMT
       x-server:
       - node2
     body:
       encoding: UTF-8
       string: ''
-  recorded_at: Thu, 24 Jul 2025 07:24:39 GMT
+  recorded_at: Thu, 24 Jul 2025 07:24:42 GMT
 - request:
     method: get
     uri: https://mein-senec.de/endkunde/oauth2/authorization/endkunde-portal
@@ -471,13 +471,13 @@ http_interactions:
       content-length:
       - '0'
       date:
-      - Thu, 24 Jul 2025 07:24:39 GMT
+      - Thu, 24 Jul 2025 07:24:42 GMT
       x-server:
       - node2
     body:
       encoding: UTF-8
       string: ''
-  recorded_at: Thu, 24 Jul 2025 07:24:39 GMT
+  recorded_at: Thu, 24 Jul 2025 07:24:42 GMT
 - request:
     method: get
     uri: https://sso.senec.com/realms/senec/protocol/openid-connect/auth?client_id=meinsenec-endkunde-portal&nonce=FILTERED_NONCE&redirect_uri=https%3A%2F%2Fmein-senec.de%2Fendkunde%2Flogin%2Foauth2%2Fcode%2Fendkunde-portal&response_type=code&scope=openid&state=FILTERED_STATE
@@ -500,7 +500,7 @@ http_interactions:
       message: Found
     headers:
       date:
-      - Thu, 24 Jul 2025 07:24:39 GMT
+      - Thu, 24 Jul 2025 07:24:42 GMT
       content-length:
       - '0'
       connection:
@@ -525,7 +525,7 @@ http_interactions:
     body:
       encoding: UTF-8
       string: ''
-  recorded_at: Thu, 24 Jul 2025 07:24:39 GMT
+  recorded_at: Thu, 24 Jul 2025 07:24:42 GMT
 - request:
     method: get
     uri: https://mein-senec.de/endkunde/login/oauth2/code/endkunde-portal?code=FILTERED_CODE&iss=https%3A%2F%2Fsso.senec.com%2Frealms%2Fsenec&session_state=FILTERED_SESSION_STATE&state=FILTERED_STATE
@@ -568,13 +568,13 @@ http_interactions:
       content-length:
       - '0'
       date:
-      - Thu, 24 Jul 2025 07:24:39 GMT
+      - Thu, 24 Jul 2025 07:24:42 GMT
       x-server:
       - node2
     body:
       encoding: UTF-8
       string: ''
-  recorded_at: Thu, 24 Jul 2025 07:24:39 GMT
+  recorded_at: Thu, 24 Jul 2025 07:24:42 GMT
 - request:
     method: get
     uri: https://mein-senec.de/endkunde/
@@ -615,7 +615,7 @@ http_interactions:
       transfer-encoding:
       - chunked
       date:
-      - Thu, 24 Jul 2025 07:24:39 GMT
+      - Thu, 24 Jul 2025 07:24:42 GMT
       x-server:
       - node2
     body:
@@ -710,5 +710,52 @@ http_interactions:
         \           </div>\n\n            <div ng-view ng-if=\"endkunde\" autoscroll=\"true\"></div>\n
         \       </div>\n        <div class=\"footer\" ng-include=\"'static/templates/footer.html?wipecache='+WIPECACHETIMESTAMP\"></div>\n
         \   </div>\n\n</div>\n</body>\n</html>\n"
-  recorded_at: Thu, 24 Jul 2025 07:24:39 GMT
+  recorded_at: Thu, 24 Jul 2025 07:24:42 GMT
+- request:
+    method: get
+    uri: https://mein-senec.de/endkunde/api/wallboxes?anlageNummer=0
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - ruby-senec/0.19.0 (+https://github.com/solectrus/senec)
+      connection:
+      - keep-alive
+      cookie:
+      - XSRF-TOKEN=FILTERED_TOKEN; SESSION=FILTERED_SESSION; AUTH_SESSION_ID=FILTERED_SESSION;
+        KC_AUTH_SESSION_HASH=FILTERED_HASH; KC_RESTART=; KEYCLOAK_LOCALE=FILTERED_LOCALE;
+        KEYCLOAK_IDENTITY=FILTERED_IDENTITY; KEYCLOAK_SESSION=FILTERED_SESSION; 01
+        Jan 1970 00:00:10 GMT; 1 Jan 1970 00:00:00 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      x-content-type-options:
+      - nosniff
+      x-xss-protection:
+      - 1; mode=block
+      cache-control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      pragma:
+      - no-cache
+      expires:
+      - '0'
+      strict-transport-security:
+      - max-age=31536000 ; includeSubDomains
+      x-frame-options:
+      - SAMEORIGIN
+      content-type:
+      - application/json
+      transfer-encoding:
+      - chunked
+      date:
+      - Thu, 24 Jul 2025 07:24:43 GMT
+      x-server:
+      - node2
+    body:
+      encoding: UTF-8
+      string: '[{"id":1,"sequenceNumber":1,"caseSerialNumber":"FILTERED_CASE_SERIAL","controllerSerialNumber":999999999,"powerSocketAvailable":false,"firmwareVersion":"4.1","hardwareVersion":"PCBA_160307","minPossibleApparentChargingPowerInVa":1400,"maxPossibleChargingCurrentInA":31.98,"minPossibleChargingCurrentInA":6.0,"configuredMaxChargingCurrentInA":31.98,"configuredMinChargingCurrentInA":8.0,"chargingMode":"LOCKED","lastContactDate":1753341639000,"supportedChargingModes":["COMFORT_MODE","FASTEST","STATIC_MANUAL","SMART_SELF_GENERATED_PREFERRED","LOCKED","SMART_SELF_GENERATED_COMPATIBILITY_MODE"],"allowIntercharge":false,"compatibilityMode":true,"currentApparentChargingPowerInVa":0,"electricVehicleConnected":true,"numberOfElectricPowerPhases":0,"state":"EV_PERMISSION_TO_CHARGE","temperatureInCelsius":28.20800018310547,"stateSeverity":"INFO","currentApparentChargingPowerInKVa":0.0}]'
+  recorded_at: Thu, 24 Jul 2025 07:24:43 GMT
 recorded_with: VCR 6.3.1

@@ -5,7 +5,7 @@
 
 # Unofficial Ruby Client for SENEC Home
 
-Access your local SENEC Solar Battery Storage System or the SENEC Cloud from Ruby.
+Access your local SENEC Solar Battery Storage System or the SENEC Cloud (mein-senec.de) from Ruby.
 
 **WARNING:** I'm not affiliated in any way with the SENEC company.
 
@@ -13,7 +13,7 @@ Inspired by:
 
 - https://github.com/mchwalisz/pysenec
 - https://gist.github.com/smashnet/82ad0b9d7f0ba2e5098e6649ba08f88a
-- https://documenter.getpostman.com/view/932140/2s9YXib2td
+- https://github.com/marq24/ha-senec-v3
 
 ## Installation
 
@@ -23,93 +23,64 @@ $ gem install senec
 
 ## Usage
 
-### Cloud access (V2.1, V3 and V4)
+### Cloud access (V2.1, V3 and Home.4)
 
-```ruby
+````ruby
 require 'senec'
 
-# Login to the SENEC cloud
+# Login to the SENEC cloud (mein-senec.de):
 connection = Senec::Cloud::Connection.new(username: 'me@example.com', password: 'my-secret-senec-password')
-
-# List all available systems
-puts connection.systems
-
-# => [{"id"=>"123456", "steuereinheitnummer"=>"S123XXX", "gehaeusenummer"=>"DE-V3-XXXX", "strasse"=>"Musterstraße", "hausnummer"=>"27a", "postleitzahl"=>"99999", "ort"=>"Musterort", "laendercode"=>"DE", "zeitzone"=>"Europe/Berlin", "wallboxIds"=>["1"], "systemType"=>"V3"}]
 
 # Get the Dashboard data of first systems (without knowing the ID):
 puts Senec::Cloud::Dashboard[connection].first.data
 
-# => {"aktuell"=>
-#   {"stromerzeugung"=>{"wert"=>0.01, "einheit"=>"W"},
-#    "stromverbrauch"=>{"wert"=>860.0, "einheit"=>"W"},
-#    "netzeinspeisung"=>{"wert"=>0.01, "einheit"=>"W"},
-#    "netzbezug"=>{"wert"=>852.6270000000001, "einheit"=>"W"},
-#    "speicherbeladung"=>{"wert"=>0.01, "einheit"=>"W"},
-#    "speicherentnahme"=>{"wert"=>11.68, "einheit"=>"W"},
-#    "speicherfuellstand"=>{"wert"=>1.0e-05, "einheit"=>"%"},
-#    "autarkie"=>{"wert"=>1.35, "einheit"=>"%"},
-#    "wallbox"=>{"wert"=>0.01, "einheit"=>"W"}},
-#  "heute"=>
-#   {"stromerzeugung"=>{"wert"=>3339.84375, "einheit"=>"Wh"},
-#    "stromverbrauch"=>{"wert"=>21000.0, "einheit"=>"Wh"},
-#    "netzeinspeisung"=>{"wert"=>13.671875, "einheit"=>"Wh"},
-#    "netzbezug"=>{"wert"=>17546.38671875, "einheit"=>"Wh"},
-#    "speicherbeladung"=>{"wert"=>119.140625, "einheit"=>"Wh"},
-#    "speicherentnahme"=>{"wert"=>254.39453125, "einheit"=>"Wh"},
-#    "speicherfuellstand"=>{"wert"=>0.0, "einheit"=>"%"},
-#    "autarkie"=>{"wert"=>16.47, "einheit"=>"%"},
-#    "wallbox"=>{"wert"=>0.0, "einheit"=>"Wh"}},
-#  "zeitstempel"=>"2023-11-26T18:45:23Z",
-#  "electricVehicleConnected"=>false}
-
-# Get the Dashboard data of a specific system (by ID):
-puts Senec::Cloud::Dashboard[connection].find("123456").data
-
-# => {"aktuell"=>
-#   {"stromerzeugung"=>{"wert"=>0.01, "einheit"=>"W"},
-# ....
-
-# Dashboard data can be requested in different versions, v1 and v2 are available, v1 is the default.
-# To request the data in version 2, pass the version parameter to the `data` method:
-puts Senec::Cloud::Dashboard[connection].first.data(version: 'v2')
-
 # => {
-#   'currently' => {
-#     'powerGenerationInW' => 1.0e-05,
-#     'powerConsumptionInW' => 1350.37,
-#     'gridFeedInInW' => 1.0e-05,
-#     'gridDrawInW' => 1321.26966059603,
-#     'batteryChargeInW' => 1.0e-05,
-#     'batteryDischargeInW' => 11.6411423841,
-#     'batteryLevelInPercent' => 1.0e-05,
-#     'selfSufficiencyInPercent' => 2.16,
-#     'wallboxInW' => 1.0e-05
+#   'wartungsplan' => {
+#     'possibleMaintenanceTypes' => [],
+#     'applicable' => false,
+#     'maintenanceDueSoon' => false,
+#     'maintenanceOverdue' => false,
+#     'minorMaintenancePossible' => false
 #   },
-#   'today' => {
-#     'powerGenerationInWh' => 3.90625,
-#     'powerConsumptionInWh' => 9119.14,
-#     'gridFeedInInWh' => 0.0,
-#     'gridDrawInWh' => 9011.71875,
-#     'batteryChargeInWh' => 0.0,
-#     'batteryDischargeInWh' => 107.421875,
-#     'batteryLevelInPercent' => 1.0e-05,
-#     'selfSufficiencyInPercent' => 1.18,
-#     'wallboxInWh' => 0.0
+#   'suppressedNotificationIds' => [],
+#   'steuereinheitState' => 'AKKU_VOLL',
+#   'wartungNotwendig' => false,
+#   'firmwareVersion' => 826,
+#   'gridimport' => {
+#     'today' => 0.0302734375,
+#     'now' => 0.0
 #   },
-#   'timestamp' => '2025-01-11T06:45:09Z',
-#   'electricVehicleConnected' => false
+#   'powergenerated' => {
+#     'today' => 30.94140625,
+#     'now' => 2.382683
+#   },
+#   'consumption' => {
+#     'today' => 5.501953125,
+#     'now' => 0.327035
+#   },
+#   'gridexport' => {
+#     'today' => 24.779296875,
+#     'now' => 2.032288
+#   },
+#   'accuexport' => {
+#     'today' => 2.55419921875,
+#     'now' => 0.0
+#   },
+#   'accuimport' => {
+#     'today' => 1.84619140625,
+#     'now' => 0.01752
+#   },
+#   'acculevel' => {
+#     'today' => 89.47079467773438,
+#     'now' => 100.0
+#   },
+#   'mcuOperationalModeId' => 2,
+#   'senecBatteryStorageGeneration' => 'V3',
+#   'machine' => 'MCU',
+#   'lastupdated' => 1_753_277_119,
+#   'state' => 13
 # }
 
-# Get the Technical Data of a specific system (by ID):
-puts Senec::Cloud::TechnicalData[connection].find("123456").data
-
-# => {"systemOverview"=>{"systemId"=>123456, "productName"=>"SENEC.Home V3 hybrid duo", ...
-
-# Get the Technical Data of first systems (without knowing the ID):
-puts Senec::Cloud::TechnicalData[connection].first.data
-
-# => {"systemOverview"=>{"systemId"=>123456, "productName"=>"SENEC.Home V3 hybrid duo", ...
-```
 
 ### Local access (V2.1 and V3 only)
 
@@ -152,7 +123,7 @@ puts "Measure time: #{Time.at request.measure_time}"
 # Grid power: 315 W
 # Current state of the system: 14
 # Measure time: 2021-10-06 17:50:22 +0200
-```
+````
 
 To get the state name (in English, German or Italian) instead of just the number:
 

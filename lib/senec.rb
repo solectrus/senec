@@ -4,6 +4,6 @@ require 'senec/local/state'
 require 'senec/local/request'
 require 'senec/local/error'
 
-require 'senec/cloud/dashboard'
-require 'senec/cloud/technical_data'
+require 'senec/cloud/stats_overview'
+require 'senec/cloud/wallboxes'
 require 'senec/cloud/error'
