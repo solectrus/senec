@@ -1,4 +1,4 @@
-require_relative 'lib/senec/version'
+require File.expand_path('lib/senec/version', __dir__)
 
 Gem::Specification.new do |spec|
   spec.name          = 'senec'
@@ -10,26 +10,25 @@ Gem::Specification.new do |spec|
   spec.description   = 'Access your local SENEC Solar Battery Storage System'
   spec.homepage      = 'https://github.com/solectrus/senec'
   spec.license       = 'MIT'
-  spec.required_ruby_version = Gem::Requirement.new('>= 3.2.0')
+
+  spec.required_ruby_version = '>= 3.2.0'
+
+  spec.metadata = {
+    'homepage_uri' => spec.homepage,
+    'source_code_uri' => spec.homepage,
+    'changelog_uri' => "#{spec.homepage}/releases",
+    'rubygems_mfa_required' => 'true'
+  }
+
   spec.add_dependency 'faraday'
   spec.add_dependency 'faraday-net_http_persistent'
   spec.add_dependency 'faraday-request-timer'
 
-  spec.metadata['homepage_uri'] = spec.homepage
-  spec.metadata['source_code_uri'] = 'https://github.com/solectrus/senec'
-  spec.metadata['changelog_uri'] = 'https://github.com/solectrus/senec/releases'
-  spec.metadata['rubygems_mfa_required'] = 'true'
+  spec.files = Dir.glob('**/*', File::FNM_DOTMATCH).grep_v(
+    %r{\A(?:\.git/|\.github/|bin/|test/|spec/|features/|Gemfile|\.qlty/|#{Regexp.escape(File.basename(__FILE__))})},
+  ).select { |f| File.file?(f) }
 
-  # Specify which files should be added to the gem when it is released.
-  # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
-  gemspec = File.basename(__FILE__)
-  spec.files = IO.popen(%w[git ls-files -z], chdir: __dir__, err: IO::NULL) do |ls|
-    ls.readlines("\x0", chomp: true).reject do |f|
-      (f == gemspec) ||
-        f.start_with?(*%w[bin/ test/ spec/ features/ .git .github appveyor Gemfile])
-    end
-  end
   spec.bindir        = 'exe'
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  spec.executables   = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 end
