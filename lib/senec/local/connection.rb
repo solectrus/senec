@@ -13,6 +13,7 @@ module Senec
       attr_reader :url
 
       extend Forwardable
+
       def_delegators :faraday, :get, :post
 
       private
