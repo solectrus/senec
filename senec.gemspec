@@ -23,6 +23,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'faraday'
   spec.add_dependency 'faraday-net_http_persistent'
   spec.add_dependency 'faraday-request-timer'
+  spec.add_dependency 'oauth2'
 
   spec.files = Dir.glob('**/*', File::FNM_DOTMATCH).grep_v(
     %r{\A(?:\.git/|\.github/|bin/|test/|spec/|features/|Gemfile|\.qlty/|#{Regexp.escape(File.basename(__FILE__))})},

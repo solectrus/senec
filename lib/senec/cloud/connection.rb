@@ -1,129 +1,192 @@
-require 'faraday'
-require 'json'
+require 'oauth2'
 
 module Senec
   module Cloud
-    BASE_URL = 'https://mein-senec.de'.freeze
+    CONFIG_URL =
+      'https://sso.senec.com/realms/senec/.well-known/openid-configuration'.freeze
+
+    CLIENT_ID = 'endcustomer-app-frontend'.freeze
+    REDIRECT_URI = 'senec-app-auth://keycloak.prod'.freeze
+    SCOPE = 'roles meinsenec'.freeze
+
+    SYSTEMS_HOST = 'https://senec-app-systems-proxy.prod.senec.dev'.freeze
+    MEASUREMENTS_HOST = 'https://senec-app-measurements-proxy.prod.senec.dev'.freeze
+    WALLBOX_HOST = 'https://senec-app-wallbox-proxy.prod.senec.dev'.freeze
 
     class Connection
       DEFAULT_USER_AGENT = "ruby-senec/#{Senec::VERSION} (+https://github.com/solectrus/senec)".freeze
-      MAX_REDIRECTS = 10
 
       def initialize(username:, password:, user_agent: DEFAULT_USER_AGENT)
         @username = username
         @password = password
         @user_agent = user_agent
-        @cookies = {}
       end
 
-      attr_reader :username, :password, :user_agent, :cookies
+      attr_reader :username, :password, :user_agent
+
+      def authenticate!
+        code_verifier = SecureRandom.alphanumeric(43)
+        digest = Digest::SHA256.digest(code_verifier)
+        code_challenge = Base64.urlsafe_encode64(digest).delete('=')
+
+        auth_url =
+          oauth_client.auth_code.authorize_url(
+            redirect_uri: REDIRECT_URI,
+            scope: SCOPE,
+            code_challenge:,
+            code_challenge_method: 'S256',
+          )
+
+        # Manual HTTP needed for Keycloak cross-domain form handling
+        login_form_url = fetch_login_form_url(auth_url)
+        redirect_url = submit_credentials(login_form_url)
+        authorization_code = extract_authorization_code(redirect_url)
+
+        self.oauth_token =
+          oauth_client.auth_code.get_token(
+            authorization_code,
+            redirect_uri: REDIRECT_URI,
+            code_verifier:,
+          )
+      end
 
       def authenticated?
-        authenticate if cookies.empty?
-
-        cookies.key?('sso.senec.com_KEYCLOAK_IDENTITY')
+        !!oauth_token
       end
 
-      def authenticate
-        response = request_with_redirects(Cloud::BASE_URL)
-
-        # Find form with username and password inputs
-        form_match = find_login_form(response.body)
-        raise Error, 'Login form not found!' unless form_match
-
-        # Perform the login request with the extracted form action URL
-        form_action = form_match.gsub('&amp;', '&')
-        request_with_redirects(
-          form_action, {
-            'username' => username,
-            'password' => password
-          },
-        )
+      def systems
+        fetch_payload "#{SYSTEMS_HOST}/v1/systems"
       end
 
-      def simple_request(url)
-        perform_request(url)
+      def system_details(system_id)
+        fetch_payload "#{SYSTEMS_HOST}/systems/#{system_id}/details"
       end
 
-      def request_with_redirects(url, data = nil)
-        uri = URI(url)
-        redirect_count = 0
-        response = nil
+      def dashboard(system_id)
+        fetch_payload "#{MEASUREMENTS_HOST}/v1/systems/#{system_id}/dashboard"
+      end
 
-        loop do
-          response = perform_request(uri.to_s, data)
-          store_cookies(response)
-
-          break unless (300..399).cover?(response.status)
-
-          location = response.headers['location']
-          break unless location
-
-          redirect_count += 1
-          raise 'Too many redirects!' if redirect_count > MAX_REDIRECTS
-
-          uri = location.start_with?('http') ? URI(location) : URI.join(uri, location)
-          data = nil # Clear data after first request (no POST redirects)
-        end
-
-        response
+      def wallbox(system_id, wallbox_id)
+        fetch_payload "#{WALLBOX_HOST}/v1/systems/#{system_id}/wallboxes/#{wallbox_id}"
       end
 
       private
 
-      def find_login_form(html_body)
-        # Find all forms and check if they contain both username and password inputs
-        html_body.scan(%r{<form[^>]*action="([^"]+)"[^>]*>(.*?)</form>}m).each do |action, form_content|
-          has_username = form_content.match(/input[^>]*name=["']username["'][^>]*/)
-          has_password = form_content.match(/input[^>]*name=["']password["'][^>]*/)
+      attr_accessor :oauth_token
 
-          return action if has_username && has_password
+      def fetch_login_form_url(auth_url)
+        response = http_request(:get, auth_url)
+        store_cookies(response) # Required for Keycloak CSRF protection
+        extract_form_action_url(response.body)
+      end
+
+      def extract_form_action_url(html)
+        forms = html.scan(%r{<form[^>]*action="([^"]+)"[^>]*>(.*?)</form>}mi)
+
+        forms.each do |action_url, form_content|
+          has_username = form_content.match(/name=["']?username["']?/i)
+          has_password = form_content.match(/name=["']?password["']?/i)
+
+          return CGI.unescapeHTML(action_url) if has_username && has_password
         end
 
         # :nocov:
-        nil
+        raise 'Login form not found'
         # :nocov:
       end
 
-      def faraday
-        @faraday ||= Faraday.new do |f|
-          f.adapter :net_http_persistent, pool_size: 1 do |http|
-            # :nocov:
-            http.idle_timeout = 400
-            # :nocov:
-          end
-        end
+      def submit_credentials(form_url)
+        credentials = { username:, password: }
+        response = http_request(:post, form_url, data: credentials)
+        raise 'Login failed' unless response.status == 302
+
+        response.headers['location'] || raise('No redirect location')
       end
 
-      def perform_request(url, data = nil)
-        method = data ? :post : :get
-        faraday.public_send(method, url) do |req|
-          configure_request_headers(req)
-          if method == :post
-            req.body = URI.encode_www_form(data)
-            req.headers['content-type'] = 'application/x-www-form-urlencoded'
-          end
-        end
+      def extract_authorization_code(redirect_url)
+        raise 'Invalid redirect URL' unless redirect_url&.start_with?(REDIRECT_URI)
+
+        uri = URI(redirect_url)
+        params = URI.decode_www_form(uri.query).to_h
+
+        params['code'] || raise('No authorization code found')
       end
 
-      def configure_request_headers(request)
-        request.headers['user-agent'] = user_agent
-        request.headers['connection'] = 'keep-alive'
-        request.headers['cookie'] = cookies.values.join('; ') unless cookies.empty?
+      def ensure_token_valid
+        authenticate! unless authenticated?
+        return true unless oauth_token.expired?
+
+        self.oauth_token = oauth_token.refresh!
+        true
+      rescue StandardError => e
+        # :nocov:
+        warn "Token refresh failed: #{e.message}"
+        false
+        # :nocov:
+      end
+
+      def fetch_payload(url, default = nil)
+        return default unless ensure_token_valid
+
+        response = oauth_token.get(url)
+        return default unless response.status == 200
+
+        JSON.parse(response.body)
+      rescue StandardError => e
+        # :nocov:
+        warn "API error: #{e.message}"
+        default
+        # :nocov:
+      end
+
+      def http_request(method, url, data: nil)
+        Faraday
+          .new
+          .send(method, url) do |req|
+            req.headers['user-agent'] = user_agent
+            req.headers['connection'] = 'keep-alive'
+            req.headers['cookie'] = cookie_string if cookies.any?
+            req.body = URI.encode_www_form(data) if data
+          end
+      end
+
+      def oauth_client
+        @oauth_client ||=
+          OAuth2::Client.new(
+            CLIENT_ID,
+            nil,
+            site: openid_config['issuer'],
+            authorize_url: openid_config['authorization_endpoint'],
+            token_url: openid_config['token_endpoint'],
+          )
+      end
+
+      def openid_config
+        @openid_config ||= JSON.parse(http_request(:get, CONFIG_URL).body)
+      rescue StandardError => e
+        # :nocov:
+        raise "Failed to load OpenID configuration: #{e.message}"
+        # :nocov:
+      end
+
+      def cookies
+        @cookies ||= {}
+      end
+
+      def cookie_string
+        cookies.map { |k, v| "#{k}=#{v}" }.join('; ')
       end
 
       def store_cookies(response)
-        host = URI(response.env.url).host
-        cookie_header = response.headers['set-cookie']
-        return unless cookie_header
+        set_cookie = response.headers['set-cookie']
+        return unless set_cookie
 
-        Array(cookie_header).each do |cookie_string|
-          cookie_string.split(', ').each do |cookie|
-            cookie_name = cookie.split('=').first
-            cookie_value = cookie.split(';').first
-            @cookies["#{host}_#{cookie_name}"] = cookie_value
+        set_cookie
+          .split(', ')
+          .each do |cookie_header|
+            name, value = cookie_header.split(';').first.split('=', 2)
+            cookies[name] = value if name && value
           end
-        end
       end
     end
   end

@@ -5,7 +5,7 @@
 
 # Unofficial Ruby Client for SENEC Home
 
-Access your local SENEC Solar Battery Storage System or the SENEC Cloud (mein-senec.de) from Ruby.
+Access your local SENEC Solar Battery Storage System or the SENEC Cloud (App API) from Ruby.
 
 **WARNING:** I'm not affiliated in any way with the SENEC company.
 
@@ -28,59 +28,16 @@ $ gem install senec
 ````ruby
 require 'senec'
 
-# Login to the SENEC cloud (mein-senec.de):
+# Build connection with your credentials
 connection = Senec::Cloud::Connection.new(username: 'me@example.com', password: 'my-secret-senec-password')
 
-# Get the Dashboard data of first systems (without knowing the ID):
-puts Senec::Cloud::Dashboard[connection].first.data
+# List available systems (with their IDs)
+puts connection.systems
+# => {"id" => 999999, "controlUnitNumber" => "1234567890", ...
 
-# => {
-#   'wartungsplan' => {
-#     'possibleMaintenanceTypes' => [],
-#     'applicable' => false,
-#     'maintenanceDueSoon' => false,
-#     'maintenanceOverdue' => false,
-#     'minorMaintenancePossible' => false
-#   },
-#   'suppressedNotificationIds' => [],
-#   'steuereinheitState' => 'AKKU_VOLL',
-#   'wartungNotwendig' => false,
-#   'firmwareVersion' => 826,
-#   'gridimport' => {
-#     'today' => 0.0302734375,
-#     'now' => 0.0
-#   },
-#   'powergenerated' => {
-#     'today' => 30.94140625,
-#     'now' => 2.382683
-#   },
-#   'consumption' => {
-#     'today' => 5.501953125,
-#     'now' => 0.327035
-#   },
-#   'gridexport' => {
-#     'today' => 24.779296875,
-#     'now' => 2.032288
-#   },
-#   'accuexport' => {
-#     'today' => 2.55419921875,
-#     'now' => 0.0
-#   },
-#   'accuimport' => {
-#     'today' => 1.84619140625,
-#     'now' => 0.01752
-#   },
-#   'acculevel' => {
-#     'today' => 89.47079467773438,
-#     'now' => 100.0
-#   },
-#   'mcuOperationalModeId' => 2,
-#   'senecBatteryStorageGeneration' => 'V3',
-#   'machine' => 'MCU',
-#   'lastupdated' => 1_753_277_119,
-#   'state' => 13
-# }
-
+# Get the current dashboard data for a specific system
+puts connection.dashboard(999999)
+# => {"currently" => {"powerGenerationInW" => 8539.603515625, "powerConsumptionInW" => 765.77, "gridFeedInInW" => 6451.11376953125, "gridDrawInW" => 0.0, "batteryChargeInW" => 1316.9090576171875, "batteryDischargeInW" => 0.0, "batteryLevelInPercent" => 88.88888549804688, "selfSufficiencyInPercent" => 100.0, "wallboxInW" => 0.0}, "today" => {"powerGenerationInWh" => 19687.5, "powerConsumptionInWh" => 4960.93, "gridFeedInInWh" => 15310.546875, "gridDrawInWh" => 28.3203125, "batteryChargeInWh" => 1175.78125, "batteryDischargeInWh" => 1732.421875, "batteryLevelInPercent" => 88.88888549804688, "selfSufficiencyInPercent" => 99.43, "wallboxInWh" => 0.0}, "timestamp" => "2025-07-26T10:55:07Z", "electricVehicleConnected" => false, "numberOfWallboxes" => 0, "systemId" => 999999, "systemType" => "V123", "storageDeviceState" => "CHARGING"}
 
 ### Local access (V2.1 and V3 only)
 
