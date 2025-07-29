@@ -46,10 +46,10 @@ RSpec.describe Senec::Cloud::Connection, :cloud, :vcr do
   describe '#system_details' do
     subject(:system_details) { connection.system_details(system_id) }
 
+    before { connection.authenticate! }
+
     context 'with valid system_id', vcr: 'cloud/system-details' do
       let(:system_id) { ENV.fetch('SENEC_SYSTEM_ID') }
-
-      before { connection.authenticate! }
 
       it { is_expected.to be_a(Hash) }
 
@@ -69,8 +69,6 @@ RSpec.describe Senec::Cloud::Connection, :cloud, :vcr do
     context 'with invalid system_id', vcr: 'cloud/system-details-invalid-id' do
       let(:system_id) { '12345' }
 
-      before { connection.authenticate! }
-
       it 'returns nil' do
         expect(system_details).to be_nil
       end
@@ -80,10 +78,10 @@ RSpec.describe Senec::Cloud::Connection, :cloud, :vcr do
   describe '#dashboard' do
     subject(:dashboard) { connection.dashboard(system_id) }
 
+    before { connection.authenticate! }
+
     context 'with valid system_id', vcr: 'cloud/dashboard' do
       let(:system_id) { ENV.fetch('SENEC_SYSTEM_ID') }
-
-      before { connection.authenticate! }
 
       it { is_expected.to be_a(Hash) }
 
@@ -104,8 +102,6 @@ RSpec.describe Senec::Cloud::Connection, :cloud, :vcr do
     context 'with invalid system_id', vcr: 'cloud/dashboard-invalid-id' do
       let(:system_id) { '12345' }
 
-      before { connection.authenticate! }
-
       it 'returns nil' do
         expect(dashboard).to be_nil
       end
@@ -115,10 +111,10 @@ RSpec.describe Senec::Cloud::Connection, :cloud, :vcr do
   describe '#wallbox' do
     subject(:wallbox) { connection.wallbox(system_id, 1) }
 
+    before { connection.authenticate! }
+
     context 'with valid system_id', vcr: 'cloud/wallbox' do
       let(:system_id) { ENV.fetch('SENEC_SYSTEM_ID') }
-
-      before { connection.authenticate! }
 
       it { is_expected.to be_a(Hash) }
 
@@ -144,8 +140,6 @@ RSpec.describe Senec::Cloud::Connection, :cloud, :vcr do
     context 'with invalid system_id', vcr: 'cloud/wallbox-invalid-id' do
       let(:system_id) { '12345' }
 
-      before { connection.authenticate! }
-
       it 'returns nil' do
         expect(wallbox).to be_nil
       end
@@ -155,10 +149,10 @@ RSpec.describe Senec::Cloud::Connection, :cloud, :vcr do
   describe '#wallbox_search' do
     subject(:wallbox_search) { connection.wallbox_search(system_id) }
 
+    before { connection.authenticate! }
+
     context 'with valid system_id', vcr: 'cloud/wallbox_search' do
       let(:system_id) { ENV.fetch('SENEC_SYSTEM_ID') }
-
-      before { connection.authenticate! }
 
       it { is_expected.to be_a(Array) }
 
@@ -183,8 +177,6 @@ RSpec.describe Senec::Cloud::Connection, :cloud, :vcr do
 
     context 'with invalid system_id', vcr: 'cloud/wallbox_search-invalid-id' do
       let(:system_id) { '12345' }
-
-      before { connection.authenticate! }
 
       it 'returns nil' do
         expect(wallbox_search).to be_nil
