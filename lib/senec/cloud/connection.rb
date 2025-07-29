@@ -55,19 +55,19 @@ module Senec
       end
 
       def systems
-        fetch_payload "#{SYSTEMS_HOST}/v1/systems"
+        get "#{SYSTEMS_HOST}/v1/systems"
       end
 
       def system_details(system_id)
-        fetch_payload "#{SYSTEMS_HOST}/systems/#{system_id}/details"
+        get "#{SYSTEMS_HOST}/systems/#{system_id}/details"
       end
 
       def dashboard(system_id)
-        fetch_payload "#{MEASUREMENTS_HOST}/v1/systems/#{system_id}/dashboard"
+        get "#{MEASUREMENTS_HOST}/v1/systems/#{system_id}/dashboard"
       end
 
       def wallbox(system_id, wallbox_id)
-        fetch_payload "#{WALLBOX_HOST}/v1/systems/#{system_id}/wallboxes/#{wallbox_id}"
+        get "#{WALLBOX_HOST}/v1/systems/#{system_id}/wallboxes/#{wallbox_id}"
       end
 
       private
@@ -125,7 +125,7 @@ module Senec
         # :nocov:
       end
 
-      def fetch_payload(url, default = nil)
+      def get(url, default: nil)
         return default unless ensure_token_valid
 
         response = oauth_token.get(url)
