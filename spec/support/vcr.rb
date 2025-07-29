@@ -45,6 +45,7 @@ FILTERS = {
     ),
   auth_tokens: {
     /Bearer [A-Za-z0-9._-]+/ => 'Bearer FILTERED_BEARER_TOKEN',
+    %r{Basic [A-Za-z0-9+/=]+} => 'Basic FILTERED_BASIC_TOKEN',
     **json_string_filters('access_token', 'refresh_token', 'session_state')
   },
   uri_system_ids: {
