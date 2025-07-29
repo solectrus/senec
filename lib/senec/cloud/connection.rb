@@ -70,6 +70,10 @@ module Senec
         get "#{WALLBOX_HOST}/v1/systems/#{system_id}/wallboxes/#{wallbox_id}"
       end
 
+      def wallbox_search(system_id)
+        post "#{WALLBOX_HOST}/v1/systems/wallboxes/search", { systemIds: [system_id] }
+      end
+
       private
 
       attr_accessor :oauth_token
@@ -129,6 +133,24 @@ module Senec
         return default unless ensure_token_valid
 
         response = oauth_token.get(url)
+        return default unless response.status == 200
+
+        JSON.parse(response.body)
+      rescue StandardError => e
+        # :nocov:
+        warn "API error: #{e.message}"
+        default
+        # :nocov:
+      end
+
+      def post(url, data, default: nil)
+        return default unless ensure_token_valid
+
+        response = oauth_token.post(
+          url,
+          body: data.to_json,
+          headers: { 'Content-Type' => 'application/json' },
+        )
         return default unless response.status == 200
 
         JSON.parse(response.body)

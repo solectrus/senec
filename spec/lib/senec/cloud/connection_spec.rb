@@ -151,4 +151,44 @@ RSpec.describe Senec::Cloud::Connection, :cloud, :vcr do
       end
     end
   end
+
+  describe '#wallbox_search' do
+    subject(:wallbox_search) { connection.wallbox_search(system_id) }
+
+    context 'with valid system_id', vcr: 'cloud/wallbox_search' do
+      let(:system_id) { ENV.fetch('SENEC_SYSTEM_ID') }
+
+      before { connection.authenticate! }
+
+      it { is_expected.to be_a(Array) }
+
+      it 'returns wallbox details' do
+        expect(wallbox_search.first.keys).to include(
+          'chargingCurrents',
+          'chargingMode',
+          'chargingPowerStats',
+          'controllerId',
+          'disconnected',
+          'id',
+          'isInterchargeAvailable',
+          'isSolarChargingAvailable',
+          'name',
+          'productFamily',
+          'prohibitUsage',
+          'state',
+          'type',
+        )
+      end
+    end
+
+    context 'with invalid system_id', vcr: 'cloud/wallbox_search-invalid-id' do
+      let(:system_id) { '12345' }
+
+      before { connection.authenticate! }
+
+      it 'returns nil' do
+        expect(wallbox_search).to be_nil
+      end
+    end
+  end
 end

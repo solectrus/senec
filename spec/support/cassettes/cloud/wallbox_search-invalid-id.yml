@@ -1,0 +1,276 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://sso.senec.com/realms/senec/.well-known/openid-configuration
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - ruby-senec/0.20.0 (+https://github.com/solectrus/senec)
+      connection:
+      - keep-alive
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Tue, 29 Jul 2025 09:29:40 GMT
+      content-type:
+      - application/json;charset=UTF-8
+      content-length:
+      - '6788'
+      connection:
+      - keep-alive
+      cache-control:
+      - no-cache, must-revalidate, no-transform, no-store
+      referrer-policy:
+      - no-referrer
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - SAMEORIGIN
+    body:
+      encoding: UTF-8
+      string: '{"issuer":"https://sso.senec.com/realms/senec","authorization_endpoint":"https://sso.senec.com/realms/senec/protocol/openid-connect/auth","token_endpoint":"https://sso.senec.com/realms/senec/protocol/openid-connect/token","introspection_endpoint":"https://sso.senec.com/realms/senec/protocol/openid-connect/token/introspect","userinfo_endpoint":"https://sso.senec.com/realms/senec/protocol/openid-connect/userinfo","end_session_endpoint":"https://sso.senec.com/realms/senec/protocol/openid-connect/logout","frontchannel_logout_session_supported":true,"frontchannel_logout_supported":true,"jwks_uri":"https://sso.senec.com/realms/senec/protocol/openid-connect/certs","check_session_iframe":"https://sso.senec.com/realms/senec/protocol/openid-connect/login-status-iframe.html","grant_types_supported":["authorization_code","client_credentials","implicit","password","refresh_token","urn:ietf:params:oauth:grant-type:device_code","urn:ietf:params:oauth:grant-type:token-exchange","urn:ietf:params:oauth:grant-type:uma-ticket","urn:openid:params:grant-type:ciba"],"acr_values_supported":["0","1"],"response_types_supported":["code","none","id_token","token","id_token
+        token","code id_token","code token","code id_token token"],"subject_types_supported":["public","pairwise"],"prompt_values_supported":["none","login","consent"],"id_token_signing_alg_values_supported":["PS384","RS384","EdDSA","ES384","HS256","HS512","ES256","RS256","HS384","ES512","PS256","PS512","RS512"],"id_token_encryption_alg_values_supported":["ECDH-ES+A256KW","ECDH-ES+A192KW","ECDH-ES+A128KW","RSA-OAEP","RSA-OAEP-256","RSA1_5","ECDH-ES"],"id_token_encryption_enc_values_supported":["A256GCM","A192GCM","A128GCM","A128CBC-HS256","A192CBC-HS384","A256CBC-HS512"],"userinfo_signing_alg_values_supported":["PS384","RS384","EdDSA","ES384","HS256","HS512","ES256","RS256","HS384","ES512","PS256","PS512","RS512","none"],"userinfo_encryption_alg_values_supported":["ECDH-ES+A256KW","ECDH-ES+A192KW","ECDH-ES+A128KW","RSA-OAEP","RSA-OAEP-256","RSA1_5","ECDH-ES"],"userinfo_encryption_enc_values_supported":["A256GCM","A192GCM","A128GCM","A128CBC-HS256","A192CBC-HS384","A256CBC-HS512"],"request_object_signing_alg_values_supported":["PS384","RS384","EdDSA","ES384","HS256","HS512","ES256","RS256","HS384","ES512","PS256","PS512","RS512","none"],"request_object_encryption_alg_values_supported":["ECDH-ES+A256KW","ECDH-ES+A192KW","ECDH-ES+A128KW","RSA-OAEP","RSA-OAEP-256","RSA1_5","ECDH-ES"],"request_object_encryption_enc_values_supported":["A256GCM","A192GCM","A128GCM","A128CBC-HS256","A192CBC-HS384","A256CBC-HS512"],"response_modes_supported":["query","fragment","form_post","query.jwt","fragment.jwt","form_post.jwt","jwt"],"registration_endpoint":"https://sso.senec.com/realms/senec/clients-registrations/openid-connect","token_endpoint_auth_methods_supported":["private_key_jwt","client_secret_basic","client_secret_post","tls_client_auth","client_secret_jwt"],"token_endpoint_auth_signing_alg_values_supported":["PS384","RS384","EdDSA","ES384","HS256","HS512","ES256","RS256","HS384","ES512","PS256","PS512","RS512"],"introspection_endpoint_auth_methods_supported":["private_key_jwt","client_secret_basic","client_secret_post","tls_client_auth","client_secret_jwt"],"introspection_endpoint_auth_signing_alg_values_supported":["PS384","RS384","EdDSA","ES384","HS256","HS512","ES256","RS256","HS384","ES512","PS256","PS512","RS512"],"authorization_signing_alg_values_supported":["PS384","RS384","EdDSA","ES384","HS256","HS512","ES256","RS256","HS384","ES512","PS256","PS512","RS512"],"authorization_encryption_alg_values_supported":["ECDH-ES+A256KW","ECDH-ES+A192KW","ECDH-ES+A128KW","RSA-OAEP","RSA-OAEP-256","RSA1_5","ECDH-ES"],"authorization_encryption_enc_values_supported":["A256GCM","A192GCM","A128GCM","A128CBC-HS256","A192CBC-HS384","A256CBC-HS512"],"claims_supported":["aud","sub","iss","auth_time","name","given_name","family_name","preferred_username","email","acr"],"claim_types_supported":["normal"],"claims_parameter_supported":true,"scopes_supported":["openid","meinsenec","roles","sso_charging_disclaimer","bsr-senec-meinsenec","sams.has-logged-in","microprofile-jwt","ems-maintenance-task.execute","sso_forecast_charging_settings","support","sams.sync-user-status","sso_restart_doi","basic","sso_set_password","service_partner_s4c_aud","web-origins","phone","ems-config.read","service_account","address","email","addonpackage-adhoc-redemption","sso_charging_warranty","offline_access","profile","acr","federated-identities"],"request_parameter_supported":true,"request_uri_parameter_supported":true,"require_request_uri_registration":true,"code_challenge_methods_supported":["plain","S256"],"tls_client_certificate_bound_access_tokens":true,"dpop_signing_alg_values_supported":["PS384","ES384","RS384","ES256","RS256","ES512","PS256","PS512","RS512"],"revocation_endpoint":"https://sso.senec.com/realms/senec/protocol/openid-connect/revoke","revocation_endpoint_auth_methods_supported":["private_key_jwt","client_secret_basic","client_secret_post","tls_client_auth","client_secret_jwt"],"revocation_endpoint_auth_signing_alg_values_supported":["PS384","RS384","EdDSA","ES384","HS256","HS512","ES256","RS256","HS384","ES512","PS256","PS512","RS512"],"backchannel_logout_supported":true,"backchannel_logout_session_supported":true,"device_authorization_endpoint":"https://sso.senec.com/realms/senec/protocol/openid-connect/auth/device","backchannel_token_delivery_modes_supported":["poll","ping"],"backchannel_authentication_endpoint":"https://sso.senec.com/realms/senec/protocol/openid-connect/ext/ciba/auth","backchannel_authentication_request_signing_alg_values_supported":["PS384","RS384","EdDSA","ES384","ES256","RS256","ES512","PS256","PS512","RS512"],"require_pushed_authorization_requests":false,"pushed_authorization_request_endpoint":"https://sso.senec.com/realms/senec/protocol/openid-connect/ext/par/request","mtls_endpoint_aliases":{"token_endpoint":"https://sso.senec.com/realms/senec/protocol/openid-connect/token","revocation_endpoint":"https://sso.senec.com/realms/senec/protocol/openid-connect/revoke","introspection_endpoint":"https://sso.senec.com/realms/senec/protocol/openid-connect/token/introspect","device_authorization_endpoint":"https://sso.senec.com/realms/senec/protocol/openid-connect/auth/device","registration_endpoint":"https://sso.senec.com/realms/senec/clients-registrations/openid-connect","userinfo_endpoint":"https://sso.senec.com/realms/senec/protocol/openid-connect/userinfo","pushed_authorization_request_endpoint":"https://sso.senec.com/realms/senec/protocol/openid-connect/ext/par/request","backchannel_authentication_endpoint":"https://sso.senec.com/realms/senec/protocol/openid-connect/ext/ciba/auth"},"authorization_response_iss_parameter_supported":true}'
+  recorded_at: Tue, 29 Jul 2025 09:29:40 GMT
+- request:
+    method: get
+    uri: https://sso.senec.com/realms/senec/protocol/openid-connect/auth?client_id=endcustomer-app-frontend&code_challenge=FILTERED_CODE_CHALLENGE&code_challenge_method=S256&redirect_uri=senec-app-auth%3A%2F%2Fkeycloak.prod&response_type=code&scope=roles%20meinsenec
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - ruby-senec/0.20.0 (+https://github.com/solectrus/senec)
+      connection:
+      - keep-alive
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Tue, 29 Jul 2025 09:29:41 GMT
+      content-type:
+      - text/html;charset=utf-8
+      content-length:
+      - '4586'
+      connection:
+      - keep-alive
+      set-cookie:
+      - AUTH_SESSION_ID=FILTERED_ID;Version=1;Path=/realms/senec/;Secure;HttpOnly;SameSite=None,
+        KC_AUTH_SESSION_HASH=FILTERED_HASH;Version=1;Path=/realms/senec/;Max-Age=60;Secure;SameSite=None,
+        KC_RESTART=FILTERED_RESTART;Version=1;Path=/realms/senec/;Secure;HttpOnly;SameSite=None
+      cache-control:
+      - no-store, must-revalidate, max-age=0
+      content-language:
+      - en
+      content-security-policy:
+      - frame-src 'self'; frame-ancestors 'self'; object-src 'none';
+      referrer-policy:
+      - no-referrer
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - SAMEORIGIN
+      x-robots-tag:
+      - none
+    body:
+      encoding: UTF-8
+      string: "    <!DOCTYPE html>\n    <html lang=\"en\">\n\n    <head>\n        <meta
+        charset=\"UTF-8\">\n        <title>\n        Login - SENEC\n        </title>\n
+        \       <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n
+        \       <link rel=\"stylesheet\" href=\"/resources/jkvmr/login/senec/css/styles.css?v=2.3\">\n
+        \       <script type=\"importmap\">\n            {\n                \"imports\":
+        {\n                    \"rfc4648\": \"/resources/jkvmr/common/keycloak/vendor/rfc4648/rfc4648.js\"\n
+        \               }\n            }\n        </script>\n        <script type=\"module\"
+        src=\"/resources/jkvmr/login/senec/js/passwordVisibility.js\"></script>\n
+        \       <script type=\"module\">\n            import { startSessionPolling
+        } from \"/resources/jkvmr/login/senec/js/authChecker.js\";\n\n            startSessionPolling(\n
+        \               \"/realms/senec/login-actions/restart?client_id=endcustomer-app-frontend&tab_id=FILTERED_TAB_ID&client_data=FILTERED_CLIENT_DATA&skip_logout=true\"\n
+        \           );\n        </script>\n        <script type=\"module\">\n            document.addEventListener(\"click\",
+        (event) => {\n                const link = event.target.closest(\"a[data-once-link]\");\n\n
+        \               if (!link) {\n                    return;\n                }\n\n
+        \               if (link.getAttribute(\"aria-disabled\") === \"true\") {\n
+        \                   event.preventDefault();\n                    return;\n
+        \               }\n\n                const { disabledClass } = link.dataset;\n\n
+        \               if (disabledClass) {\n                    link.classList.add(...disabledClass.trim().split(/\\s+/));\n
+        \               }\n\n                link.setAttribute(\"role\", \"link\");\n
+        \               link.setAttribute(\"aria-disabled\", \"true\");\n            });\n
+        \       </script>\n        <script type=\"module\">\n            import {
+        checkAuthSession } from \"/resources/jkvmr/login/senec/js/authChecker.js\";\n\n
+        \           checkAuthSession(\"FILTERED_HASH\");\n        </script>\n    </head>\n\n
+        \   <body>\n        <div class=\"background\">\n            <div class=\"content-container\">\n
+        \               <div class=\"logo-container\">\n                    <img src=\"/resources/jkvmr/login/senec/img/senec-logo-white.png\"
+        alt=\"SENEC Logo\">\n                </div>\n                <div class=\"login-container\">\n
+        \                   <div class=\"login-form\">\n                        <h2>\n
+        \       Sign in now\n                        </h2>\n                        <!--
+        Error message handling -->\n            <form id=\"kc-form-login\" onsubmit=\"login.disabled
+        = true; return true;\" action=\"https://sso.senec.com/realms/senec/login-actions/authenticate?session_code=FILTERED_SESSION_CODE&amp;execution=FILTERED_EXECUTION&amp;client_id=endcustomer-app-frontend&amp;tab_id=FILTERED_TAB_ID&amp;client_data=FILTERED_CLIENT_DATA\"
+        method=\"post\">\n                <div class=\"input-group\">\n                    <input
+        type=\"text\" id=\"username\" name=\"username\"  value=\"\"\n                        placeholder=\"Enter
+        your email\" autocomplete=\"username\"\n                        aria-invalid=\"\"
+        dir=\"ltr\">\n                </div>\n\n                <div class=\"input-group\">\n
+        \                   <input type=\"password\" id=\"password\" name=\"password\"
+        \n                        placeholder=\"Enter your password\"\n                        autocomplete=\"current-password\"
+        aria-invalid=\"\">\n                </div>\n                    <div class=\"forgot-password\">\n
+        \                       <a href=\"/realms/senec/login-actions/reset-credentials?client_id=endcustomer-app-frontend&amp;tab_id=FILTERED_TAB_ID&amp;client_data=FILTERED_CLIENT_DATA\">\n
+        \                           Forgot Password?\n                        </a>\n
+        \                   </div>\n                <div class=\"input-group\">\n
+        \                   <button type=\"submit\" class=\"custom-button\" name=\"login\"
+        id=\"kc-login\">\n                        Login\n                    </button>\n
+        \               </div>\n            </form>\n                    </div>\n
+        \               </div>\n            </div>\n                    <div class=\"footer\">\n
+        \                       <a href=\"https://senec.com/impressum\" class=\"footer-link\"
+        target=\"_blank\">\n                            Imprint</a>\n                        <a
+        href=\"https://senec.com/de/mein-senec-app-datenschutzerklaerung\" class=\"footer-link\"
+        target=\"_blank\">\n                            Data Privacy</a>\n                    </div>\n
+        \       </div>\n    </body>\n\n    </html>\n"
+  recorded_at: Tue, 29 Jul 2025 09:29:40 GMT
+- request:
+    method: post
+    uri: https://sso.senec.com/realms/senec/login-actions/authenticate?client_data=FILTERED_CLIENT_DATA&client_id=endcustomer-app-frontend&execution=FILTERED_EXECUTION&session_code=FILTERED_SESSION_CODE&tab_id=FILTERED_TAB_ID
+    body:
+      encoding: US-ASCII
+      string: username=FILTERED_EMAIL&password=FILTERED_PASSWORD
+    headers:
+      User-Agent:
+      - ruby-senec/0.20.0 (+https://github.com/solectrus/senec)
+      connection:
+      - keep-alive
+      cookie:
+      - AUTH_SESSION_ID=FILTERED_ID; KC_AUTH_SESSION_HASH=FILTERED_HASH; KC_RESTART=FILTERED_RESTART
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      date:
+      - Tue, 29 Jul 2025 09:29:41 GMT
+      content-length:
+      - '0'
+      connection:
+      - keep-alive
+      cache-control:
+      - no-store, must-revalidate, max-age=0
+      set-cookie:
+      - KEYCLOAK_LOCALE=FILTERED_LOCALE;Version=1;Path=/realms/senec/;Secure;HttpOnly;SameSite=None,
+        KC_RESTART=;Version=1;Path=/realms/senec/;Max-Age=0, KEYCLOAK_IDENTITY=FILTERED_IDENTITY;Version=1;Path=/realms/senec/;Secure;HttpOnly;SameSite=None,
+        KEYCLOAK_SESSION=FILTERED_SESSION;Version=1;Path=/realms/senec/;Max-Age=2592000;Secure;SameSite=None
+      content-security-policy:
+      - frame-src 'self'; frame-ancestors 'self'; object-src 'none';
+      location:
+      - senec-app-auth://keycloak.prod?session_state=FILTERED_SESSION_STATE&iss=https%3A%2F%2Fsso.senec.com%2Frealms%2Fsenec&code=FILTERED_CODE
+      referrer-policy:
+      - no-referrer
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - SAMEORIGIN
+      x-robots-tag:
+      - none
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Tue, 29 Jul 2025 09:29:41 GMT
+- request:
+    method: post
+    uri: https://sso.senec.com/realms/senec/protocol/openid-connect/token
+    body:
+      encoding: UTF-8
+      string: code=FILTERED_CODE&code_verifier=FILTERED_CODE_VERIFIER&grant_type=authorization_code&redirect_uri=senec-app-auth%3A%2F%2Fkeycloak.prod
+    headers:
+      User-Agent:
+      - Faraday v2.13.4
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Authorization:
+      - Basic FILTERED_BASIC_TOKEN
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Tue, 29 Jul 2025 09:29:41 GMT
+      content-type:
+      - application/json
+      content-length:
+      - '2570'
+      connection:
+      - keep-alive
+      cache-control:
+      - no-store
+      pragma:
+      - no-cache
+      referrer-policy:
+      - no-referrer
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - SAMEORIGIN
+    body:
+      encoding: UTF-8
+      string: '{"access_token":"FILTERED_ACCESS_TOKEN","expires_in":300,"refresh_expires_in":2592000,"refresh_token":"FILTERED_REFRESH_TOKEN","token_type":"Bearer","not-before-policy":0,"session_state":"FILTERED_SESSION_STATE","scope":"meinsenec
+        roles sso_charging_disclaimer sso_charging_warranty sso_forecast_charging_settings"}'
+  recorded_at: Tue, 29 Jul 2025 09:29:41 GMT
+- request:
+    method: post
+    uri: https://senec-app-wallbox-proxy.prod.senec.dev/v1/systems/wallboxes/search
+    body:
+      encoding: UTF-8
+      string: '{"systemIds":["12345"]}'
+    headers:
+      User-Agent:
+      - Faraday v2.13.4
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer FILTERED_BEARER_TOKEN
+  response:
+    status:
+      code: 403
+      message: ''
+    headers:
+      date:
+      - Tue, 29 Jul 2025 09:29:41 GMT
+      content-type:
+      - application/json
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      x-content-type-options:
+      - nosniff
+      x-xss-protection:
+      - '0'
+      cache-control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      pragma:
+      - no-cache
+      expires:
+      - '0'
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-frame-options:
+      - DENY
+    body:
+      encoding: UTF-8
+      string: '{"status":403,"error":"Forbidden","errorCode":"403","message":null,"timestamp":"29.07.2025
+        11:29","trace":null}'
+  recorded_at: Tue, 29 Jul 2025 09:29:41 GMT
+recorded_with: VCR 6.3.1

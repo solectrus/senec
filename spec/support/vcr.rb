@@ -129,6 +129,14 @@ VCR.configure do |config|
   config.filter_sensitive_data('FILTERED_PASSWORD') do
     ENV.fetch('SENEC_PASSWORD', nil)
   end
+  config.filter_sensitive_data('[999999]') do
+    system_id = ENV.fetch('SENEC_SYSTEM_ID', nil)
+    system_id ? "[#{system_id}]" : nil
+  end
+  config.filter_sensitive_data('["999999"]') do
+    system_id = ENV.fetch('SENEC_SYSTEM_ID', nil)
+    system_id ? "[\"#{system_id}\"]" : nil
+  end
 
   # Use before_record hook to sanitize all sensitive data
   # :nocov:
