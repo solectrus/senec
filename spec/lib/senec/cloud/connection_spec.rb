@@ -14,7 +14,7 @@ RSpec.describe Senec::Cloud::Connection, :cloud, :vcr do
     context 'when credentials are invalid', vcr: 'cloud/login-invalid' do
       let(:password) { 'wrongpassword' }
 
-      it { expect { authenticate! }.to raise_error(RuntimeError, 'Login failed') }
+      it { expect { authenticate! }.to raise_error(RuntimeError, /Login failed/) }
     end
   end
 

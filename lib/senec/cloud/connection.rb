@@ -81,30 +81,18 @@ module Senec
       def fetch_login_form_url(auth_url)
         response = http_request(:get, auth_url)
         store_cookies(response) # Required for Keycloak CSRF protection
-        extract_form_action_url(response.body)
-      end
-
-      def extract_form_action_url(html)
-        forms = html.scan(%r{<form[^>]*action="([^"]+)"[^>]*>(.*?)</form>}mi)
-
-        forms.each do |action_url, form_content|
-          has_username = form_content.match(/name=["']?username["']?/i)
-          has_password = form_content.match(/name=["']?password["']?/i)
-
-          return CGI.unescapeHTML(action_url) if has_username && has_password
-        end
-
-        # :nocov:
-        raise 'Login form not found'
-        # :nocov:
+        extract_login_form_action_url(response.body) || raise('Login form not found')
       end
 
       def submit_credentials(form_url)
         credentials = { username:, password: }
         response = http_request(:post, form_url, data: credentials)
-        raise 'Login failed' unless response.status == 302
 
-        response.headers['location'] || raise('No redirect location')
+        if response.status == 200
+          raise 'Login failed - invalid credentials or unexpected response'
+        end
+
+        handle_redirect_response(response)
       end
 
       def extract_authorization_code(redirect_url)
@@ -114,6 +102,32 @@ module Senec
         params = URI.decode_www_form(uri.query).to_h
 
         params['code'] || raise('No authorization code found')
+      end
+
+      def extract_login_form_action_url(html)
+        find_form_action_url(html) do |form|
+          # Look for a form with username and password fields
+          form.match(/name=["']?username["']?/i) &&
+            form.match(/name=["']?password["']?/i)
+        end
+      end
+
+      def find_form_action_url(html)
+        forms = html.scan(%r{<form[^>]*action="([^"]+)"[^>]*>(.*?)</form>}mi)
+
+        forms.each do |action_url, form_content|
+          return CGI.unescapeHTML(action_url) if yield(form_content)
+        end
+
+        nil
+      end
+
+      def handle_redirect_response(response)
+        unless response.status == 302
+          raise "Authentication failed, got unexpected response: #{response.status} #{response.body}"
+        end
+
+        response.headers['location'] || raise('No redirect location')
       end
 
       def ensure_token_valid
