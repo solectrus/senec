@@ -1,8 +1,9 @@
 RSpec.describe Senec::Cloud::Connection, :cloud, :vcr do
-  subject(:connection) { described_class.new(username:, password:) }
+  subject(:connection) { described_class.new(username:, password:, totp_uri:) }
 
   let(:username) { ENV.fetch('SENEC_USERNAME') }
   let(:password) { ENV.fetch('SENEC_PASSWORD') }
+  let(:totp_uri) { ENV.fetch('SENEC_TOTP_URI') }
 
   describe '#authenticate!' do
     subject(:authenticate!) { connection.authenticate! }
@@ -15,6 +16,16 @@ RSpec.describe Senec::Cloud::Connection, :cloud, :vcr do
       let(:password) { 'wrongpassword' }
 
       it { expect { authenticate! }.to raise_error(RuntimeError, /Login failed/) }
+    end
+
+    context 'when MFA is required', vcr: 'cloud/login-mfa-required' do
+      it { expect { authenticate! }.to change(connection, :authenticated?).from(false).to(true) }
+    end
+
+    context 'when MFA is required, but URI not given', vcr: 'cloud/login-mfa-required' do
+      let(:totp_uri) { nil }
+
+      it { expect { authenticate! }.to raise_error(RuntimeError, 'MFA required but no TOTP URI provided') }
     end
   end
 

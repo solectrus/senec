@@ -1,4 +1,5 @@
 require 'oauth2'
+require 'rotp'
 
 module Senec
   module Cloud
@@ -16,13 +17,14 @@ module Senec
     class Connection
       DEFAULT_USER_AGENT = "ruby-senec/#{Senec::VERSION} (+https://github.com/solectrus/senec)".freeze
 
-      def initialize(username:, password:, user_agent: DEFAULT_USER_AGENT)
+      def initialize(username:, password:, user_agent: DEFAULT_USER_AGENT, totp_uri: nil)
         @username = username
         @password = password
         @user_agent = user_agent
+        @totp_uri = totp_uri
       end
 
-      attr_reader :username, :password, :user_agent
+      attr_reader :username, :password, :user_agent, :totp_uri
 
       def authenticate!
         code_verifier = SecureRandom.alphanumeric(43)
@@ -89,10 +91,28 @@ module Senec
         response = http_request(:post, form_url, data: credentials)
 
         if response.status == 200
-          raise 'Login failed - invalid credentials or unexpected response'
+          # Check if MFA is required
+          if (totp_form_url = extract_totp_form_action_url(response.body))
+            unless totp_uri
+              raise 'MFA required but no TOTP URI provided'
+            end
+
+            response = submit_totp_form(totp_form_url)
+          else
+            # No OTP form found, assume login failed
+            raise 'Login failed - invalid credentials or unexpected response'
+          end
         end
 
+        # Handle final redirect (same for both MFA and non-MFA flows)
         handle_redirect_response(response)
+      end
+
+      def submit_totp_form(form_url)
+        totp = build_totp_from_uri(totp_uri)
+
+        totp_data = { otp: totp.now }
+        http_request(:post, form_url, data: totp_data)
       end
 
       def extract_authorization_code(redirect_url)
@@ -112,6 +132,13 @@ module Senec
         end
       end
 
+      def extract_totp_form_action_url(html)
+        find_form_action_url(html) do |form|
+          # Look for a form with an OTP field
+          form.match(/name=["']?otp["']?/i)
+        end
+      end
+
       def find_form_action_url(html)
         forms = html.scan(%r{<form[^>]*action="([^"]+)"[^>]*>(.*?)</form>}mi)
 
@@ -120,6 +147,18 @@ module Senec
         end
 
         nil
+      end
+
+      def build_totp_from_uri(uri_string)
+        params = URI.decode_www_form(URI.parse(uri_string).query).to_h
+        secret = params['secret'] || raise('Missing secret in TOTP URI')
+
+        ROTP::TOTP.new(
+          secret,
+          digits: params['digits']&.to_i,
+          period: params['period']&.to_i,
+          algorithm: params['algorithm'],
+        )
       end
 
       def handle_redirect_response(response)

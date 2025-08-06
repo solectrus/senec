@@ -33,6 +33,7 @@ FILTERS = {
       'tab_id',
       'execution',
       'client_data',
+      'otp',
     ),
   cookies:
     cookie_filters(
@@ -128,6 +129,9 @@ VCR.configure do |config|
   end
   config.filter_sensitive_data('FILTERED_PASSWORD') do
     ENV.fetch('SENEC_PASSWORD', nil)
+  end
+  config.filter_sensitive_data('FILTERED_TOTP_URI') do
+    ENV.fetch('SENEC_TOTP_URI', nil)
   end
   config.filter_sensitive_data('[999999]') do
     system_id = ENV.fetch('SENEC_SYSTEM_ID', nil)
