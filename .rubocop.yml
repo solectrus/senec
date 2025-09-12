@@ -32,5 +32,8 @@ Layout/LineLength:
 RSpec/ExampleLength:
   Enabled: false
 
+RSpec/MultipleExpectations:
+  Enabled: false
+
 RSpec/NestedGroups:
   Enabled: false

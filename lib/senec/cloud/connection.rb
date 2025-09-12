@@ -169,48 +169,43 @@ module Senec
         response.headers['location'] || raise('No redirect location')
       end
 
-      def ensure_token_valid
+      def ensure_token_valid!
         authenticate! unless authenticated?
-        return true unless oauth_token.expired?
+        return unless oauth_token.expired?
 
         self.oauth_token = oauth_token.refresh!
-        true
       rescue StandardError => e
-        # :nocov:
-        warn "Token refresh failed: #{e.message}"
-        false
-        # :nocov:
+        warn "Token refresh failed: #{e.message}, trying to re-authenticate..."
+
+        authenticate!
       end
 
-      def get(url, default: nil)
-        return default unless ensure_token_valid
+      def get(url)
+        ensure_token_valid!
 
         response = oauth_token.get(url)
-        return default unless response.status == 200
-
         JSON.parse(response.body)
       rescue StandardError => e
         # :nocov:
         warn "API error: #{e.message}"
-        default
+        nil
         # :nocov:
       end
 
-      def post(url, data, default: nil)
-        return default unless ensure_token_valid
+      def post(url, data)
+        ensure_token_valid!
 
         response = oauth_token.post(
           url,
           body: data.to_json,
           headers: { 'Content-Type' => 'application/json' },
         )
-        return default unless response.status == 200
 
         JSON.parse(response.body)
       rescue StandardError => e
         # :nocov:
         warn "API error: #{e.message}"
-        default
+        nil
         # :nocov:
       end
 
