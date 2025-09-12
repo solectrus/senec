@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - ruby-senec/0.20.0 (+https://github.com/solectrus/senec)
+      - ruby-senec/0.22.1 (+https://github.com/solectrus/senec)
       connection:
       - keep-alive
   response:
@@ -17,11 +17,11 @@ http_interactions:
       message: OK
     headers:
       date:
-      - Tue, 29 Jul 2025 09:29:36 GMT
+      - Fri, 12 Sep 2025 07:35:14 GMT
       content-type:
       - application/json;charset=UTF-8
       content-length:
-      - '6788'
+      - '6879'
       connection:
       - keep-alive
       cache-control:
@@ -37,8 +37,8 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"issuer":"https://sso.senec.com/realms/senec","authorization_endpoint":"https://sso.senec.com/realms/senec/protocol/openid-connect/auth","token_endpoint":"https://sso.senec.com/realms/senec/protocol/openid-connect/token","introspection_endpoint":"https://sso.senec.com/realms/senec/protocol/openid-connect/token/introspect","userinfo_endpoint":"https://sso.senec.com/realms/senec/protocol/openid-connect/userinfo","end_session_endpoint":"https://sso.senec.com/realms/senec/protocol/openid-connect/logout","frontchannel_logout_session_supported":true,"frontchannel_logout_supported":true,"jwks_uri":"https://sso.senec.com/realms/senec/protocol/openid-connect/certs","check_session_iframe":"https://sso.senec.com/realms/senec/protocol/openid-connect/login-status-iframe.html","grant_types_supported":["authorization_code","client_credentials","implicit","password","refresh_token","urn:ietf:params:oauth:grant-type:device_code","urn:ietf:params:oauth:grant-type:token-exchange","urn:ietf:params:oauth:grant-type:uma-ticket","urn:openid:params:grant-type:ciba"],"acr_values_supported":["0","1"],"response_types_supported":["code","none","id_token","token","id_token
-        token","code id_token","code token","code id_token token"],"subject_types_supported":["public","pairwise"],"prompt_values_supported":["none","login","consent"],"id_token_signing_alg_values_supported":["PS384","RS384","EdDSA","ES384","HS256","HS512","ES256","RS256","HS384","ES512","PS256","PS512","RS512"],"id_token_encryption_alg_values_supported":["ECDH-ES+A256KW","ECDH-ES+A192KW","ECDH-ES+A128KW","RSA-OAEP","RSA-OAEP-256","RSA1_5","ECDH-ES"],"id_token_encryption_enc_values_supported":["A256GCM","A192GCM","A128GCM","A128CBC-HS256","A192CBC-HS384","A256CBC-HS512"],"userinfo_signing_alg_values_supported":["PS384","RS384","EdDSA","ES384","HS256","HS512","ES256","RS256","HS384","ES512","PS256","PS512","RS512","none"],"userinfo_encryption_alg_values_supported":["ECDH-ES+A256KW","ECDH-ES+A192KW","ECDH-ES+A128KW","RSA-OAEP","RSA-OAEP-256","RSA1_5","ECDH-ES"],"userinfo_encryption_enc_values_supported":["A256GCM","A192GCM","A128GCM","A128CBC-HS256","A192CBC-HS384","A256CBC-HS512"],"request_object_signing_alg_values_supported":["PS384","RS384","EdDSA","ES384","HS256","HS512","ES256","RS256","HS384","ES512","PS256","PS512","RS512","none"],"request_object_encryption_alg_values_supported":["ECDH-ES+A256KW","ECDH-ES+A192KW","ECDH-ES+A128KW","RSA-OAEP","RSA-OAEP-256","RSA1_5","ECDH-ES"],"request_object_encryption_enc_values_supported":["A256GCM","A192GCM","A128GCM","A128CBC-HS256","A192CBC-HS384","A256CBC-HS512"],"response_modes_supported":["query","fragment","form_post","query.jwt","fragment.jwt","form_post.jwt","jwt"],"registration_endpoint":"https://sso.senec.com/realms/senec/clients-registrations/openid-connect","token_endpoint_auth_methods_supported":["private_key_jwt","client_secret_basic","client_secret_post","tls_client_auth","client_secret_jwt"],"token_endpoint_auth_signing_alg_values_supported":["PS384","RS384","EdDSA","ES384","HS256","HS512","ES256","RS256","HS384","ES512","PS256","PS512","RS512"],"introspection_endpoint_auth_methods_supported":["private_key_jwt","client_secret_basic","client_secret_post","tls_client_auth","client_secret_jwt"],"introspection_endpoint_auth_signing_alg_values_supported":["PS384","RS384","EdDSA","ES384","HS256","HS512","ES256","RS256","HS384","ES512","PS256","PS512","RS512"],"authorization_signing_alg_values_supported":["PS384","RS384","EdDSA","ES384","HS256","HS512","ES256","RS256","HS384","ES512","PS256","PS512","RS512"],"authorization_encryption_alg_values_supported":["ECDH-ES+A256KW","ECDH-ES+A192KW","ECDH-ES+A128KW","RSA-OAEP","RSA-OAEP-256","RSA1_5","ECDH-ES"],"authorization_encryption_enc_values_supported":["A256GCM","A192GCM","A128GCM","A128CBC-HS256","A192CBC-HS384","A256CBC-HS512"],"claims_supported":["aud","sub","iss","auth_time","name","given_name","family_name","preferred_username","email","acr"],"claim_types_supported":["normal"],"claims_parameter_supported":true,"scopes_supported":["openid","meinsenec","roles","sso_charging_disclaimer","bsr-senec-meinsenec","sams.has-logged-in","microprofile-jwt","ems-maintenance-task.execute","sso_forecast_charging_settings","support","sams.sync-user-status","sso_restart_doi","basic","sso_set_password","service_partner_s4c_aud","web-origins","phone","ems-config.read","service_account","address","email","addonpackage-adhoc-redemption","sso_charging_warranty","offline_access","profile","acr","federated-identities"],"request_parameter_supported":true,"request_uri_parameter_supported":true,"require_request_uri_registration":true,"code_challenge_methods_supported":["plain","S256"],"tls_client_certificate_bound_access_tokens":true,"dpop_signing_alg_values_supported":["PS384","ES384","RS384","ES256","RS256","ES512","PS256","PS512","RS512"],"revocation_endpoint":"https://sso.senec.com/realms/senec/protocol/openid-connect/revoke","revocation_endpoint_auth_methods_supported":["private_key_jwt","client_secret_basic","client_secret_post","tls_client_auth","client_secret_jwt"],"revocation_endpoint_auth_signing_alg_values_supported":["PS384","RS384","EdDSA","ES384","HS256","HS512","ES256","RS256","HS384","ES512","PS256","PS512","RS512"],"backchannel_logout_supported":true,"backchannel_logout_session_supported":true,"device_authorization_endpoint":"https://sso.senec.com/realms/senec/protocol/openid-connect/auth/device","backchannel_token_delivery_modes_supported":["poll","ping"],"backchannel_authentication_endpoint":"https://sso.senec.com/realms/senec/protocol/openid-connect/ext/ciba/auth","backchannel_authentication_request_signing_alg_values_supported":["PS384","RS384","EdDSA","ES384","ES256","RS256","ES512","PS256","PS512","RS512"],"require_pushed_authorization_requests":false,"pushed_authorization_request_endpoint":"https://sso.senec.com/realms/senec/protocol/openid-connect/ext/par/request","mtls_endpoint_aliases":{"token_endpoint":"https://sso.senec.com/realms/senec/protocol/openid-connect/token","revocation_endpoint":"https://sso.senec.com/realms/senec/protocol/openid-connect/revoke","introspection_endpoint":"https://sso.senec.com/realms/senec/protocol/openid-connect/token/introspect","device_authorization_endpoint":"https://sso.senec.com/realms/senec/protocol/openid-connect/auth/device","registration_endpoint":"https://sso.senec.com/realms/senec/clients-registrations/openid-connect","userinfo_endpoint":"https://sso.senec.com/realms/senec/protocol/openid-connect/userinfo","pushed_authorization_request_endpoint":"https://sso.senec.com/realms/senec/protocol/openid-connect/ext/par/request","backchannel_authentication_endpoint":"https://sso.senec.com/realms/senec/protocol/openid-connect/ext/ciba/auth"},"authorization_response_iss_parameter_supported":true}'
-  recorded_at: Tue, 29 Jul 2025 09:29:36 GMT
+        token","code id_token","code token","code id_token token"],"subject_types_supported":["public","pairwise"],"prompt_values_supported":["none","login","consent"],"id_token_signing_alg_values_supported":["PS384","RS384","EdDSA","ES384","HS256","HS512","ES256","RS256","HS384","ES512","PS256","PS512","RS512"],"id_token_encryption_alg_values_supported":["ECDH-ES+A256KW","ECDH-ES+A192KW","ECDH-ES+A128KW","RSA-OAEP","RSA-OAEP-256","RSA1_5","ECDH-ES"],"id_token_encryption_enc_values_supported":["A256GCM","A192GCM","A128GCM","A128CBC-HS256","A192CBC-HS384","A256CBC-HS512"],"userinfo_signing_alg_values_supported":["PS384","RS384","EdDSA","ES384","HS256","HS512","ES256","RS256","HS384","ES512","PS256","PS512","RS512","none"],"userinfo_encryption_alg_values_supported":["ECDH-ES+A256KW","ECDH-ES+A192KW","ECDH-ES+A128KW","RSA-OAEP","RSA-OAEP-256","RSA1_5","ECDH-ES"],"userinfo_encryption_enc_values_supported":["A256GCM","A192GCM","A128GCM","A128CBC-HS256","A192CBC-HS384","A256CBC-HS512"],"request_object_signing_alg_values_supported":["PS384","RS384","EdDSA","ES384","HS256","HS512","ES256","RS256","HS384","ES512","PS256","PS512","RS512","none"],"request_object_encryption_alg_values_supported":["ECDH-ES+A256KW","ECDH-ES+A192KW","ECDH-ES+A128KW","RSA-OAEP","RSA-OAEP-256","RSA1_5","ECDH-ES"],"request_object_encryption_enc_values_supported":["A256GCM","A192GCM","A128GCM","A128CBC-HS256","A192CBC-HS384","A256CBC-HS512"],"response_modes_supported":["query","fragment","form_post","query.jwt","fragment.jwt","form_post.jwt","jwt"],"registration_endpoint":"https://sso.senec.com/realms/senec/clients-registrations/openid-connect","token_endpoint_auth_methods_supported":["private_key_jwt","client_secret_basic","client_secret_post","tls_client_auth","client_secret_jwt"],"token_endpoint_auth_signing_alg_values_supported":["PS384","RS384","EdDSA","ES384","HS256","HS512","ES256","RS256","HS384","ES512","PS256","PS512","RS512"],"introspection_endpoint_auth_methods_supported":["private_key_jwt","client_secret_basic","client_secret_post","tls_client_auth","client_secret_jwt"],"introspection_endpoint_auth_signing_alg_values_supported":["PS384","RS384","EdDSA","ES384","HS256","HS512","ES256","RS256","HS384","ES512","PS256","PS512","RS512"],"authorization_signing_alg_values_supported":["PS384","RS384","EdDSA","ES384","HS256","HS512","ES256","RS256","HS384","ES512","PS256","PS512","RS512"],"authorization_encryption_alg_values_supported":["ECDH-ES+A256KW","ECDH-ES+A192KW","ECDH-ES+A128KW","RSA-OAEP","RSA-OAEP-256","RSA1_5","ECDH-ES"],"authorization_encryption_enc_values_supported":["A256GCM","A192GCM","A128GCM","A128CBC-HS256","A192CBC-HS384","A256CBC-HS512"],"claims_supported":["aud","sub","iss","auth_time","name","given_name","family_name","preferred_username","email","acr"],"claim_types_supported":["normal"],"claims_parameter_supported":true,"scopes_supported":["openid","meinsenec","roles","bsr-senec-meinsenec","sams.has-logged-in","microprofile-jwt","ems-maintenance-task.execute","senec_impersonate","sso_forecast_charging_settings","support","sams.sync-user-status","sso_restart_doi","credentials-types","basic","sso_set_password","service_partner_s4c_aud","web-origins","sso_forecast_charging_settings_consent","phone","ems-config.read","sso_user_save","service_account","address","firmware-rollout.read","email","addonpackage-adhoc-redemption","offline_access","profile","acr","federated-identities","sams.update-email"],"request_parameter_supported":true,"request_uri_parameter_supported":true,"require_request_uri_registration":true,"code_challenge_methods_supported":["plain","S256"],"tls_client_certificate_bound_access_tokens":true,"dpop_signing_alg_values_supported":["PS384","ES384","RS384","ES256","RS256","ES512","PS256","PS512","RS512"],"revocation_endpoint":"https://sso.senec.com/realms/senec/protocol/openid-connect/revoke","revocation_endpoint_auth_methods_supported":["private_key_jwt","client_secret_basic","client_secret_post","tls_client_auth","client_secret_jwt"],"revocation_endpoint_auth_signing_alg_values_supported":["PS384","RS384","EdDSA","ES384","HS256","HS512","ES256","RS256","HS384","ES512","PS256","PS512","RS512"],"backchannel_logout_supported":true,"backchannel_logout_session_supported":true,"device_authorization_endpoint":"https://sso.senec.com/realms/senec/protocol/openid-connect/auth/device","backchannel_token_delivery_modes_supported":["poll","ping"],"backchannel_authentication_endpoint":"https://sso.senec.com/realms/senec/protocol/openid-connect/ext/ciba/auth","backchannel_authentication_request_signing_alg_values_supported":["PS384","RS384","EdDSA","ES384","ES256","RS256","ES512","PS256","PS512","RS512"],"require_pushed_authorization_requests":false,"pushed_authorization_request_endpoint":"https://sso.senec.com/realms/senec/protocol/openid-connect/ext/par/request","mtls_endpoint_aliases":{"token_endpoint":"https://sso.senec.com/realms/senec/protocol/openid-connect/token","revocation_endpoint":"https://sso.senec.com/realms/senec/protocol/openid-connect/revoke","introspection_endpoint":"https://sso.senec.com/realms/senec/protocol/openid-connect/token/introspect","device_authorization_endpoint":"https://sso.senec.com/realms/senec/protocol/openid-connect/auth/device","registration_endpoint":"https://sso.senec.com/realms/senec/clients-registrations/openid-connect","userinfo_endpoint":"https://sso.senec.com/realms/senec/protocol/openid-connect/userinfo","pushed_authorization_request_endpoint":"https://sso.senec.com/realms/senec/protocol/openid-connect/ext/par/request","backchannel_authentication_endpoint":"https://sso.senec.com/realms/senec/protocol/openid-connect/ext/ciba/auth"},"authorization_response_iss_parameter_supported":true}'
+  recorded_at: Fri, 12 Sep 2025 07:35:14 GMT
 - request:
     method: get
     uri: https://sso.senec.com/realms/senec/protocol/openid-connect/auth?client_id=endcustomer-app-frontend&code_challenge=FILTERED_CODE_CHALLENGE&code_challenge_method=S256&redirect_uri=senec-app-auth%3A%2F%2Fkeycloak.prod&response_type=code&scope=roles%20meinsenec
@@ -47,7 +47,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - ruby-senec/0.20.0 (+https://github.com/solectrus/senec)
+      - ruby-senec/0.22.1 (+https://github.com/solectrus/senec)
       connection:
       - keep-alive
   response:
@@ -56,11 +56,11 @@ http_interactions:
       message: OK
     headers:
       date:
-      - Tue, 29 Jul 2025 09:29:37 GMT
+      - Fri, 12 Sep 2025 07:35:14 GMT
       content-type:
       - text/html;charset=utf-8
       content-length:
-      - '4586'
+      - '4764'
       connection:
       - keep-alive
       set-cookie:
@@ -88,7 +88,7 @@ http_interactions:
       string: "    <!DOCTYPE html>\n    <html lang=\"en\">\n\n    <head>\n        <meta
         charset=\"UTF-8\">\n        <title>\n        Login - SENEC\n        </title>\n
         \       <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n
-        \       <link rel=\"stylesheet\" href=\"/resources/jkvmr/login/senec/css/styles.css?v=2.3\">\n
+        \       <link rel=\"stylesheet\" href=\"/resources/jkvmr/login/senec/css/styles.css?v=2.4\">\n
         \       <script type=\"importmap\">\n            {\n                \"imports\":
         {\n                    \"rfc4648\": \"/resources/jkvmr/common/keycloak/vendor/rfc4648/rfc4648.js\"\n
         \               }\n            }\n        </script>\n        <script type=\"module\"
@@ -124,17 +124,19 @@ http_interactions:
         aria-invalid=\"\">\n                </div>\n                    <div class=\"forgot-password\">\n
         \                       <a href=\"/realms/senec/login-actions/reset-credentials?client_id=endcustomer-app-frontend&amp;tab_id=FILTERED_TAB_ID&amp;client_data=FILTERED_CLIENT_DATA\">\n
         \                           Forgot Password?\n                        </a>\n
-        \                   </div>\n                <div class=\"input-group\">\n
-        \                   <button type=\"submit\" class=\"custom-button\" name=\"login\"
-        id=\"kc-login\">\n                        Login\n                    </button>\n
-        \               </div>\n            </form>\n                    </div>\n
+        \                   </div>\n                <div class=\"input-group-wrapper\">\n
+        \                   <div class=\"input-group\">\n                        <button
+        type=\"submit\" class=\"custom-button\" name=\"login\" id=\"kc-login\">\n
+        \                           Login\n                        </button>\n                    </div>\n
+        \                   <input type=\"hidden\" id=\"id-hidden-input\" name=\"credentialId\"
+        />\n                </div>\n            </form>\n                    </div>\n
         \               </div>\n            </div>\n                    <div class=\"footer\">\n
         \                       <a href=\"https://senec.com/impressum\" class=\"footer-link\"
         target=\"_blank\">\n                            Imprint</a>\n                        <a
         href=\"https://senec.com/de/mein-senec-app-datenschutzerklaerung\" class=\"footer-link\"
         target=\"_blank\">\n                            Data Privacy</a>\n                    </div>\n
         \       </div>\n    </body>\n\n    </html>\n"
-  recorded_at: Tue, 29 Jul 2025 09:29:37 GMT
+  recorded_at: Fri, 12 Sep 2025 07:35:14 GMT
 - request:
     method: post
     uri: https://sso.senec.com/realms/senec/login-actions/authenticate?client_data=FILTERED_CLIENT_DATA&client_id=endcustomer-app-frontend&execution=FILTERED_EXECUTION&session_code=FILTERED_SESSION_CODE&tab_id=FILTERED_TAB_ID
@@ -143,7 +145,7 @@ http_interactions:
       string: username=FILTERED_EMAIL&password=FILTERED_PASSWORD
     headers:
       User-Agent:
-      - ruby-senec/0.20.0 (+https://github.com/solectrus/senec)
+      - ruby-senec/0.22.1 (+https://github.com/solectrus/senec)
       connection:
       - keep-alive
       cookie:
@@ -156,7 +158,7 @@ http_interactions:
       message: Found
     headers:
       date:
-      - Tue, 29 Jul 2025 09:29:37 GMT
+      - Fri, 12 Sep 2025 07:35:14 GMT
       content-length:
       - '0'
       connection:
@@ -184,7 +186,7 @@ http_interactions:
     body:
       encoding: UTF-8
       string: ''
-  recorded_at: Tue, 29 Jul 2025 09:29:37 GMT
+  recorded_at: Fri, 12 Sep 2025 07:35:14 GMT
 - request:
     method: post
     uri: https://sso.senec.com/realms/senec/protocol/openid-connect/token
@@ -204,11 +206,11 @@ http_interactions:
       message: OK
     headers:
       date:
-      - Tue, 29 Jul 2025 09:29:37 GMT
+      - Fri, 12 Sep 2025 07:35:14 GMT
       content-type:
       - application/json
       content-length:
-      - '2570'
+      - '2859'
       connection:
       - keep-alive
       cache-control:
@@ -226,8 +228,8 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"access_token":"FILTERED_ACCESS_TOKEN","expires_in":300,"refresh_expires_in":2592000,"refresh_token":"FILTERED_REFRESH_TOKEN","token_type":"Bearer","not-before-policy":0,"session_state":"FILTERED_SESSION_STATE","scope":"meinsenec
-        roles sso_charging_disclaimer sso_charging_warranty sso_forecast_charging_settings"}'
-  recorded_at: Tue, 29 Jul 2025 09:29:37 GMT
+        roles senec_impersonate sso_forecast_charging_settings credentials-types sso_forecast_charging_settings_consent"}'
+  recorded_at: Fri, 12 Sep 2025 07:35:14 GMT
 - request:
     method: get
     uri: https://senec-app-measurements-proxy.prod.senec.dev/v1/systems/999999/dashboard
@@ -245,7 +247,7 @@ http_interactions:
       message: ''
     headers:
       date:
-      - Tue, 29 Jul 2025 09:29:37 GMT
+      - Fri, 12 Sep 2025 07:35:15 GMT
       content-type:
       - application/json
       transfer-encoding:
@@ -268,6 +270,6 @@ http_interactions:
       - DENY
     body:
       encoding: UTF-8
-      string: '{"currently":{"powerGenerationInW":5960.26513671875,"powerConsumptionInW":582.05,"gridFeedInInW":4074.39990234375,"gridDrawInW":0.0,"batteryChargeInW":1315.4490966796875,"batteryDischargeInW":0.0,"batteryLevelInPercent":87.8787841796875,"selfSufficiencyInPercent":100.0,"wallboxInW":0.0},"today":{"powerGenerationInWh":10972.65625,"powerConsumptionInWh":4984.37,"gridFeedInInWh":6730.46875,"gridDrawInWh":54.6875,"batteryChargeInWh":1275.390625,"batteryDischargeInWh":1957.03125,"batteryLevelInPercent":87.8787841796875,"selfSufficiencyInPercent":98.9,"wallboxInWh":0.0},"timestamp":"2025-07-29T09:26:19Z","electricVehicleConnected":false,"numberOfWallboxes":0,"systemId":999999,"systemType":"V123","storageDeviceState":"CHARGING"}'
-  recorded_at: Tue, 29 Jul 2025 09:29:37 GMT
+      string: '{"currently":{"powerGenerationInW":1670.7921142578125,"powerConsumptionInW":464.1,"gridFeedInInW":23.205446243286133,"gridDrawInW":23.205446243286133,"batteryChargeInW":1177.6763916015625,"batteryDischargeInW":0.0,"batteryLevelInPercent":57.57575607299805,"selfSufficiencyInPercent":95.0,"wallboxInW":0.0},"today":{"powerGenerationInWh":1203.125,"powerConsumptionInWh":3142.57,"gridFeedInInWh":150.390625,"gridDrawInWh":102.5390625,"batteryChargeInWh":504.39453125,"batteryDischargeInWh":2494.140625,"batteryLevelInPercent":57.57575607299805,"selfSufficiencyInPercent":96.74,"wallboxInWh":0.0},"timestamp":"2025-09-12T07:31:09Z","electricVehicleConnected":false,"numberOfWallboxes":0,"systemId":999999,"systemType":"V123","storageDeviceState":"CHARGING"}'
+  recorded_at: Fri, 12 Sep 2025 07:35:15 GMT
 recorded_with: VCR 6.3.1
